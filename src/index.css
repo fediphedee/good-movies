@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+/* ── Design tokens ───────────────────────────────────────────── */
+:root {
+  --bg:      #F5F0E8;
+  --fg:      #0F0F0F;
+  --muted:   rgba(15, 15, 15, 0.45);
+  --divider: rgba(15, 15, 15, 0.18);
+  --accent:  #8AFFC8;
+  --font:    'Azeret Mono', ui-monospace, monospace;
+}
+
+:root[data-theme='dark'] {
+  --bg:      #0F0F0F;
+  --fg:      #F5F0E8;
+  --muted:   rgba(245, 240, 232, 0.45);
+  --divider: rgba(245, 240, 232, 0.18);
+  --accent:  #8AFFC8;
+}
+
+/* ── Reset & base ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--divider);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

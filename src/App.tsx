@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react'
+import { Button } from '@cloudflare/kumo/components/button'
+import { Input } from '@cloudflare/kumo/components/input'
 import { Header } from './components/Header'
 import { MovieResult } from './components/MovieResult'
 import { useMovieSearch } from './hooks/useMovieSearch'
@@ -43,15 +45,6 @@ export default function App() {
 
   return (
     <>
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(8px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        input::placeholder { color: var(--muted); }
-        input:focus { outline: none; }
-      `}</style>
-
       <Header />
 
       <main style={{ flex: 1, maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
@@ -61,68 +54,46 @@ export default function App() {
           <p style={{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '20px' }}>
             {loading ? 'Loading…' : `${total.toLocaleString()} films rated`}
           </p>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: '40px' }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 8vw, 80px)', fontWeight: 400, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: '40px' }}>
             What do you feel like<br />watching tonight?
           </h1>
 
           {/* Search input */}
           <div style={{ borderBottom: '1px solid var(--fg)', paddingBottom: '12px', marginBottom: '24px' }}>
-            <input
+            <Input
               ref={inputRef}
-              type="text"
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="describe your mood, a genre, a decade, a feeling…"
-              style={{
-                width: '100%',
-                background: 'none',
-                border: 'none',
-                fontFamily: 'var(--font)',
-                fontSize: '16px',
-                color: 'var(--fg)',
-                letterSpacing: '0.01em',
-              }}
+              className="w-full border-none! shadow-none! ring-0! bg-transparent! text-base tracking-wide"
             />
           </div>
 
           {/* Submit */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <button
+            <Button
+              variant="primary"
               onClick={() => handleSearch(query)}
               disabled={loading || !query.trim()}
+              className="text-xs tracking-widest uppercase text-(--bg)! px-(--space-8)! py-(--space-4)!"
               style={{
-                fontFamily: 'var(--font)',
-                fontSize: '11px',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                background: 'var(--fg)',
-                color: 'var(--bg)',
-                border: 'none',
-                padding: '10px 20px',
-                cursor: loading || !query.trim() ? 'not-allowed' : 'pointer',
-                opacity: loading || !query.trim() ? 0.4 : 1,
-              }}
+                '--kumo-button-emphasis-bg': 'var(--fg)',
+                '--kumo-button-emphasis-ring': 'var(--fg)',
+                '--kumo-button-emphasis-gradient-start': 'var(--fg)',
+                '--kumo-button-emphasis-gradient-end': 'var(--fg)',
+              } as React.CSSProperties}
             >
               Find a film
-            </button>
+            </Button>
             {hasSearched && (
-              <button
+              <Button
+                variant="ghost"
                 onClick={() => { setQuery(''); setResults([]); setHasSearched(false) }}
-                style={{
-                  fontFamily: 'var(--font)',
-                  fontSize: '11px',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  background: 'none',
-                  border: 'none',
-                  color: 'var(--muted)',
-                  cursor: 'pointer',
-                  padding: '10px 0',
-                }}
+                className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)!"
               >
                 Clear
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -135,22 +106,14 @@ export default function App() {
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
               {PROMPTS.map(p => (
-                <button
+                <Button
                   key={p}
+                  variant="outline"
                   onClick={() => usePrompt(p)}
-                  style={{
-                    fontFamily: 'var(--font)',
-                    fontSize: '12px',
-                    letterSpacing: '0.02em',
-                    background: 'none',
-                    border: '1px solid var(--divider)',
-                    color: 'var(--muted)',
-                    padding: '6px 14px',
-                    cursor: 'pointer',
-                  }}
+                  className="text-xs tracking-wide text-(--muted) border-(--divider) hover:text-(--fg) hover:border-(--fg) px-(--space-8)! py-(--space-4)!"
                 >
                   {p}
-                </button>
+                </Button>
               ))}
             </div>
           </div>

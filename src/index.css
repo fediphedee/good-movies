@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
+@import '@cloudflare/kumo/styles/tailwind';
+@import './kumo-theme.css';
+
+/* Tell Tailwind to scan Kumo's built JS so its dynamic classes get generated */
+@source '../node_modules/@cloudflare/kumo/dist';
 
 /* ── Design tokens ───────────────────────────────────────────── */
 :root {
@@ -8,7 +13,23 @@
   --muted:   rgba(15, 15, 15, 0.45);
   --divider: rgba(15, 15, 15, 0.18);
   --accent:  #8AFFC8;
-  --font:    'Azeret Mono', ui-monospace, monospace;
+  --font:         'Azeret Mono', ui-monospace, monospace;
+  --font-display: 'Recoleta', Georgia, serif;
+
+  /* Spacing scale */
+  --space-4:  4px;
+  --space-8:  8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Kumo button emphasis — maps our fg token into Kumo's primary button slot */
+  --kumo-button-emphasis-bg:   var(--fg);
+  --kumo-button-emphasis-ring: var(--fg);
 }
 
 :root[data-theme='dark'] {
@@ -16,7 +37,16 @@
   --fg:      #F5F0E8;
   --muted:   rgba(245, 240, 232, 0.45);
   --divider: rgba(245, 240, 232, 0.18);
-  --accent:  #8AFFC8;
+  --accent:  #FE008C;
+
+  --kumo-button-emphasis-bg:   var(--fg);
+  --kumo-button-emphasis-ring: var(--fg);
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Reset & base ────────────────────────────────────────────── */

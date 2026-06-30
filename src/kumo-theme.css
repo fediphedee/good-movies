@@ -1,0 +1,48 @@
+/*
+ * Kumo theme overrides — brutalist warm-mono aesthetic
+ *
+ * This file maps our design tokens → Kumo's token surface.
+ * Kumo components pick these up automatically; nothing else needs to change.
+ */
+
+@theme {
+  /* ── Radius: zero — brutalist, no rounded corners ── */
+  --radius-xs:  0px;
+  --radius-sm:  0px;
+  --radius-md:  0px;
+  --radius-lg:  0px;
+  --radius-xl:  0px;
+  --radius-2xl: 0px;
+  --radius-full: 0px;
+
+  /* ── Typography: Azeret Mono everywhere ── */
+  --font-sans: 'Azeret Mono', ui-monospace, monospace;
+  --font-mono: 'Azeret Mono', ui-monospace, monospace;
+
+  /* ── Surface colors → our bg/fg palette ── */
+  --color-kumo-canvas:   var(--bg);
+  --color-kumo-elevated: var(--bg);
+  --color-kumo-recessed: var(--bg);
+  --color-kumo-base:     var(--bg);
+  --color-kumo-tint:     var(--bg);
+  --color-kumo-contrast: var(--fg);
+  --color-kumo-control:  var(--bg);
+
+  /* ── Text colors ── */
+  --text-color-kumo-default:     var(--fg);
+  --text-color-kumo-strong:      var(--fg);
+  --text-color-kumo-subtle:      var(--muted);
+  --text-color-kumo-placeholder: var(--muted);
+  --text-color-kumo-inactive:    var(--muted);
+  --text-color-kumo-inverse:     var(--bg);
+
+  /* ── Borders/lines → our divider token ── */
+  --color-kumo-line:    var(--divider);
+  --color-kumo-interact: var(--divider);
+  --color-kumo-fill:    var(--divider);
+
+  /* ── Brand / accent ── */
+  --color-kumo-brand:   var(--accent);
+  --color-kumo-focus:   var(--fg);
+}
+

@@ -220,5 +220,11 @@ export function useMovieSearch() {
     return scored.slice(0, 5).map(({ movie }) => movie)
   }, [allMovies])
 
-  return { search, loading, total: allMovies.length }
+  const random = useCallback((): Movie[] => {
+    const pool = allMovies.filter(m => m.rating >= 4)
+    const shuffled = [...pool].sort(() => Math.random() - 0.5)
+    return shuffled.slice(0, 5)
+  }, [allMovies])
+
+  return { search, random, loading, total: allMovies.length }
 }

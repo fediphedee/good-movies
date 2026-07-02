@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Button } from '@cloudflare/kumo/components/button'
 import { Input } from '@cloudflare/kumo/components/input'
 import { Header } from './components/Header'
+import { HeroTitle } from './components/HeroTitle'
 import { MovieResult } from './components/MovieResult'
 import { useMovieSearch } from './hooks/useMovieSearch'
 import type { Movie } from './hooks/useMovieSearch'
@@ -18,7 +19,17 @@ const PROMPTS = [
 ]
 
 export default function App() {
-  const { search, loading, total } = useMovieSearch()
+  const { search, random, loading, total } = useMovieSearch()
+  const [dark, setDark] = useState(
+    () => document.documentElement.getAttribute('data-theme') === 'dark'
+  )
+  useEffect(() => {
+    const obs = new MutationObserver(() =>
+      setDark(document.documentElement.getAttribute('data-theme') === 'dark')
+    )
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => obs.disconnect()
+  }, [])
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Movie[]>([])
   const [hasSearched, setHasSearched] = useState(false)
@@ -51,27 +62,22 @@ export default function App() {
 
         {/* Hero prompt */}
         <div style={{ padding: '64px 0 40px' }}>
-          <p style={{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '20px' }}>
-            {loading ? 'Loading…' : `${total.toLocaleString()} films rated`}
-          </p>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(40px, 8vw, 80px)', fontWeight: 400, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: '40px' }}>
-            What do you feel like<br />watching tonight?
-          </h1>
+          <HeroTitle dark={dark} />
 
           {/* Search input */}
-          <div style={{ borderBottom: '1px solid var(--fg)', paddingBottom: '12px', marginBottom: '24px' }}>
+          <div style={{ marginBottom: '24px' }}>
             <Input
               ref={inputRef}
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="describe your mood, a genre, a decade, a feeling…"
-              className="w-full border-none! shadow-none! ring-0! bg-transparent! text-base tracking-wide"
+              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder-transparent px-(--space-8)! py-(--space-8)!"
             />
           </div>
 
           {/* Submit */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
             <Button
               variant="primary"
               onClick={() => handleSearch(query)}
@@ -85,6 +91,14 @@ export default function App() {
               } as React.CSSProperties}
             >
               Find a film
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => { setResults(random()); setQuery(''); setHasSearched(true) }}
+              disabled={loading}
+              className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)!"
+            >
+              Surprise me
             </Button>
             {hasSearched && (
               <Button

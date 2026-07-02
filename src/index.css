@@ -6,13 +6,23 @@
 /* Tell Tailwind to scan Kumo's built JS so its dynamic classes get generated */
 @source '../node_modules/@cloudflare/kumo/dist';
 
+/* ── Recoleta (display face) ─────────────────────────────────────
+   Self-hosted (Fontspring / fonnts) — not on Google Fonts. */
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/Recoleta-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── Design tokens ───────────────────────────────────────────── */
 :root {
   --bg:      #F5F0E8;
   --fg:      #0F0F0F;
   --muted:   rgba(15, 15, 15, 0.45);
   --divider: rgba(15, 15, 15, 0.18);
-  --accent:  #8AFFC8;
+  --accent:  #FE008C;
   --font:         'Azeret Mono', ui-monospace, monospace;
   --font-display: 'Recoleta', Georgia, serif;
 
@@ -37,10 +47,26 @@
   --fg:      #F5F0E8;
   --muted:   rgba(245, 240, 232, 0.45);
   --divider: rgba(245, 240, 232, 0.18);
-  --accent:  #FE008C;
+  --accent:  #8AFFC8;
 
   --kumo-button-emphasis-bg:   var(--fg);
   --kumo-button-emphasis-ring: var(--fg);
+}
+
+/* Hero title sizing. Images inside scale in em, so bumping the font size on
+   mobile enlarges the film stills by the same factor (60% bigger below 640px). */
+.rgm-hero { font-size: clamp(40px, 8vw, 80px); }
+
+/* Hero title: mobile-only art-directed line break (splits "feel like" /
+   "watching"). Desktop keeps "feel like watching" on one line. */
+.rgm-mobile-break { display: none; }
+@media (max-width: 640px) {
+  .rgm-mobile-break { display: inline; }
+  .rgm-hero { font-size: clamp(64px, 12.8vw, 128px); }
+  /* mobile-only image nudges (added on top of the base transform) */
+  .rgm-iw-feel { --m-dy: -40px; }        /* feel: 40px higher */
+  .rgm-iw-tonight { --m-dx: -80px; }     /* tonight: 80px to the left */
+  .rgm-iw-watching { --m-dx: -24px; }    /* watching: 24px to the left (off the edge) */
 }
 
 /* ── Animations ──────────────────────────────────────────────── */

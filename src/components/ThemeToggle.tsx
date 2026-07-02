@@ -18,7 +18,7 @@ export function ThemeToggle() {
         fontFamily: 'var(--font)',
         fontSize: '11px',
         letterSpacing: '0.08em',
-        textTransform: 'uppercase',
+        textTransform: 'none',
         background: 'none',
         border: '1px solid var(--divider)',
         color: 'var(--muted)',
@@ -27,7 +27,7 @@ export function ThemeToggle() {
         lineHeight: 1,
       }}
     >
-      {dark ? 'LIGHT' : 'DARK'}
+      {dark ? 'Moonlight' : 'Moonstruck'}
     </button>
   )
 }

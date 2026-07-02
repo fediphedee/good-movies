@@ -41,7 +41,7 @@ Two modes: **Light** and **Dark**. All values alias to Primitives (except muted/
 |------------------|-----------------|-------------------|-------------------|
 | color/bg         | `--bg`          | warm-white        | off-black         |
 | color/fg         | `--fg`          | off-black         | warm-white        |
-| color/accent     | `--accent`      | mint              | hot-pink          |
+| color/accent     | `--accent`      | hot-pink          | mint              |
 | color/muted      | `--muted`       | off-black @ 45%   | warm-white @ 45%  |
 | color/divider    | `--divider`     | off-black @ 18%   | warm-white @ 18%  |
 | color/focus      | `--focus`       | off-black         | warm-white        |
@@ -72,7 +72,7 @@ The Kumo bridge in `src/kumo-theme.css` maps these into Kumo's token surface.
 :root {
   --bg:      #F5F0E8;
   --fg:      #0F0F0F;
-  --accent:  #8AFFC8;
+  --accent:  #FE008C;
   --muted:   rgba(15, 15, 15, 0.45);
   --divider: rgba(15, 15, 15, 0.18);
   --focus:   #0F0F0F;
@@ -82,7 +82,7 @@ The Kumo bridge in `src/kumo-theme.css` maps these into Kumo's token surface.
 :root[data-theme='dark'] {
   --bg:      #0F0F0F;
   --fg:      #F5F0E8;
-  --accent:  #FE008C;
+  --accent:  #8AFFC8;
   --muted:   rgba(245, 240, 232, 0.45);
   --divider: rgba(245, 240, 232, 0.18);
   --focus:   #F5F0E8;

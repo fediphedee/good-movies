@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { asset } from '../lib/asset'
 
 export interface Movie {
   id: string
@@ -182,7 +183,7 @@ export function useMovieSearch() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/movies.json')
+    fetch(asset('/movies.json'))
       .then(r => r.json())
       .then((data: MoviesData) => { setAllMovies(data.movies); setLoading(false) })
       .catch(() => setLoading(false))

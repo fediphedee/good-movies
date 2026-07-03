@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef } from 'react'
+import { asset } from '../lib/asset'
 
 interface WordConfig {
   word: string
@@ -131,7 +132,7 @@ export function HeroTitle({ dark }: { dark: boolean }) {
     }}>
       {WORDS.map(({ word, imageLight, imageDark, left, dy, dx, w, breakAfter, gapAfter }) => {
         const hasImage = !!imageLight
-        const src = dark ? imageDark : imageLight
+        const src = hasImage ? asset((dark ? imageDark : imageLight)!) : ''
         const idx = hasImage ? imgIndex++ : -1
 
         return (

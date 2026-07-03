@@ -10,7 +10,7 @@
    Self-hosted (Fontspring / fonnts) — not on Google Fonts. */
 @font-face {
   font-family: 'Recoleta';
-  src: url('/fonts/Recoleta-Regular.otf') format('opentype');
+  src: url('./assets/Recoleta-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

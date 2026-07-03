@@ -6,6 +6,7 @@ import { HeroTitle } from './components/HeroTitle'
 import { MovieResult } from './components/MovieResult'
 import { useMovieSearch } from './hooks/useMovieSearch'
 import type { Movie } from './hooks/useMovieSearch'
+import { asset } from './lib/asset'
 
 const PROMPTS = [
   'something slow and sad',
@@ -19,7 +20,7 @@ const PROMPTS = [
 ]
 
 export default function App() {
-  const { search, random, loading, total } = useMovieSearch()
+  const { search, random, loading } = useMovieSearch()
   const [dark, setDark] = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark'
   )
@@ -186,7 +187,7 @@ export default function App() {
           onMouseLeave={e => { e.currentTarget.style.opacity = '0.55' }}
         >
           <img
-            src="/Letterboxd_logo.png"
+            src={asset('/Letterboxd_logo.png')}
             alt="Letterboxd"
             width={67}
             height={27}

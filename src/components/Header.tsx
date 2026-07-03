@@ -1,4 +1,5 @@
 import { ThemeToggle } from './ThemeToggle'
+import { asset } from '../lib/asset'
 
 interface HeaderProps {
   onHome?: () => void
@@ -16,7 +17,7 @@ export function Header({ onHome }: HeaderProps) {
         }}
       >
         <a
-          href="/"
+          href={import.meta.env.BASE_URL}
           aria-label="Really Good Movies — home"
           onClick={e => {
             if (onHome) {
@@ -27,7 +28,7 @@ export function Header({ onHome }: HeaderProps) {
           style={{ display: 'block', lineHeight: 0 }}
         >
           <img
-            src="/muybridge_race.gif"
+            src={asset('/muybridge_race.gif')}
             alt="Really Good Movies"
             style={{ height: '60px', display: 'block' }}
           />

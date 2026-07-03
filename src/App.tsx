@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header onHome={() => { setQuery(''); setResults([]); setHasSearched(false) }} />
 
       <main style={{ flex: 1, maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
 
@@ -72,7 +72,7 @@ export default function App() {
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="describe your mood, a genre, a decade, a feeling…"
-              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder-transparent px-(--space-8)! py-(--space-8)!"
+              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder:text-transparent! px-(--space-8)! py-(--space-8)!"
             />
           </div>
 
@@ -114,11 +114,20 @@ export default function App() {
 
         {/* Suggestion prompts — shown when idle */}
         {!hasSearched && (
-          <div style={{ borderTop: '1px solid var(--divider)', paddingTop: '24px' }}>
+          <div style={{
+            borderTop: '1px solid var(--divider)',
+            paddingTop: '24px',
+            // full-bleed: pull the top hairline out to the viewport edges,
+            // then re-pad so the content stays aligned with the column
+            marginLeft: 'calc(50% - 50vw)',
+            marginRight: 'calc(50% - 50vw)',
+            paddingLeft: 'calc(50vw - 50%)',
+            paddingRight: 'calc(50vw - 50%)',
+          }}>
             <p style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '14px' }}>
               Try asking
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
               {PROMPTS.map(p => (
                 <Button
                   key={p}
@@ -154,9 +163,39 @@ export default function App() {
         )}
       </main>
 
-      <footer style={{ borderTop: '1px solid var(--divider)', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', marginTop: '64px' }}>
-        <span style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>fediphe × Letterboxd</span>
-        <span style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>Jun 2026</span>
+      <footer style={{ borderTop: '1px solid var(--divider)', padding: '32px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginTop: '64px' }}>
+        <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
+          ©2026{' '}
+          <a
+            href="https://www.federicabonfanti.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--fg)', textDecoration: 'none', borderBottom: '1px solid var(--divider)' }}
+          >
+            Federica Bonfanti
+          </a>
+          . All Rights reserved.
+        </p>
+        <a
+          href="https://letterboxd.com/fediphe/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="fediphe on Letterboxd"
+          style={{ display: 'block', lineHeight: 0, opacity: 0.55, transition: 'opacity 0.2s ease' }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '1' }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '0.55' }}
+        >
+          <img
+            src="/Letterboxd_logo.png"
+            alt="Letterboxd"
+            width={67}
+            height={27}
+            style={{ height: '22px', width: 'auto', display: 'block' }}
+          />
+        </a>
+        <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
+          Powered by my Letterboxd data.
+        </p>
       </footer>
     </>
   )

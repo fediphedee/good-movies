@@ -125,7 +125,7 @@ export default function App() {
             paddingLeft: 'calc(50vw - 50%)',
             paddingRight: 'calc(50vw - 50%)',
           }}>
-            <p style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '14px' }}>
+            <p style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '14px', textAlign: 'center' }}>
               Try asking
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
@@ -182,9 +182,7 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="fediphe on Letterboxd"
-          style={{ display: 'block', lineHeight: 0, opacity: 0.55, transition: 'opacity 0.2s ease' }}
-          onMouseEnter={e => { e.currentTarget.style.opacity = '1' }}
-          onMouseLeave={e => { e.currentTarget.style.opacity = '0.55' }}
+          style={{ display: 'block', lineHeight: 0 }}
         >
           <img
             src={asset('/Letterboxd_logo.png')}

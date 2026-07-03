@@ -55,7 +55,7 @@
 
 /* Hero title sizing. Images inside scale in em, so bumping the font size on
    mobile enlarges the film stills by the same factor (60% bigger below 640px). */
-.rgm-hero { font-size: clamp(40px, 8vw, 80px); }
+.rgm-hero { font-size: clamp(52px, 10.4vw, 104px); }  /* desktop: +30% */
 
 /* Hero title: mobile-only art-directed line break (splits "feel like" /
    "watching"). Desktop keeps "feel like watching" on one line. */

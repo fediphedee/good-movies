@@ -127,7 +127,7 @@ export function HeroTitle({ dark }: { dark: boolean }) {
       isolation: 'isolate',
       position: 'relative',
       left: '50%',
-      width: 'min(760px, 92vw)',
+      width: 'min(988px, 92vw)',
       transform: 'translateX(-50%)',
     }}>
       {WORDS.map(({ word, imageLight, imageDark, left, dy, dx, w, breakAfter, gapAfter }) => {

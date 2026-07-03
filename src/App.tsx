@@ -193,7 +193,25 @@ export default function App() {
           />
         </a>
         <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
-          Powered by my Letterboxd data.
+          Powered by my{' '}
+          <a
+            href="https://letterboxd.com/fediphe/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--fg)', textDecoration: 'none', borderBottom: '1px solid var(--divider)' }}
+          >
+            Letterboxd
+          </a>
+          {' '}data. Movie data by{' '}
+          <a
+            href="https://www.themoviedb.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--fg)', textDecoration: 'none', borderBottom: '1px solid var(--divider)' }}
+          >
+            TMDB
+          </a>
+          .
         </p>
       </footer>
     </>

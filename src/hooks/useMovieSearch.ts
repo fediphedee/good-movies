@@ -107,9 +107,9 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   naturalistic: ['mumblecore'], talking: ['mumblecore', 'languid'],
   relationship: ['mumblecore', 'devastating'], 'slice of life': ['mumblecore', 'languid'],
 
-  // y2k
-  y2k: ['y2k'], '90s': ['y2k'], '2000s': ['y2k'], millennium: ['y2k'],
-  nineties: ['y2k'], retro: ['y2k', 'warm'], vintage: ['y2k', 'warm'],
+  // y2k (aesthetic mood — literal decade numbers are handled by parseDecade)
+  y2k: ['y2k'], millennium: ['y2k'],
+  retro: ['y2k', 'warm'], vintage: ['y2k', 'warm'],
 }
 
 // Genre labels → mood slugs (for "something horror", "a comedy" etc)
@@ -135,6 +135,33 @@ function tokenize(text: string): string[] {
   return text.toLowerCase().replace(/[^a-z0-9\s\-']/g, ' ').split(/\s+/).filter(Boolean)
 }
 
+// Parse a requested decade from the query → its starting year (e.g. 1980), or
+// null. Handles "1980s"/"1980", "80s", and written forms like "eighties".
+function parseDecade(query: string): number | null {
+  const q = query.toLowerCase()
+
+  // Four-digit year, optionally with a trailing "s": 1980, 1980s, 2000s
+  const m4 = q.match(/\b(?:19|20)\d{2}s?\b/)
+  if (m4) return Math.floor(parseInt(m4[0], 10) / 10) * 10
+
+  // Written decades
+  const words: Record<string, number> = {
+    twenties: 1920, thirties: 1930, forties: 1940, fifties: 1950,
+    sixties: 1960, seventies: 1970, eighties: 1980, nineties: 1990,
+    noughties: 2000, aughts: 2000,
+  }
+  for (const [w, d] of Object.entries(words)) if (q.includes(w)) return d
+
+  // Two-digit shorthand: 80s, 90s, 00s, 20s (00–29 → 2000s, 30–99 → 1900s)
+  const m2 = q.match(/\b(\d{2})s\b/)
+  if (m2) {
+    const n = parseInt(m2[1], 10)
+    return n < 30 ? 2000 + n : 1900 + n
+  }
+
+  return null
+}
+
 function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): number {
   let score = 0
   const tokens = tokenize(query)
@@ -157,16 +184,8 @@ function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): numb
     if (genresLower.some(g => g.includes(token))) score += 2
   }
 
-  // Decade match: "80s", "1990s" etc
+  // Decade is applied as a hard filter in search(); no scoring needed here.
   const fullQuery = query.toLowerCase()
-  const decadeMatch = fullQuery.match(/\b(\d{2})s\b/) || fullQuery.match(/\b(\d{4})s?\b/)
-  if (decadeMatch) {
-    const raw = decadeMatch[1]
-    const decade = raw.length === 2
-      ? parseInt(raw) < 30 ? parseInt('20' + raw) * 10 : parseInt('19' + raw) * 10
-      : Math.floor(parseInt(raw) / 10) * 10
-    if (Math.floor(movie.year / 10) * 10 === decade) score += 3
-  }
 
   // Runtime cues
   if (/\bshort\b|\bquick\b|under 90|90 min/.test(fullQuery) && movie.runtime && movie.runtime < 90) score += 3
@@ -194,6 +213,7 @@ export function useMovieSearch() {
 
     const tokens = tokenize(query)
     const fullQuery = query.toLowerCase()
+    const decade = parseDecade(query)
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -213,6 +233,7 @@ export function useMovieSearch() {
 
     const scored = allMovies
       .filter(m => m.rating >= 3)
+      .filter(m => decade === null || Math.floor(m.year / 10) * 10 === decade)
       .filter(m => targetMoods.size === 0 || m.moods.some(mood => targetMoods.has(mood)))
       .map(m => ({ movie: m, score: scoreMovie(m, query, targetMoods) }))
       .filter(({ score }) => score > 2)

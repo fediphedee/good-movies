@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { asset } from '../lib/asset'
 
 export interface Movie {
@@ -16,6 +16,8 @@ export interface Movie {
   moods: string[]
   keywords: string[]
   moodTags: string[]
+  voteCount: number | null
+  popularity: number | null
 }
 
 interface MoviesData {
@@ -162,6 +164,34 @@ function parseDecade(query: string): number | null {
   return null
 }
 
+// Fame cues → is the user asking for obscure or famous films? Multi-word cues
+// are matched as phrases; single words with a word boundary (so "cult" doesn't
+// hit "culture"). If the query mixes both, we treat it as ambiguous (null).
+const OBSCURE_CUES = [
+  'obscure', 'hidden gem', 'hidden', 'underrated', 'deep cut', 'deep-cut',
+  'under the radar', 'lesser known', 'lesser-known', 'underseen', 'under-seen',
+  'overlooked', 'forgotten', 'niche', 'cult', 'indie gem', 'unknown',
+]
+const FAMOUS_CUES = [
+  'famous', 'popular', 'well known', 'well-known', 'classic', 'iconic',
+  'mainstream', 'blockbuster', 'everyone', 'crowd pleaser', 'crowd-pleaser',
+  'beloved', 'big hit',
+]
+
+function matchesCue(cue: string, fullQuery: string): boolean {
+  return cue.includes(' ')
+    ? fullQuery.includes(cue)
+    : new RegExp(`\\b${cue}\\b`).test(fullQuery)
+}
+
+function detectFame(fullQuery: string): 'obscure' | 'famous' | null {
+  const obscure = OBSCURE_CUES.some(c => matchesCue(c, fullQuery))
+  const famous = FAMOUS_CUES.some(c => matchesCue(c, fullQuery))
+  if (obscure && !famous) return 'obscure'
+  if (famous && !obscure) return 'famous'
+  return null
+}
+
 function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): number {
   let score = 0
   const tokens = tokenize(query)
@@ -208,12 +238,25 @@ export function useMovieSearch() {
       .catch(() => setLoading(false))
   }, [])
 
+  // Strict-edge fame thresholds: bottom 15% of vote counts = obscure ceiling,
+  // top 15% = famous floor. Computed from the collection so it stays adaptive.
+  const fame = useMemo(() => {
+    const counts = allMovies
+      .map(m => m.voteCount)
+      .filter((v): v is number => typeof v === 'number')
+      .sort((a, b) => a - b)
+    if (counts.length < 20) return null
+    const at = (p: number) => counts[Math.floor((counts.length - 1) * p)]
+    return { obscureMax: at(0.15), famousMin: at(0.85) }
+  }, [allMovies])
+
   const search = useCallback((query: string): Movie[] => {
     if (!query.trim() || allMovies.length === 0) return []
 
     const tokens = tokenize(query)
     const fullQuery = query.toLowerCase()
     const decade = parseDecade(query)
+    const wantFame = fame ? detectFame(fullQuery) : null
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -234,13 +277,20 @@ export function useMovieSearch() {
     const scored = allMovies
       .filter(m => m.rating >= 3)
       .filter(m => decade === null || Math.floor(m.year / 10) * 10 === decade)
+      .filter(m => {
+        if (!wantFame || !fame) return true
+        if (typeof m.voteCount !== 'number') return false
+        return wantFame === 'obscure'
+          ? m.voteCount <= fame.obscureMax
+          : m.voteCount >= fame.famousMin
+      })
       .filter(m => targetMoods.size === 0 || m.moods.some(mood => targetMoods.has(mood)))
       .map(m => ({ movie: m, score: scoreMovie(m, query, targetMoods) }))
       .filter(({ score }) => score > 2)
       .sort((a, b) => b.score - a.score)
 
     return scored.slice(0, 5).map(({ movie }) => movie)
-  }, [allMovies])
+  }, [allMovies, fame])
 
   const random = useCallback((): Movie[] => {
     const pool = allMovies.filter(m => m.rating >= 4)

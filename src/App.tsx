@@ -17,6 +17,8 @@ const PROMPTS = [
   'something Italian',
   'under 90 minutes',
   'best film of the 80s',
+  'a hidden gem',
+  'a famous classic',
 ]
 
 export default function App() {

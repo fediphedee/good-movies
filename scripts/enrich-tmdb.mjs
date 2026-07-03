@@ -66,6 +66,8 @@ async function findMovie(title, year) {
     posterPath: detail.poster_path || null,
     director,
     moodTags: detail.genres?.map(g => g.name.toLowerCase()) || [],
+    voteCount: detail.vote_count ?? null,
+    popularity: detail.popularity ?? null,
   }
 
   cache[cacheKey] = result

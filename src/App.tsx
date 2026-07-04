@@ -154,9 +154,6 @@ export default function App() {
               </div>
             ) : (
               <>
-                <p style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', padding: '16px 0 0' }}>
-                  {results.length} result{results.length !== 1 ? 's' : ''}
-                </p>
                 {results.map((movie, i) => (
                   <MovieResult key={movie.id} movie={movie} index={i} />
                 ))}
@@ -166,34 +163,7 @@ export default function App() {
         )}
       </main>
 
-      <footer style={{ borderTop: '1px solid var(--divider)', padding: '32px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginTop: '64px' }}>
-        <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
-          ©2026{' '}
-          <a
-            href="https://www.federicabonfanti.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--fg)', textDecoration: 'none', borderBottom: '1px solid var(--divider)' }}
-          >
-            Federica Bonfanti
-          </a>
-          . All Rights reserved.
-        </p>
-        <a
-          href="https://letterboxd.com/fediphe/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="fediphe on Letterboxd"
-          style={{ display: 'block', lineHeight: 0 }}
-        >
-          <img
-            src={asset('/Letterboxd_logo.png')}
-            alt="Letterboxd"
-            width={67}
-            height={27}
-            style={{ height: '22px', width: 'auto', display: 'block' }}
-          />
-        </a>
+      <footer style={{ borderTop: '1px solid var(--divider)', padding: '32px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginTop: '64px', textAlign: 'center' }}>
         <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
           Powered by my{' '}
           <a
@@ -215,6 +185,33 @@ export default function App() {
           </a>
           .
         </p>
+        <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
+          ©2026{' '}
+          <a
+            href="https://www.federicabonfanti.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--fg)', textDecoration: 'none', borderBottom: '1px solid var(--divider)' }}
+          >
+            Federica Bonfanti
+          </a>
+          . All Rights reserved.
+        </p>
+        <a
+          href="https://letterboxd.com/fediphe/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="fediphe on Letterboxd"
+          style={{ display: 'block', lineHeight: 0 }}
+        >
+          <img
+            src={asset(dark ? '/logo_dark.svg' : '/logo_light.svg')}
+            alt="Letterboxd"
+            width={90}
+            height={83}
+            style={{ height: '60px', width: 'auto', display: 'block' }}
+          />
+        </a>
       </footer>
     </>
   )

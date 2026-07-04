@@ -67,6 +67,8 @@
 @media (max-width: 640px) {
   .rgm-mobile-break { display: inline; }
   .rgm-hero { font-size: clamp(64px, 12.8vw, 128px); }
+  /* iOS auto-zooms (and stays zoomed) when a focused input is < 16px */
+  main input { font-size: 16px !important; }
   /* mobile-only image nudges (added on top of the base transform) */
   .rgm-iw-feel { --m-dy: -20px; }        /* feel: 20px higher (was -40) */
   .rgm-iw-tonight { --m-dx: -80px; }     /* tonight: 80px to the left */

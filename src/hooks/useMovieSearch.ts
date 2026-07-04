@@ -19,6 +19,8 @@ export interface Movie {
   voteCount: number | null
   popularity: number | null
   actors: string[]
+  originalLanguage: string | null
+  countries: string[]
 }
 
 interface MoviesData {
@@ -96,7 +98,6 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   // languid
   languid: ['languid'], summer: ['languid'], unhurried: ['languid'],
   talkative: ['languid'], conversation: ['languid'],
-  italian: ['languid', 'warm'], france: ['languid'], french: ['languid'],
   'woody allen': ['languid', 'funny-dark'], woody: ['languid'],
   mediterranean: ['languid'], vacation: ['languid'],
 
@@ -193,6 +194,51 @@ function detectFame(fullQuery: string): 'obscure' | 'famous' | null {
   return null
 }
 
+// Nationality/language cues → TMDB original-language code and/or production
+// country. A film matches if its language OR a production country matches, so
+// "italian" catches both Italian-language films and Italy-made ones.
+interface LangCue { lang?: string; country?: string }
+const LANGUAGE_TRIGGERS: Record<string, LangCue> = {
+  italian: { lang: 'it', country: 'IT' }, italy: { lang: 'it', country: 'IT' },
+  french: { lang: 'fr', country: 'FR' }, france: { lang: 'fr', country: 'FR' },
+  japanese: { lang: 'ja', country: 'JP' }, japan: { lang: 'ja', country: 'JP' },
+  korean: { lang: 'ko', country: 'KR' }, korea: { lang: 'ko', country: 'KR' },
+  spanish: { lang: 'es' }, spain: { lang: 'es', country: 'ES' },
+  mexican: { lang: 'es', country: 'MX' }, mexico: { country: 'MX' },
+  german: { lang: 'de' }, germany: { lang: 'de', country: 'DE' },
+  chinese: { lang: 'zh' }, china: { lang: 'zh', country: 'CN' },
+  mandarin: { lang: 'zh' }, cantonese: { lang: 'cn' },
+  'hong kong': { country: 'HK' },
+  hindi: { lang: 'hi' }, indian: { lang: 'hi', country: 'IN' }, india: { country: 'IN' },
+  russian: { lang: 'ru' }, russia: { lang: 'ru', country: 'RU' },
+  swedish: { lang: 'sv' }, sweden: { lang: 'sv', country: 'SE' },
+  danish: { lang: 'da' }, denmark: { lang: 'da', country: 'DK' },
+  norwegian: { lang: 'no' }, norway: { lang: 'no', country: 'NO' },
+  portuguese: { lang: 'pt' }, brazilian: { lang: 'pt', country: 'BR' }, brazil: { country: 'BR' },
+  polish: { lang: 'pl' }, poland: { lang: 'pl', country: 'PL' },
+  iranian: { lang: 'fa', country: 'IR' }, iran: { lang: 'fa', country: 'IR' },
+  greek: { lang: 'el' }, greece: { country: 'GR' },
+  turkish: { lang: 'tr' }, turkey: { country: 'TR' },
+  thai: { lang: 'th' }, thailand: { country: 'TH' },
+  argentine: { lang: 'es', country: 'AR' }, argentina: { country: 'AR' },
+  british: { country: 'GB' }, english: { lang: 'en' }, american: { country: 'US' },
+}
+
+// Collect requested languages + countries from the query.
+function detectLangCountry(tokens: string[], fullQuery: string) {
+  const langs = new Set<string>()
+  const countries = new Set<string>()
+  const add = (cue: LangCue) => {
+    if (cue.lang) langs.add(cue.lang)
+    if (cue.country) countries.add(cue.country)
+  }
+  for (const token of tokens) if (LANGUAGE_TRIGGERS[token]) add(LANGUAGE_TRIGGERS[token])
+  for (const [phrase, cue] of Object.entries(LANGUAGE_TRIGGERS)) {
+    if (phrase.includes(' ') && fullQuery.includes(phrase)) add(cue)
+  }
+  return { langs, countries }
+}
+
 function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): number {
   let score = 0
   const tokens = tokenize(query)
@@ -256,6 +302,7 @@ export function useMovieSearch() {
     const fullQuery = query.toLowerCase()
     const decade = parseDecade(query)
     const wantFame = fame ? detectFame(fullQuery) : null
+    const { langs, countries } = detectLangCountry(tokens, fullQuery)
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -276,6 +323,11 @@ export function useMovieSearch() {
     const scored = allMovies
       .filter(m => m.rating >= 3)
       .filter(m => decade === null || Math.floor(m.year / 10) * 10 === decade)
+      .filter(m => {
+        if (langs.size === 0 && countries.size === 0) return true
+        return (m.originalLanguage !== null && langs.has(m.originalLanguage)) ||
+          m.countries.some(c => countries.has(c))
+      })
       .filter(m => {
         if (!wantFame || !fame) return true
         if (typeof m.voteCount !== 'number') return false

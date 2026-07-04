@@ -70,6 +70,8 @@ async function findMovie(title, year) {
     moodTags: detail.genres?.map(g => g.name.toLowerCase()) || [],
     voteCount: detail.vote_count ?? null,
     popularity: detail.popularity ?? null,
+    originalLanguage: detail.original_language ?? null,
+    countries: (detail.production_countries || []).map(c => c.iso_3166_1),
   }
 
   cache[cacheKey] = result

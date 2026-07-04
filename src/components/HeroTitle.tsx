@@ -43,6 +43,9 @@ const WORDS: WordConfig[] = [
 const MAX_OFFSET = 40 // px — how far the group can drift
 const SCALE = 320     // px — how quickly the drift saturates toward MAX_OFFSET
 const EASE = 0.08     // lerp factor toward the target each frame (lower = softer)
+// Per-image scroll-parallax speeds for touch devices (no cursor to react to).
+// Mixed signs/magnitudes give the collage depth as the page scrolls.
+const PARALLAX_FACTORS = [-0.08, 0.12, -0.14, 0.09, 0.06]
 
 export function HeroTitle({ dark }: { dark: boolean }) {
   const imgs = useRef<(HTMLImageElement | null)[]>([])
@@ -52,30 +55,59 @@ export function HeroTitle({ dark }: { dark: boolean }) {
     const els = imgs.current
     const h1 = h1Ref.current
     if (!h1) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    let raf = 0
+
+    // Touch devices (and the mobile layout width) can't rely on a cursor, so
+    // swap the repulsion for a scroll parallax: each still drifts vertically at
+    // its own rate as the page moves.
+    if (window.matchMedia('(hover: none)').matches || window.matchMedia('(max-width: 640px)').matches) {
+      const cur = els.map(() => 0)
+      let scrollY = window.scrollY
+      const frame = () => {
+        let moving = false
+        for (let i = 0; i < els.length; i++) {
+          const el = els[i]
+          if (!el) continue
+          const target = scrollY * PARALLAX_FACTORS[i % PARALLAX_FACTORS.length]
+          cur[i] += (target - cur[i]) * 0.1
+          if (Math.abs(target - cur[i]) > 0.1) moving = true
+          el.style.transform = `translate3d(0, ${cur[i].toFixed(2)}px, 0)`
+        }
+        raf = moving ? requestAnimationFrame(frame) : 0
+      }
+      const onScroll = () => {
+        scrollY = window.scrollY
+        if (!raf) raf = requestAnimationFrame(frame)
+      }
+      window.addEventListener('scroll', onScroll, { passive: true })
+      onScroll()
+      return () => {
+        window.removeEventListener('scroll', onScroll)
+        if (raf) cancelAnimationFrame(raf)
+      }
+    }
+
+    // Pointer devices: grouped cursor repulsion. The whole collage drifts away
+    // from the pointer as one unit; tanh keeps it smooth (no direction-flip
+    // "snap" when the cursor crosses an image) and capped at ±MAX_OFFSET.
     let mx = -99999
     let my = -99999
-    let cx = 0
-    let cy = 0
     let curX = 0
     let curY = 0
     let tgtX = 0
     let tgtY = 0
-    let raf = 0
 
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    function computeTarget() {
+    const computeTarget = () => {
       if (mx < -9999) { tgtX = 0; tgtY = 0; return }
-      const r = h1!.getBoundingClientRect()
-      cx = r.left + r.width / 2
-      cy = r.top + r.height / 2
-      // push away from the cursor; tanh keeps it smooth and capped at ±MAX
+      const r = h1.getBoundingClientRect()
+      const cx = r.left + r.width / 2
+      const cy = r.top + r.height / 2
       tgtX = -MAX_OFFSET * Math.tanh((mx - cx) / SCALE)
       tgtY = -MAX_OFFSET * Math.tanh((my - cy) / SCALE)
     }
-
-    function frame() {
+    const frame = () => {
       curX += (tgtX - curX) * EASE
       curY += (tgtY - curY) * EASE
       const t = `translate3d(${curX.toFixed(2)}px, ${curY.toFixed(2)}px, 0)`
@@ -84,25 +116,9 @@ export function HeroTitle({ dark }: { dark: boolean }) {
         ? requestAnimationFrame(frame)
         : 0
     }
-
-    function kick() {
-      if (!raf) raf = requestAnimationFrame(frame)
-    }
-
-    function onMove(e: MouseEvent) {
-      if (prefersReduced) return
-      mx = e.clientX
-      my = e.clientY
-      computeTarget()
-      kick()
-    }
-
-    function onLeave() {
-      mx = -99999
-      my = -99999
-      computeTarget()
-      kick()
-    }
+    const kick = () => { if (!raf) raf = requestAnimationFrame(frame) }
+    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; computeTarget(); kick() }
+    const onLeave = () => { mx = -99999; my = -99999; computeTarget(); kick() }
 
     window.addEventListener('mousemove', onMove, { passive: true })
     document.addEventListener('mouseleave', onLeave)

@@ -69,6 +69,9 @@
   .rgm-hero { font-size: clamp(64px, 12.8vw, 128px); }
   /* iOS auto-zooms (and stays zoomed) when a focused input is < 16px */
   main input { font-size: 16px !important; }
+  /* comfortable 48px touch targets: input, action buttons, and chips */
+  main input,
+  main button[data-kumo-component='Button'] { height: 48px !important; }
   /* mobile-only image nudges (added on top of the base transform) */
   .rgm-iw-feel { --m-dy: -20px; }        /* feel: 20px higher (was -40) */
   .rgm-iw-tonight { --m-dx: -80px; }     /* tonight: 80px to the left */

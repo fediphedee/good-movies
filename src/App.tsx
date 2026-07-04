@@ -37,6 +37,14 @@ export default function App() {
   const [results, setResults] = useState<Movie[]>([])
   const [hasSearched, setHasSearched] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const resultsRef = useRef<HTMLDivElement>(null)
+
+  // After a search runs, scroll the results into view so they're seen first
+  useEffect(() => {
+    if (hasSearched && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [results, hasSearched])
 
   function handleSearch(q: string) {
     const trimmed = q.trim()
@@ -54,7 +62,6 @@ export default function App() {
     setQuery(p)
     setResults(search(p))
     setHasSearched(true)
-    inputRef.current?.focus()
   }
 
   return (
@@ -74,7 +81,7 @@ export default function App() {
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="describe your mood, a genre, a decade, a feeling…"
+              placeholder="Search by mood"
               className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder:text-transparent! px-(--space-8)! py-(--space-8)!"
             />
           </div>
@@ -147,7 +154,7 @@ export default function App() {
 
         {/* Results */}
         {hasSearched && (
-          <div style={{ borderTop: '1px solid var(--divider)', paddingTop: '8px' }}>
+          <div ref={resultsRef} style={{ borderTop: '1px solid var(--divider)', paddingTop: '8px', scrollMarginTop: '16px' }}>
             {results.length === 0 ? (
               <div style={{ padding: '48px 0', color: 'var(--muted)', fontSize: '13px' }}>
                 No matches — try different words.

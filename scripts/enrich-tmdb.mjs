@@ -57,6 +57,7 @@ async function findMovie(title, year) {
   ])
 
   const director = credits.crew?.find(c => c.job === 'Director')?.name || null
+  const actors = credits.cast?.slice(0, 10).map(c => c.name) || []
 
   const result = {
     tmdbId: match.id,
@@ -65,6 +66,7 @@ async function findMovie(title, year) {
     synopsis: detail.overview || null,
     posterPath: detail.poster_path || null,
     director,
+    actors,
     moodTags: detail.genres?.map(g => g.name.toLowerCase()) || [],
     voteCount: detail.vote_count ?? null,
     popularity: detail.popularity ?? null,

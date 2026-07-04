@@ -18,6 +18,7 @@ export interface Movie {
   moodTags: string[]
   voteCount: number | null
   popularity: number | null
+  actors: string[]
 }
 
 interface MoviesData {
@@ -195,8 +196,7 @@ function detectFame(fullQuery: string): 'obscure' | 'famous' | null {
 function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): number {
   let score = 0
   const tokens = tokenize(query)
-  const titleLower = movie.title.toLowerCase()
-  const directorLower = (movie.director || '').toLowerCase()
+  const namesLower = [movie.director, ...movie.actors].filter(Boolean).join(' | ').toLowerCase()
   const keywordsLower = movie.keywords.map(k => k.toLowerCase())
   const genresLower = movie.genres.map(g => g.toLowerCase())
 
@@ -205,11 +205,10 @@ function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): numb
     if (movie.moods.includes(mood)) score += 4
   }
 
-  // Title / director match
+  // Cast / director / keyword / genre match (film titles intentionally excluded)
   for (const token of tokens) {
     if (token.length < 3) continue
-    if (titleLower.includes(token)) score += 3
-    if (directorLower.includes(token)) score += 3
+    if (namesLower.includes(token)) score += 3
     if (keywordsLower.some(k => k.includes(token))) score += 1
     if (genresLower.some(g => g.includes(token))) score += 2
   }

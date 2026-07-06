@@ -340,13 +340,12 @@ export function useMovieSearch() {
       .filter(({ score }) => score > 2)
       .sort((a, b) => b.score - a.score)
 
-    return scored.slice(0, 5).map(({ movie }) => movie)
+    return scored.map(({ movie }) => movie)
   }, [allMovies, fame])
 
   const random = useCallback((): Movie[] => {
     const pool = allMovies.filter(m => m.rating >= 4)
-    const shuffled = [...pool].sort(() => Math.random() - 0.5)
-    return shuffled.slice(0, 5)
+    return [...pool].sort(() => Math.random() - 0.5)
   }, [allMovies])
 
   return { search, random, loading, total: allMovies.length }

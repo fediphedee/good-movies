@@ -84,6 +84,12 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* opacity-only fade — used by the mobile card so its CTA never shifts */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ── Reset & base ────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

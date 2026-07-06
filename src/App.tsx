@@ -4,6 +4,7 @@ import { Input } from '@cloudflare/kumo/components/input'
 import { Header } from './components/Header'
 import { HeroTitle } from './components/HeroTitle'
 import { MovieResult } from './components/MovieResult'
+import { MovieCard } from './components/MovieCard'
 import { useMovieSearch } from './hooks/useMovieSearch'
 import type { Movie } from './hooks/useMovieSearch'
 import { asset } from './lib/asset'
@@ -39,6 +40,16 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
 
+  // Mobile shows one movie at a time (a "deck" we walk through); desktop lists.
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 640px)').matches)
+  const [cardIndex, setCardIndex] = useState(0)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)')
+    const on = () => setIsMobile(mq.matches)
+    mq.addEventListener('change', on)
+    return () => mq.removeEventListener('change', on)
+  }, [])
+
   // After a search runs, scroll the results into view so they're seen first
   useEffect(() => {
     if (hasSearched && resultsRef.current) {
@@ -46,12 +57,24 @@ export default function App() {
     }
   }, [results, hasSearched])
 
+  // Advance the mobile deck; when it runs out, reshuffle and keep going
+  function nextMovie() {
+    const ni = cardIndex + 1
+    if (ni >= results.length) {
+      setResults([...results].sort(() => Math.random() - 0.5))
+      setCardIndex(0)
+    } else {
+      setCardIndex(ni)
+    }
+  }
+
   function handleSearch(q: string) {
     const trimmed = q.trim()
     if (!trimmed) return
     setQuery(trimmed)
     setResults(search(trimmed))
     setHasSearched(true)
+    setCardIndex(0)
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -62,6 +85,7 @@ export default function App() {
     setQuery(p)
     setResults(search(p))
     setHasSearched(true)
+    setCardIndex(0)
   }
 
   return (
@@ -71,7 +95,7 @@ export default function App() {
       <main style={{ flex: 1, maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
 
         {/* Hero prompt */}
-        <div style={{ padding: '64px 0 40px' }}>
+        <div style={{ padding: isMobile ? '24px 0 40px' : '64px 0 40px' }}>
           <HeroTitle dark={dark} />
 
           {/* Search input */}
@@ -86,14 +110,17 @@ export default function App() {
             />
           </div>
 
-          {/* Submit */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+          {/* Submit — full-width split row on mobile, centred auto-width on desktop */}
+          <div style={isMobile
+            ? { display: 'flex', gap: '8px', width: '100%' }
+            : { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
             <Button
               variant="primary"
               onClick={() => handleSearch(query)}
               disabled={loading || !query.trim()}
-              className="text-xs tracking-widest uppercase text-(--bg)! px-(--space-8)! py-(--space-4)!"
+              className="text-xs tracking-widest uppercase text-(--bg)! px-(--space-8)! py-(--space-4)! justify-center"
               style={{
+                flex: isMobile ? 1 : undefined,
                 '--kumo-button-emphasis-bg': 'var(--fg)',
                 '--kumo-button-emphasis-ring': 'var(--fg)',
                 '--kumo-button-emphasis-gradient-start': 'var(--fg)',
@@ -104,9 +131,10 @@ export default function App() {
             </Button>
             <Button
               variant="ghost"
-              onClick={() => { setResults(random()); setQuery(''); setHasSearched(true) }}
+              onClick={() => { setResults(random()); setQuery(''); setHasSearched(true); setCardIndex(0) }}
               disabled={loading}
-              className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)!"
+              className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)! justify-center"
+              style={{ flex: isMobile ? 1 : undefined }}
             >
               Surprise me
             </Button>
@@ -114,7 +142,8 @@ export default function App() {
               <Button
                 variant="ghost"
                 onClick={() => { setQuery(''); setResults([]); setHasSearched(false) }}
-                className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)!"
+                className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)! justify-center"
+                style={{ flex: isMobile ? 1 : undefined }}
               >
                 Clear
               </Button>
@@ -156,12 +185,17 @@ export default function App() {
         {hasSearched && (
           <div ref={resultsRef} style={{ borderTop: '1px solid var(--divider)', paddingTop: '8px', scrollMarginTop: '16px' }}>
             {results.length === 0 ? (
-              <div style={{ padding: '48px 0', color: 'var(--muted)', fontSize: '13px' }}>
+              <div style={{ padding: '48px 0', color: 'var(--muted)', fontSize: '13px', textAlign: isMobile ? 'center' : 'left' }}>
                 No matches — try different words.
               </div>
+            ) : isMobile ? (
+              <MovieCard
+                movie={results[Math.min(cardIndex, results.length - 1)]}
+                onNext={results.length > 1 ? nextMovie : undefined}
+              />
             ) : (
               <>
-                {results.map((movie, i) => (
+                {results.slice(0, 5).map((movie, i) => (
                   <MovieResult key={movie.id} movie={movie} index={i} />
                 ))}
               </>

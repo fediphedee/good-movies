@@ -1,67 +1,95 @@
-export interface Movie {
-  id: number
-  title: string
-  year: number
-  director: string
-  genres: string[]
-  runtime: number
-  score: number
-  reason: string
-}
+import type { Movie } from '../hooks/useMovieSearch'
 
-interface MovieCardProps {
-  movie: Movie
-  index: number
-}
-
-export function MovieCard({ movie, index }: MovieCardProps) {
-  const num = String(index + 1).padStart(2, '0')
+// Mobile single-movie view: one film at a time, poster-forward and centred.
+// The "give me another" CTA sits directly under the poster so its position
+// (the touch point) never shifts as the synopsis length varies.
+export function MovieCard({ movie, onNext }: { movie: Movie; onNext?: () => void }) {
+  const poster = movie.posterPath ? (
+    <img
+      src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
+      alt={movie.title}
+      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+    />
+  ) : (
+    <span style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.06em' }}>NO POSTER</span>
+  )
 
   return (
     <article
+      key={movie.id}
       style={{
-        display: 'grid',
-        gridTemplateColumns: '40px 1fr auto',
-        gap: '0 20px',
-        alignItems: 'start',
-        padding: '20px 24px',
-        borderBottom: '1px solid var(--divider)',
-        cursor: 'default',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        gap: '16px',
+        padding: '24px 0 8px',
+        opacity: 0,
+        animation: 'fadeIn 0.3s ease forwards',
       }}
     >
-      {/* Index */}
-      <span style={{ fontSize: '11px', color: 'var(--muted)', paddingTop: '2px', letterSpacing: '0.06em' }}>
-        {num}
-      </span>
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '300px',
+          aspectRatio: '2 / 3',
+          background: 'var(--divider)',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {movie.letterboxdUri && movie.posterPath ? (
+          <a
+            href={movie.letterboxdUri}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${movie.title} on Letterboxd`}
+            style={{ display: 'block', width: '100%', height: '100%' }}
+          >
+            {poster}
+          </a>
+        ) : (
+          poster
+        )}
+      </div>
 
-      {/* Main info */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
-          <h2 style={{ fontSize: '15px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '-0.01em' }}>
-            {movie.title}
-          </h2>
-          <span style={{ fontSize: '11px', color: 'var(--muted)', whiteSpace: 'nowrap' }}>
-            {movie.year}
-          </span>
-        </div>
+      {onNext && (
+        <button
+          onClick={onNext}
+          style={{
+            width: '100%',
+            maxWidth: '300px',
+            height: '48px',
+            background: 'var(--fg)',
+            color: 'var(--bg)',
+            border: 'none',
+            fontFamily: 'var(--font)',
+            fontSize: '12px',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+          }}
+        >
+          Give me another
+        </button>
+      )}
 
-        <div style={{ fontSize: '11px', color: 'var(--muted)', display: 'flex', gap: '16px', letterSpacing: '0.04em' }}>
-          <span>{movie.director}</span>
-          <span>{movie.runtime}MIN</span>
-          <span>{movie.genres.join(' / ')}</span>
-        </div>
+      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.05, paddingTop: '16px' }}>
+        {movie.title}
+      </h2>
 
-        <p style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '4px', maxWidth: '520px', lineHeight: 1.6 }}>
-          {movie.reason}
+      <div style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.06em', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+        <span>{movie.year}</span>
+        {movie.director && <span>{movie.director}</span>}
+      </div>
+
+      {movie.synopsis && (
+        <p style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '440px' }}>
+          {movie.synopsis}
         </p>
-      </div>
-
-      {/* Score */}
-      <div style={{ textAlign: 'right' }}>
-        <span style={{ fontSize: '22px', fontWeight: 100, letterSpacing: '-0.03em', color: 'var(--accent)' }}>
-          {movie.score.toFixed(1)}
-        </span>
-      </div>
+      )}
     </article>
   )
 }

@@ -43,6 +43,8 @@ export default function App() {
   // Mobile shows one movie at a time (a "deck" we walk through); desktop lists.
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 640px)').matches)
   const [cardIndex, setCardIndex] = useState(0)
+  // Desktop: reveal 5 at a time, up to a hard cap of 15 (two "load more"s)
+  const [visibleCount, setVisibleCount] = useState(5)
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 640px)')
     const on = () => setIsMobile(mq.matches)
@@ -75,6 +77,7 @@ export default function App() {
     setResults(search(trimmed))
     setHasSearched(true)
     setCardIndex(0)
+    setVisibleCount(5)
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -86,6 +89,22 @@ export default function App() {
     setResults(search(p))
     setHasSearched(true)
     setCardIndex(0)
+    setVisibleCount(5)
+  }
+
+  function clearSearch() {
+    setQuery('')
+    setResults([])
+    setHasSearched(false)
+    setCardIndex(0)
+    setVisibleCount(5)
+    inputRef.current?.focus()
+  }
+
+  // "Try something else" — bring the search field back into view and focus it
+  function backToSearch() {
+    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    inputRef.current?.focus({ preventScroll: true })
   }
 
   return (
@@ -99,15 +118,46 @@ export default function App() {
           <HeroTitle dark={dark} />
 
           {/* Search input */}
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: '24px', position: 'relative' }}>
             <Input
               ref={inputRef}
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Search by mood"
-              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder:text-transparent! px-(--space-8)! py-(--space-8)!"
+              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder:text-transparent! pl-(--space-8)! pr-(--space-40)! py-(--space-8)!"
             />
+            {(query || hasSearched) && (
+              <button
+                type="button"
+                aria-label="Clear search"
+                onClick={clearSearch}
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '24px',
+                  height: '24px',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  cursor: 'pointer',
+                  color: 'var(--muted)',
+                  lineHeight: 0,
+                  transition: 'color 0.15s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.color = 'var(--fg)' }}
+                onMouseLeave={e => { e.currentTarget.style.color = 'var(--muted)' }}
+              >
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M1 1l11 11M12 1L1 12" />
+                </svg>
+              </button>
+            )}
           </div>
 
           {/* Submit — full-width split row on mobile, centred auto-width on desktop */}
@@ -131,23 +181,13 @@ export default function App() {
             </Button>
             <Button
               variant="ghost"
-              onClick={() => { setResults(random()); setQuery(''); setHasSearched(true); setCardIndex(0) }}
+              onClick={() => { setResults(random()); setQuery(''); setHasSearched(true); setCardIndex(0); setVisibleCount(5) }}
               disabled={loading}
               className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)! justify-center"
               style={{ flex: isMobile ? 1 : undefined }}
             >
               Surprise me
             </Button>
-            {hasSearched && (
-              <Button
-                variant="ghost"
-                onClick={() => { setQuery(''); setResults([]); setHasSearched(false) }}
-                className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)! justify-center"
-                style={{ flex: isMobile ? 1 : undefined }}
-              >
-                Clear
-              </Button>
-            )}
           </div>
         </div>
 
@@ -195,9 +235,54 @@ export default function App() {
               />
             ) : (
               <>
-                {results.slice(0, 5).map((movie, i) => (
+                {results.slice(0, visibleCount).map((movie, i) => (
                   <MovieResult key={movie.id} movie={movie} index={i} />
                 ))}
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '32px 0 8px' }}>
+                  {visibleCount < Math.min(15, results.length) ? (
+                    <button
+                      type="button"
+                      onClick={() => setVisibleCount(v => Math.min(v + 5, 15))}
+                      style={{
+                        padding: '12px 28px',
+                        background: 'transparent',
+                        border: '1px solid var(--divider)',
+                        color: 'var(--fg)',
+                        fontFamily: 'var(--font)',
+                        fontSize: '12px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                        transition: 'border-color 0.15s ease',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--fg)' }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--divider)' }}
+                    >
+                      Load more
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={backToSearch}
+                      style={{
+                        padding: '12px 20px',
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'var(--muted)',
+                        fontFamily: 'var(--font)',
+                        fontSize: '12px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                        transition: 'color 0.15s ease',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.color = 'var(--fg)' }}
+                      onMouseLeave={e => { e.currentTarget.style.color = 'var(--muted)' }}
+                    >
+                      ↑ Try something else
+                    </button>
+                  )}
+                </div>
               </>
             )}
           </div>

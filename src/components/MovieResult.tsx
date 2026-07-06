@@ -1,4 +1,5 @@
 import type { Movie } from '../hooks/useMovieSearch'
+import { posterUrl } from '../lib/poster'
 
 interface MovieResultProps {
   movie: Movie
@@ -6,10 +7,11 @@ interface MovieResultProps {
 }
 
 export function MovieResult({ movie, index }: MovieResultProps) {
-  const poster = movie.posterPath ? (
+  const src = posterUrl(movie, 'w300')
+  const poster = src ? (
     <img
       className="rgm-poster-img"
-      src={`https://image.tmdb.org/t/p/w300${movie.posterPath}`}
+      src={src}
       alt={movie.title}
       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
     />
@@ -45,7 +47,7 @@ export function MovieResult({ movie, index }: MovieResultProps) {
           overflow: 'hidden',
         }}
       >
-        {movie.letterboxdUri && movie.posterPath ? (
+        {movie.letterboxdUri && src ? (
           <a
             href={movie.letterboxdUri}
             target="_blank"

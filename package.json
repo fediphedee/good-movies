@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "resize-posters": "node scripts/resize-posters.mjs"
   },
   "dependencies": {
     "@cloudflare/kumo": "^2.6.0",

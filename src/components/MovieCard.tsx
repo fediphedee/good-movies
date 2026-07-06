@@ -1,12 +1,14 @@
 import type { Movie } from '../hooks/useMovieSearch'
+import { posterUrl } from '../lib/poster'
 
 // Mobile single-movie view: one film at a time, poster-forward and centred.
 // The "give me another" CTA sits directly under the poster so its position
 // (the touch point) never shifts as the synopsis length varies.
 export function MovieCard({ movie, onNext }: { movie: Movie; onNext?: () => void }) {
-  const poster = movie.posterPath ? (
+  const src = posterUrl(movie, 'w500')
+  const poster = src ? (
     <img
-      src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
+      src={src}
       alt={movie.title}
       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
     />
@@ -40,7 +42,7 @@ export function MovieCard({ movie, onNext }: { movie: Movie; onNext?: () => void
           justifyContent: 'center',
         }}
       >
-        {movie.letterboxdUri && movie.posterPath ? (
+        {movie.letterboxdUri && src ? (
           <a
             href={movie.letterboxdUri}
             target="_blank"

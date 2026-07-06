@@ -398,7 +398,10 @@ export function useMovieSearch() {
         })
       })
       .filter(m => targetMoods.size === 0 || m.moods.some(mood => targetMoods.has(mood)))
-      .map(m => ({ movie: m, score: scoreMovie(m, query, targetMoods) }))
+      // Small random jitter (< the 0.4 half-star step) so tied films — e.g. all
+      // the 5★ ones when nothing in the query is recognised — shuffle instead of
+      // always resolving to alphabetical order.
+      .map(m => ({ movie: m, score: scoreMovie(m, query, targetMoods) + Math.random() * 0.35 }))
       .filter(({ score }) => score > 2)
       .sort((a, b) => b.score - a.score)
 

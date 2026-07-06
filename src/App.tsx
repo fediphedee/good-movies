@@ -238,7 +238,7 @@ export default function App() {
                 {results.slice(0, visibleCount).map((movie, i) => (
                   <MovieResult key={movie.id} movie={movie} index={i} />
                 ))}
-                <div style={{ display: 'flex', justifyContent: 'center', padding: '32px 0 8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', margin: '60px 0' }}>
                   {visibleCount < Math.min(15, results.length) ? (
                     <button
                       type="button"
@@ -261,26 +261,31 @@ export default function App() {
                       Load more
                     </button>
                   ) : (
-                    <button
-                      type="button"
-                      onClick={backToSearch}
-                      style={{
-                        padding: '12px 20px',
-                        background: 'transparent',
-                        border: 'none',
-                        color: 'var(--muted)',
-                        fontFamily: 'var(--font)',
-                        fontSize: '12px',
-                        letterSpacing: '0.15em',
-                        textTransform: 'uppercase',
-                        cursor: 'pointer',
-                        transition: 'color 0.15s ease',
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.color = 'var(--fg)' }}
-                      onMouseLeave={e => { e.currentTarget.style.color = 'var(--muted)' }}
-                    >
-                      ↑ Try something else
-                    </button>
+                    <>
+                      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                        Still searching?
+                      </h2>
+                      <button
+                        type="button"
+                        onClick={backToSearch}
+                        style={{
+                          padding: '12px 20px',
+                          background: 'transparent',
+                          border: 'none',
+                          color: 'var(--muted)',
+                          fontFamily: 'var(--font)',
+                          fontSize: '12px',
+                          letterSpacing: '0.15em',
+                          textTransform: 'uppercase',
+                          cursor: 'pointer',
+                          transition: 'color 0.15s ease',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.color = 'var(--fg)' }}
+                        onMouseLeave={e => { e.currentTarget.style.color = 'var(--muted)' }}
+                      >
+                        ↑ Try something else
+                      </button>
+                    </>
                   )}
                 </div>
               </>

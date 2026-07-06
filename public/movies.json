@@ -53121,43 +53121,38 @@
       "watchedDate": "2020-01-11",
       "letterboxdUri": "https://boxd.it/28Vi",
       "genres": [
-        "Horror",
-        "Science Fiction"
+        "Drama",
+        "Romance"
       ],
-      "runtime": 91,
-      "synopsis": "In the year 2455, Old Earth is now a contaminated planet abandoned for centuries -- a brown world of violent storms, toxic landmasses and poisonous seas. Yet humans have returned to the deadly place that they once fled, not to live, but to research the ancient, rusting artifacts of the long-gone civilizations. But it's not the harmful environment that could prove fatal to the intrepid, young explorers who have just landed on Old Earth. For them, it's Friday the 13th, and Jason lives!",
-      "posterPath": "/ggOND0hfoE0f3K857joSzEeIchb.jpg",
-      "director": "James Isaac",
+      "runtime": 123,
+      "synopsis": "A biography of artist Frida Kahlo, who channeled the pain of a crippling injury and her tempestuous marriage into her work.",
+      "posterPath": "/a4hgR6aKoohB6MHni171jbi9BkU.jpg",
+      "director": "Julie Taymor",
       "moodTags": [
         "horror",
         "science fiction"
       ],
-      "tmdbId": 11470,
+      "tmdbId": 1360,
       "moods": [
-        "tense",
-        "gothic",
-        "strange"
+        "strange",
+        "warm"
       ],
       "keywords": [
-        "future",
-        "space marine",
-        "new jersey",
-        "sadism",
-        "psychopath",
-        "cryogenics",
-        "sequel",
-        "woods",
-        "space",
-        "slaughter",
-        "serial killer",
-        "slasher",
-        "series of murders",
-        "scientist",
-        "supernatural horror",
-        "enthusiastic"
+        "mexico",
+        "love of one's life",
+        "bisexuality",
+        "painter",
+        "surrealism",
+        "biography",
+        "disabled",
+        "lgbt",
+        "female artist",
+        "woman director",
+        "female painter",
+        "frida kahlo"
       ],
-      "voteCount": 1522,
-      "popularity": 5.0215,
+      "voteCount": 2181,
+      "popularity": 4.239,
       "actors": [
         "Kane Hodder",
         "Jeff Geddis",
@@ -94745,5 +94740,5 @@
     }
   ],
   "total": 1572,
-  "generated": "2026-07-06T14:09:11.000Z"
+  "generated": "2026-07-06T18:47:06.288Z"
 }

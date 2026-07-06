@@ -19,6 +19,7 @@ const FIXES = [
   { id: 'sG9O', type: 'tv',    tmdbId: 90972  }, // Station Eleven (2021)
   { id: 'K7fI', type: 'tv',    tmdbId: 204154 }, // Scavengers Reign (2023)
   { id: 'gACc', type: 'tv',    tmdbId: 74313  }, // Blue Planet II (2017)
+  { id: '28Vi', type: 'movie', tmdbId: 1360   }, // Frida (2002, Julie Taymor)
 ]
 
 const KW_CACHE_PATH = join(root, 'data/tmdb-keywords-cache.json')

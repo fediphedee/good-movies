@@ -18,6 +18,7 @@ const OVERRIDES: Record<string, string> = {
   'TvUy': 'Pee-wee_as_Himself.jpg',     // Pee-wee as Himself (2025)
   'nlQC': 'titane.jpg',                 // Titane (2021)
   'gACc': 'blue-planet-II.jpg',         // Blue Planet II (2017)
+  '28Vi': 'frida.jpg',                  // Frida (2002)
 }
 
 

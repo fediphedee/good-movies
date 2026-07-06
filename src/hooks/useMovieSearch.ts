@@ -175,10 +175,20 @@ const OBSCURE_CUES = [
   'overlooked', 'forgotten', 'niche', 'cult', 'indie gem', 'unknown',
 ]
 const FAMOUS_CUES = [
-  'famous', 'popular', 'well known', 'well-known', 'classic', 'iconic',
+  'famous', 'popular', 'well known', 'well-known', 'iconic',
   'mainstream', 'blockbuster', 'everyone', 'crowd pleaser', 'crowd-pleaser',
   'beloved', 'big hit',
 ]
+
+// "classic" → older films only (1980 or earlier). Year-based, not fame.
+const CLASSIC_MAX_YEAR = 1980
+const wantsClassic = (q: string) => /\bclassics?\b/.test(q)
+
+// Christmas films are hidden unless the query is explicitly festive; then only
+// they show. Matched on the "christmas" keyword.
+const CHRISTMAS_CUES = ['christmas', 'xmas', 'festive', 'winter']
+const wantsChristmas = (q: string) => CHRISTMAS_CUES.some(c => matchesCue(c, q))
+const isChristmasFilm = (m: Movie) => m.keywords.some(k => k.toLowerCase().includes('christmas'))
 
 function matchesCue(cue: string, fullQuery: string): boolean {
   return cue.includes(' ')
@@ -245,7 +255,6 @@ const THEME_TRIGGERS: Record<string, string> = {
   murder: 'murder', killing: 'murder',
   revenge: 'revenge',
   heist: 'heist',
-  christmas: 'christmas', xmas: 'christmas',
   'coming of age': 'coming of age', 'coming-of-age': 'coming of age',
   superhero: 'superhero', superheroes: 'superhero',
   lgbt: 'lgbt', gay: 'gay', lesbian: 'lgbt', queer: 'lgbt',
@@ -357,6 +366,8 @@ export function useMovieSearch() {
     const { langs, countries } = detectLangCountry(tokens, fullQuery)
     const bw = wantsBlackAndWhite(fullQuery)
     const themes = detectThemes(fullQuery)
+    const classic = wantsClassic(fullQuery)
+    const festive = wantsChristmas(fullQuery)
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -390,6 +401,10 @@ export function useMovieSearch() {
           : m.voteCount >= fame.famousMin
       })
       .filter(m => !bw || m.keywords.some(k => k.toLowerCase().includes('black and white')))
+      // classic = 1980 or earlier
+      .filter(m => !classic || m.year <= CLASSIC_MAX_YEAR)
+      // christmas films only surface for festive queries; hidden otherwise
+      .filter(m => (festive ? isChristmasFilm(m) : !isChristmasFilm(m)))
       .filter(m => {
         if (themes.size === 0) return true
         return m.keywords.some(k => {

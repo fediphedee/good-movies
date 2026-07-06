@@ -20,6 +20,7 @@ const OVERRIDES: Record<string, string> = {
   'gACc': 'blue-planet-II.jpg',         // Blue Planet II (2017)
   '28Vi': 'frida.jpg',                  // Frida (2002)
   'lXFe': 'fanny-and-alexander.jpg',    // Fanny and Alexander (1982)
+  'kIky': 'the-farewell.jpg',           // The Farewell (2019)
 }
 
 

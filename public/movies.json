@@ -42518,41 +42518,44 @@
       "watchedDate": "2020-02-12",
       "letterboxdUri": "https://boxd.it/kIky",
       "genres": [
-        "Animation",
-        "Drama",
-        "Fantasy"
+        "Comedy",
+        "Drama"
       ],
-      "runtime": 115,
-      "synopsis": "Fleeing the war, the immortal Machia, graced with eternal youth, finds a baby abandoned in the forest and decides to raise it as her own child, sparking a moving story between a mortal and a being who does not age.",
-      "posterPath": "/hL3NqRE2ccR4Y2sYSJTrmalRjrz.jpg",
-      "director": "Mari Okada",
+      "runtime": 100,
+      "synopsis": "A headstrong Chinese-American woman returns to China when her beloved grandmother is given a terminal diagnosis. Billi struggles with her family's decision to keep grandma in the dark about her own illness as they all stage an impromptu wedding to see grandma one last time.",
+      "posterPath": "/7ht2IMGynDSVQGvAXhAb83DLET8.jpg",
+      "director": "Lulu Wang",
       "moodTags": [
         "animation",
         "drama",
         "fantasy"
       ],
-      "tmdbId": 476292,
+      "tmdbId": 565310,
       "moods": [
-        "devastating",
         "warm",
-        "breezy",
-        "strange"
+        "breezy"
       ],
       "keywords": [
+        "grandparent grandchild relationship",
         "family relationships",
-        "coming of age",
-        "tragedy",
-        "dragon",
-        "military",
-        "anime",
-        "high fantasy",
-        "josei",
-        "hand drawn animation",
-        "family life",
-        "time skip"
+        "wedding",
+        "relationship",
+        "east asian lead",
+        "family reunion",
+        "grandmother",
+        "chinese american",
+        "family gathering",
+        "ethical dilemma",
+        "woman director",
+        "lung cancer",
+        "deadly disease",
+        "personal relationships",
+        "grandmother granddaughter relationship",
+        "asian american",
+        "dramatic"
       ],
-      "voteCount": 711,
-      "popularity": 4.8357,
+      "voteCount": 1555,
+      "popularity": 3.1346,
       "actors": [
         "Manaka Iwami",
         "Miyu Irino",
@@ -42565,9 +42568,10 @@
         "Miyuki Sawashiro",
         "Tomokazu Sugita"
       ],
-      "originalLanguage": "ja",
+      "originalLanguage": "en",
       "countries": [
-        "JP"
+        "CN",
+        "US"
       ]
     },
     {
@@ -94740,5 +94744,5 @@
     }
   ],
   "total": 1572,
-  "generated": "2026-07-06T18:47:06.288Z"
+  "generated": "2026-07-06T19:31:45.456Z"
 }

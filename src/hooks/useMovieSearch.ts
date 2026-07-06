@@ -35,7 +35,7 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   sad: ['devastating'], cry: ['devastating'], crying: ['devastating'],
   emotional: ['devastating'], heavy: ['devastating'], heartbreak: ['devastating'],
   gutting: ['devastating'], tragic: ['devastating'], devastat: ['devastating'],
-  feel: ['devastating'], feeling: ['devastating'], something: ['devastating'],
+  'feel something': ['devastating'], 'want to feel': ['devastating'],
   meaningful: ['devastating', 'cerebral'], profound: ['devastating', 'cerebral'],
 
   // cerebral
@@ -239,6 +239,58 @@ function detectLangCountry(tokens: string[], fullQuery: string) {
   return { langs, countries }
 }
 
+// Theme/subject cues → the TMDB keyword to hard-filter on. Curated from the
+// library's actual top keywords so matches are clean (no credits-stinger noise).
+const THEME_TRIGGERS: Record<string, string> = {
+  murder: 'murder', killing: 'murder',
+  revenge: 'revenge',
+  heist: 'heist',
+  christmas: 'christmas', xmas: 'christmas',
+  'coming of age': 'coming of age', 'coming-of-age': 'coming of age',
+  superhero: 'superhero', superheroes: 'superhero',
+  lgbt: 'lgbt', gay: 'gay', lesbian: 'lgbt', queer: 'lgbt',
+  dystopia: 'dystopia', dystopian: 'dystopia',
+  witch: 'witch', witches: 'witch',
+  vampire: 'vampire', vampires: 'vampire',
+  zombie: 'zombie', zombies: 'zombie',
+  alien: 'alien', aliens: 'alien',
+  'time travel': 'time travel',
+  'high school': 'high school',
+  wedding: 'wedding', weddings: 'wedding',
+  'road trip': 'road trip', 'road movie': 'road trip',
+  magic: 'magic', magical: 'magic',
+  obsession: 'obsession',
+  infidelity: 'infidelity', affair: 'infidelity', cheating: 'infidelity',
+  'serial killer': 'serial killer',
+  'mental illness': 'mental illness',
+  addiction: 'drugs', drugs: 'drugs',
+  pregnancy: 'pregnancy', pregnant: 'pregnancy',
+  biography: 'biography', biopic: 'biography',
+  friendship: 'friendship',
+  'new york': 'new york city',
+  paris: 'paris, france',
+  london: 'london, england',
+  wwii: 'world war ii', 'world war': 'world war',
+}
+
+const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+// Collect requested theme keywords from the query.
+function detectThemes(fullQuery: string): Set<string> {
+  const out = new Set<string>()
+  for (const [cue, keyword] of Object.entries(THEME_TRIGGERS)) {
+    if (matchesCue(cue, fullQuery)) out.add(keyword)
+  }
+  return out
+}
+
+// Black-and-white request → hard-filter to films tagged with the TMDB
+// "black and white" keyword.
+const BW_CUES = ['black and white', 'black & white', 'black-and-white', 'b&w', 'b & w', 'b and w', 'monochrome']
+function wantsBlackAndWhite(fullQuery: string): boolean {
+  return BW_CUES.some(c => fullQuery.includes(c))
+}
+
 function scoreMovie(movie: Movie, query: string, targetMoods: Set<string>): number {
   let score = 0
   const tokens = tokenize(query)
@@ -303,6 +355,8 @@ export function useMovieSearch() {
     const decade = parseDecade(query)
     const wantFame = fame ? detectFame(fullQuery) : null
     const { langs, countries } = detectLangCountry(tokens, fullQuery)
+    const bw = wantsBlackAndWhite(fullQuery)
+    const themes = detectThemes(fullQuery)
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -334,6 +388,14 @@ export function useMovieSearch() {
         return wantFame === 'obscure'
           ? m.voteCount <= fame.obscureMax
           : m.voteCount >= fame.famousMin
+      })
+      .filter(m => !bw || m.keywords.some(k => k.toLowerCase().includes('black and white')))
+      .filter(m => {
+        if (themes.size === 0) return true
+        return m.keywords.some(k => {
+          const kl = k.toLowerCase()
+          return [...themes].some(t => new RegExp(`\\b${escapeRegex(t)}\\b`).test(kl))
+        })
       })
       .filter(m => targetMoods.size === 0 || m.moods.some(mood => targetMoods.has(mood)))
       .map(m => ({ movie: m, score: scoreMovie(m, query, targetMoods) }))

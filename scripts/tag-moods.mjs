@@ -252,14 +252,17 @@ async function tmdb(path) {
   return res.json()
 }
 
+const escapeRegex = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
 function keywordsToMoods(keywords, genres, runtime) {
   const moodSet = new Set()
 
-  // Match keywords
+  // Match keywords: the pattern must appear as a whole word/phrase in the
+  // keyword (word boundaries), so "warehouse" no longer matches "war".
   for (const kw of keywords) {
     const kwLower = kw.toLowerCase()
     for (const [pattern, moods] of Object.entries(KEYWORD_MOODS)) {
-      if (kwLower.includes(pattern) || pattern.includes(kwLower)) {
+      if (new RegExp(`\\b${escapeRegex(pattern)}\\b`).test(kwLower)) {
         moods.forEach(m => moodSet.add(m))
       }
     }

@@ -379,6 +379,8 @@ export function useMovieSearch() {
     const festive = wantsChristmas(fullQuery)
     const musical = wantsMusical(fullQuery)
     const comedy = wantsComedy(fullQuery)
+    // "…I haven't seen" → surface obscure picks first (ascending popularity)
+    const obscureFirst = /haven'?t\s+(seen|watched|heard)|never\s+seen|unseen|underseen/.test(fullQuery)
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -433,7 +435,9 @@ export function useMovieSearch() {
       // always resolving to alphabetical order.
       .map(m => ({ movie: m, score: scoreMovie(m, query, targetMoods) + Math.random() * 0.35 }))
       .filter(({ score }) => score > 2)
-      .sort((a, b) => b.score - a.score)
+      .sort((a, b) => obscureFirst
+        ? ((a.movie.voteCount ?? Infinity) - (b.movie.voteCount ?? Infinity)) || (Math.random() - 0.5)
+        : b.score - a.score)
 
     return scored.map(({ movie }) => movie)
   }, [allMovies, fame])

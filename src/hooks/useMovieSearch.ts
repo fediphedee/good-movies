@@ -113,7 +113,7 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
 
   // y2k (aesthetic mood — literal decade numbers are handled by parseDecade)
   y2k: ['y2k'], millennium: ['y2k'],
-  retro: ['y2k', 'warm'], vintage: ['y2k', 'warm'],
+  retro: ['y2k', 'warm'],
 }
 
 // Genre labels → mood slugs (for "something horror", "a comedy" etc)
@@ -129,7 +129,6 @@ const GENRE_TRIGGERS: Record<string, string[]> = {
   'sci-fi': ['cerebral'],
   documentary: ['cerebral'],
   animation: ['warm', 'breezy'],
-  musical: ['electric', 'warm'],
   western: ['epic'],
   mystery: ['tense', 'twisted'],
   fantasy: ['strange'],
@@ -180,9 +179,18 @@ const FAMOUS_CUES = [
   'beloved', 'big hit',
 ]
 
-// "classic" → older films only (1980 or earlier). Year-based, not fame.
+// "classic" / "old" / "vintage" → older films only (1980 or earlier).
 const CLASSIC_MAX_YEAR = 1980
-const wantsClassic = (q: string) => /\bclassics?\b/.test(q)
+const wantsClassic = (q: string) => /\b(classics?|old|vintage)\b/.test(q)
+
+// "musical" → real musicals only (Music genre or a "musical" keyword), so
+// non-musical animated/Disney films don't leak in via mood.
+const wantsMusical = (q: string) => /\bmusicals?\b/.test(q)
+const isMusical = (m: Movie) =>
+  m.genres.includes('Music') || m.keywords.some(k => k.toLowerCase().includes('musical'))
+
+// "happy" / "laugh" → comedies only (hard genre filter).
+const wantsComedy = (q: string) => /\b(happy|laugh(s|ing)?)\b/.test(q)
 
 // Christmas films are hidden unless the query is explicitly festive; then only
 // they show. Matched on the "christmas" keyword.
@@ -255,6 +263,7 @@ const THEME_TRIGGERS: Record<string, string> = {
   murder: 'murder', killing: 'murder',
   revenge: 'revenge',
   heist: 'heist',
+  space: 'space',
   'coming of age': 'coming of age', 'coming-of-age': 'coming of age',
   superhero: 'superhero', superheroes: 'superhero',
   lgbt: 'lgbt', gay: 'gay', lesbian: 'lgbt', queer: 'lgbt',
@@ -368,6 +377,8 @@ export function useMovieSearch() {
     const themes = detectThemes(fullQuery)
     const classic = wantsClassic(fullQuery)
     const festive = wantsChristmas(fullQuery)
+    const musical = wantsMusical(fullQuery)
+    const comedy = wantsComedy(fullQuery)
     const targetMoods = new Set<string>()
 
     // Map query words → moods
@@ -405,6 +416,10 @@ export function useMovieSearch() {
       .filter(m => !classic || m.year <= CLASSIC_MAX_YEAR)
       // christmas films only surface for festive queries; hidden otherwise
       .filter(m => (festive ? isChristmasFilm(m) : !isChristmasFilm(m)))
+      // "musical" → real musicals only
+      .filter(m => !musical || isMusical(m))
+      // "happy" / "laugh" → comedies only
+      .filter(m => !comedy || m.genres.includes('Comedy'))
       .filter(m => {
         if (themes.size === 0) return true
         return m.keywords.some(k => {

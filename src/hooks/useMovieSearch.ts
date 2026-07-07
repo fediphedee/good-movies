@@ -218,7 +218,9 @@ function detectFame(fullQuery: string): 'obscure' | 'famous' | null {
 interface LangCue { lang?: string; country?: string }
 const LANGUAGE_TRIGGERS: Record<string, LangCue> = {
   italian: { lang: 'it', country: 'IT' }, italy: { lang: 'it', country: 'IT' },
-  french: { lang: 'fr', country: 'FR' }, france: { lang: 'fr', country: 'FR' },
+  // French films are French-language; France co-produces a lot of foreign
+  // cinema, so country FR is too noisy — match by language only.
+  french: { lang: 'fr' }, france: { lang: 'fr' },
   japanese: { lang: 'ja', country: 'JP' }, japan: { lang: 'ja', country: 'JP' },
   korean: { lang: 'ko', country: 'KR' }, korea: { lang: 'ko', country: 'KR' },
   spanish: { lang: 'es' }, spain: { lang: 'es', country: 'ES' },

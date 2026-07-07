@@ -18,7 +18,7 @@ export function Header({ onHome }: HeaderProps) {
       >
         <a
           href={import.meta.env.BASE_URL}
-          aria-label="Really Good Movies — home"
+          aria-label="Pretty Good Movies — home"
           onClick={e => {
             if (onHome) {
               e.preventDefault()
@@ -29,7 +29,7 @@ export function Header({ onHome }: HeaderProps) {
         >
           <img
             src={asset('/muybridge_race.gif')}
-            alt="Really Good Movies"
+            alt="Pretty Good Movies"
             style={{ height: '60px', display: 'block' }}
           />
         </a>

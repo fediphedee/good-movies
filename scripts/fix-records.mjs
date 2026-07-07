@@ -21,6 +21,7 @@ const FIXES = [
   { id: 'gACc', type: 'tv',    tmdbId: 74313  }, // Blue Planet II (2017)
   { id: '28Vi', type: 'movie', tmdbId: 1360   }, // Frida (2002, Julie Taymor)
   { id: 'kIky', type: 'movie', tmdbId: 565310 }, // The Farewell (2019, Lulu Wang)
+  { id: 'IWYq', type: 'tv',    tmdbId: 114655 }, // The Curse (2023, Fielder/Safdie)
 ]
 
 const KW_CACHE_PATH = join(root, 'data/tmdb-keywords-cache.json')

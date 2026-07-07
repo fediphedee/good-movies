@@ -21,6 +21,7 @@ const OVERRIDES: Record<string, string> = {
   '28Vi': 'frida.jpg',                  // Frida (2002)
   'lXFe': 'fanny-and-alexander.jpg',    // Fanny and Alexander (1982)
   'kIky': 'the-farewell.jpg',           // The Farewell (2019)
+  'IWYq': 'the-curse.jpg',              // The Curse (2023, mini-series)
 }
 
 

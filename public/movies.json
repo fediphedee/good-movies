@@ -873,7 +873,7 @@
         "deep blue"
       ],
       "voteCount": 342,
-      "popularity": 4.3392,
+      "popularity": 4.2597,
       "actors": [],
       "originalLanguage": "en",
       "countries": [
@@ -2548,7 +2548,7 @@
         "cerebral"
       ],
       "voteCount": 424,
-      "popularity": 11.2937,
+      "popularity": 10.387,
       "actors": [],
       "originalLanguage": "en",
       "countries": [
@@ -3001,22 +3001,37 @@
       "watchedDate": "2024-01-15",
       "letterboxdUri": "https://boxd.it/IWYq",
       "genres": [
-        "Horror"
+        "Comedy",
+        "Drama"
       ],
-      "runtime": 109,
-      "synopsis": "Aspiring to become a parkour influencer, a gifted young man from an exorcist family gets caught up in a swirl of spooky events at an eerie hotel.",
-      "posterPath": "/ocb5sGHk00Kw30qxdNJGfqvKWnl.jpg",
-      "director": "Liao Shih-han",
+      "runtime": null,
+      "synopsis": "An alleged curse disturbs the relationship of a newly married couple as they try to conceive a child while co-starring on their problematic new HGTV show.",
+      "posterPath": "/k2qJPaGFdyFXEEJpwG5HrmeNpjv.jpg",
+      "director": "Nathan Fielder, Benny Safdie",
       "moodTags": [
         "horror"
       ],
-      "tmdbId": 1033667,
+      "tmdbId": 114655,
       "moods": [
-        "gothic"
+        "cerebral",
+        "funny-dark",
+        "warm"
       ],
-      "keywords": [],
-      "voteCount": 22,
-      "popularity": 1.0427,
+      "keywords": [
+        "new mexico",
+        "married couple",
+        "narcissism",
+        "satire",
+        "dark comedy",
+        "curse",
+        "liberal",
+        "gentrification",
+        "indigenous community",
+        "meta",
+        "show within a show"
+      ],
+      "voteCount": 170,
+      "popularity": 7.0932,
       "actors": [
         "Zhang Ting-hu",
         "Lee Hsing-wen",
@@ -3029,9 +3044,9 @@
         "Chen Wei-min",
         "Vicky Tseng"
       ],
-      "originalLanguage": "zh",
+      "originalLanguage": "en",
       "countries": [
-        "TW"
+        "US"
       ]
     },
     {
@@ -7099,7 +7114,7 @@
         "sincere"
       ],
       "voteCount": 420,
-      "popularity": 11.6212,
+      "popularity": 10.109,
       "actors": [
         "Jithin Raj",
         "P.T. Manoj",
@@ -8038,7 +8053,7 @@
         "body horror"
       ],
       "voteCount": 1694,
-      "popularity": 2.8844,
+      "popularity": 2.7482,
       "actors": [
         "Emile Hirsch",
         "Lexi Medrano",
@@ -12513,7 +12528,7 @@
         "chile"
       ],
       "voteCount": 252,
-      "popularity": 0.7867,
+      "popularity": 0.8224,
       "actors": [
         "Henning Baum",
         "Solomon Gordon",
@@ -18260,7 +18275,7 @@
         "serious"
       ],
       "voteCount": 31,
-      "popularity": 2.9174,
+      "popularity": 2.5307,
       "actors": [],
       "originalLanguage": "en",
       "countries": [
@@ -42555,7 +42570,7 @@
         "dramatic"
       ],
       "voteCount": 1555,
-      "popularity": 3.1346,
+      "popularity": 2.6918,
       "actors": [
         "Manaka Iwami",
         "Miyu Irino",
@@ -53156,7 +53171,7 @@
         "frida kahlo"
       ],
       "voteCount": 2181,
-      "popularity": 4.239,
+      "popularity": 4.6983,
       "actors": [
         "Kane Hodder",
         "Jeff Geddis",
@@ -94744,5 +94759,5 @@
     }
   ],
   "total": 1572,
-  "generated": "2026-07-06T19:31:45.456Z"
+  "generated": "2026-07-07T07:30:34.165Z"
 }

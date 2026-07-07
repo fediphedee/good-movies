@@ -47,7 +47,7 @@ export function Header({ onHome }: HeaderProps) {
             flex: 1,
           }}
         >
-          Really Good<br />Movies
+          Pretty Good<br />Movies
         </p>
         <ThemeToggle />
       </div>

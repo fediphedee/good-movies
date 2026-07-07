@@ -1,0 +1,118 @@
+// Manually curated mumblecore canon (Wikipedia's film list + personal additions).
+// "mumblecore" searches hard-filter to these titles instead of the auto mood tag.
+// Matched by normalized title + year (±1 for premiere/release discrepancies).
+
+const MUMBLECORE_TITLES: [string, number][] = [
+  ['Funny Ha Ha', 2002],
+  ['All the Real Girls', 2003],
+  ['Kissing on the Mouth', 2005],
+  ['The Puffy Chair', 2005],
+  ['Mutual Appreciation', 2005],
+  ['Ellie Parker', 2005],
+  ['Dance Party USA', 2006],
+  ['LOL', 2006],
+  ['Young American Bodies', 2006],
+  ['Hannah Takes the Stairs', 2007],
+  ['Let Them Chirp Awhile', 2007],
+  ['Quiet City', 2007],
+  ['Hohokam', 2007],
+  ['Orphans', 2007],
+  ['Frownland', 2007],
+  ['Team Picture', 2007],
+  ['Pop Skull', 2007],
+  ['Baghead', 2008],
+  ['In Search of a Midnight Kiss', 2008],
+  ['The Pleasure of Being Robbed', 2008],
+  ['Nights and Weekends', 2008],
+  ['My Effortless Brilliance', 2008],
+  ['Yeast', 2008],
+  ['Luke and Brie Are on a First Date', 2008],
+  ["It's Nick's Birthday", 2009],
+  ['Goodbye Promise', 2009],
+  ['Alexander the Last', 2009],
+  ['Medicine for Melancholy', 2009],
+  ['Humpday', 2009],
+  ['Beeswax', 2009],
+  ['Daddy Longlegs', 2009],
+  ['Sorry, Thanks', 2009],
+  ['The Exploding Girl', 2009],
+  ['Breaking Upwards', 2009],
+  ['Cyrus', 2010],
+  ['The Freebie', 2010],
+  ['Guy and Madeline on a Park Bench', 2010],
+  ['Tiny Furniture', 2010],
+  ["You Won't Miss Me", 2010],
+  ['Overlook', 2010],
+  ['Art History', 2011],
+  ['Autoerotic', 2011],
+  ['Uncle Kent', 2011],
+  ['Entrance', 2011],
+  ['Silver Bullets', 2011],
+  ['Caitlin Plays Herself', 2011],
+  ["Your Sister's Sister", 2011],
+  ['Bellflower', 2011],
+  ['Mumblecore', 2011],
+  ['The Zone', 2011],
+  ['Another Earth', 2011],
+  ['Memory Lane', 2012],
+  ['The Do-Deca-Pentathlon', 2012],
+  ['The Color Wheel', 2012],
+  ['Frances Ha', 2012],
+  ['Nobody Walks', 2012],
+  ["Sun Don't Shine", 2012],
+  ['I Want Your Love', 2012],
+  ['Ivy League Exorcist: The Bobby Jindal Story', 2012],
+  ['Jeff, Who Lives at Home', 2012],
+  ['Save the Date', 2012],
+  ['Celeste & Jesse Forever', 2012],
+  ['Drinking Buddies', 2013],
+  ['All the Light in the Sky', 2013],
+  ['Touchy Feely', 2013],
+  ['I Love You, Apple, I Love You, Orange', 2013],
+  ['Coherence', 2013],
+  ['About Alex', 2014],
+  ['Swim Little Fish Swim', 2014],
+  ['Happy Christmas', 2014],
+  ['Sulemani Keeda', 2014],
+  ['The Overnight', 2015],
+  ['A Wonderful Cloud', 2015],
+  ['Midnight Delight', 2016],
+  ['Blue Jay', 2016],
+  ['Joshy', 2016],
+  ['Teenage Cocktail', 2016],
+  ['Easy', 2016],
+  ['Before I Fall', 2017],
+  ['Waiting for Violette', 2017],
+  ['Room 104', 2017],
+  ['Friends, Foes & Fireworks', 2018],
+  ['Support the Girls', 2018],
+  ['Importance (of Us)', 2018],
+  ['Only One Day in Berlin', 2018],
+  ['The Christmas Ride', 2020],
+  ['Shithouse', 2020],
+  ['Yelling Fire in an Empty Theater', 2023],
+  ['The Astrid Experience', 2023],
+  ['Connection at the End of the World', 2025],
+  ['Is This Thing On?', 2025],
+  ['Sorry, Baby', 2025],
+  ['The Baltimorons', 2025],
+]
+
+const normalizeTitle = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/['’‘"“”:.,!?()\-–—]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+const byTitle = new Map<string, number[]>()
+for (const [title, year] of MUMBLECORE_TITLES) {
+  const key = normalizeTitle(title)
+  byTitle.set(key, [...(byTitle.get(key) ?? []), year])
+}
+
+export function isMumblecore(title: string, year: number): boolean {
+  const years = byTitle.get(normalizeTitle(title))
+  return years !== undefined && years.some(y => Math.abs(y - year) <= 1)
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { asset } from '../lib/asset'
+import { isMumblecore } from '../lib/mumblecore'
 
 export interface Movie {
   id: string
@@ -106,10 +107,10 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   easy: ['breezy'], laugh: ['breezy'], comedy: ['breezy'],
   romantic: ['breezy', 'warm'], romcom: ['breezy'],
 
-  // mumblecore
-  mumblecore: ['mumblecore'], indie: ['mumblecore'], 'lo-fi': ['mumblecore'],
-  naturalistic: ['mumblecore'], talking: ['mumblecore', 'languid'],
-  relationship: ['mumblecore', 'devastating'], 'slice of life': ['mumblecore', 'languid'],
+  // mumblecore is a manual curated list (see lib/mumblecore.ts), not a mood —
+  // "mumblecore"/"indie"/"lo-fi" hard-filter to it via wantsMumblecore below
+  talking: ['languid'],
+  relationship: ['devastating'], 'slice of life': ['languid'],
 
   // y2k (aesthetic mood — literal decade numbers are handled by parseDecade)
   y2k: ['y2k'], millennium: ['y2k'],
@@ -189,8 +190,19 @@ const wantsMusical = (q: string) => /\bmusicals?\b/.test(q)
 const isMusical = (m: Movie) =>
   m.genres.includes('Music') || m.keywords.some(k => k.toLowerCase().includes('musical'))
 
-// "happy" / "laugh" → comedies only (hard genre filter).
-const wantsComedy = (q: string) => /\b(happy|laugh(s|ing)?)\b/.test(q)
+// "laugh" → comedies only (hard genre filter).
+const wantsComedy = (q: string) => /\blaugh(s|ing)?\b/.test(q)
+
+// "happy" / "joy" / "merry" → pure comedies only: Comedy genre without Drama,
+// so bittersweet dramedies don't leak into upbeat queries. Films that pass the
+// genre test but are anything-but-happy are excluded by title.
+const wantsPureComedy = (q: string) => /\b(happy|happiness|joy(ful)?|merry)\b/.test(q)
+const PURE_COMEDY_EXCLUDE = new Set(['Southland Tales'])
+const isPureComedy = (m: Movie) =>
+  m.genres.includes('Comedy') && !m.genres.includes('Drama') && !PURE_COMEDY_EXCLUDE.has(m.title)
+
+// "mumblecore" (and close cousins) → only films on the manual curated list.
+const wantsMumblecore = (q: string) => /\b(mumblecore|indie|lo-?fi|naturalistic)\b/.test(q)
 
 // Christmas films are hidden unless the query is explicitly festive; then only
 // they show. Matched on the "christmas" keyword.
@@ -381,6 +393,8 @@ export function useMovieSearch() {
     const festive = wantsChristmas(fullQuery)
     const musical = wantsMusical(fullQuery)
     const comedy = wantsComedy(fullQuery)
+    const pureComedy = wantsPureComedy(fullQuery)
+    const mumblecore = wantsMumblecore(fullQuery)
     // "…I haven't seen" → surface obscure picks first (ascending popularity)
     const obscureFirst = /haven'?t\s+(seen|watched|heard)|never\s+seen|unseen|underseen/.test(fullQuery)
     const targetMoods = new Set<string>()
@@ -422,8 +436,12 @@ export function useMovieSearch() {
       .filter(m => (festive ? isChristmasFilm(m) : !isChristmasFilm(m)))
       // "musical" → real musicals only
       .filter(m => !musical || isMusical(m))
-      // "happy" / "laugh" → comedies only
+      // "laugh" → comedies only
       .filter(m => !comedy || m.genres.includes('Comedy'))
+      // "happy" / "joy" / "merry" → pure comedies only (no Drama)
+      .filter(m => !pureComedy || isPureComedy(m))
+      // "mumblecore" → manual curated list only
+      .filter(m => !mumblecore || isMumblecore(m.title, m.year))
       .filter(m => {
         if (themes.size === 0) return true
         return m.keywords.some(k => {

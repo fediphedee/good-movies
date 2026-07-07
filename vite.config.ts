@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // Served from https://fediphedee.github.io/good-movies/
-  base: '/good-movies/',
+  // Netlify (custom domain) serves from the root; GitHub Pages from
+  // https://fediphedee.github.io/good-movies/. Netlify sets NETLIFY=true
+  // during its builds, so both deploys keep working.
+  base: process.env.NETLIFY ? '/' : '/good-movies/',
   plugins: [react(), tailwindcss()],
 })

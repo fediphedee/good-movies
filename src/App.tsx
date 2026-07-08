@@ -84,7 +84,7 @@ export default function App() {
     if (e.key === 'Enter') handleSearch(e.currentTarget.value)
   }
 
-  function usePrompt(p: string) {
+  function applyPrompt(p: string) {
     setQuery(p)
     setResults(search(p))
     setHasSearched(true)
@@ -211,7 +211,7 @@ export default function App() {
                 <Button
                   key={p}
                   variant="outline"
-                  onClick={() => usePrompt(p)}
+                  onClick={() => applyPrompt(p)}
                   className="text-xs tracking-wide text-(--muted) border-(--divider) hover:text-(--fg) hover:border-(--fg) px-(--space-8)! py-(--space-4)!"
                 >
                   {p}

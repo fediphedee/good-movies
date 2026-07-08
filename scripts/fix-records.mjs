@@ -22,6 +22,18 @@ const FIXES = [
   { id: '28Vi', type: 'movie', tmdbId: 1360   }, // Frida (2002, Julie Taymor)
   { id: 'kIky', type: 'movie', tmdbId: 565310 }, // The Farewell (2019, Lulu Wang)
   { id: 'IWYq', type: 'tv',    tmdbId: 114655 }, // The Curse (2023, Fielder/Safdie)
+  { id: 'ppHI', type: 'tv',    tmdbId: 81349  }, // Devs (2020, Alex Garland)
+  { id: 'u0FW', type: 'tv',    tmdbId: 118947 }, // The Pursuit of Love (2021, Emily Mortimer)
+  { id: 'u2h8', type: 'tv',    tmdbId: 115004 }, // Mare of Easttown (2021)
+  { id: 'Azw8', type: 'tv',    tmdbId: 157021 }, // The Last Movie Stars (2022)
+  { id: 'Wngm', type: 'tv',    tmdbId: 287967 }, // Billy Joel: And So It Goes (2025)
+  { id: 'wEUw', type: 'tv',    tmdbId: 131139 }, // NYC Epicenters 9/11➔2021½ (2021)
+  { id: 'ZbvA', type: 'tv',    tmdbId: 255251 }, // Sean Combs: The Reckoning (2025)
+  { id: 'XwoG', type: 'tv',    tmdbId: 298234 }, // aka Charlie Sheen (2025)
+  { id: '10m2G', type: 'tv',   tmdbId: 308112 }, // Mel Brooks: The 99 Year Old Man! (2026)
+  { id: 'usEs', type: 'tv',    tmdbId: 61015  }, // The '90s: The Last Great Decade? (2014)
+  // U1Wm (Black Mirror: USS Callister – Into Infinity) has no TMDB movie/tv
+  // record — it only exists as a Black Mirror episode — so it stays unmatched.
 ]
 
 const KW_CACHE_PATH = join(root, 'data/tmdb-keywords-cache.json')

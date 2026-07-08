@@ -873,8 +873,10 @@
         "deep blue"
       ],
       "voteCount": 342,
-      "popularity": 4.2597,
-      "actors": [],
+      "popularity": 4.5293,
+      "actors": [
+        "David Attenborough"
+      ],
       "originalLanguage": "en",
       "countries": [
         "GB"
@@ -2548,8 +2550,19 @@
         "cerebral"
       ],
       "voteCount": 424,
-      "popularity": 10.387,
-      "actors": [],
+      "popularity": 9.7633,
+      "actors": [
+        "Sunita Mani",
+        "Wunmi Mosaku",
+        "Alia Shawkat",
+        "Bob Stephenson",
+        "Ted Travelstead",
+        "Pollyanna McIntosh",
+        "Dash Williams",
+        "Sepideh Moafi",
+        "Freddy Rodríguez",
+        "Chris Diamantopoulos"
+      ],
       "originalLanguage": "en",
       "countries": [
         "US"
@@ -3031,18 +3044,18 @@
         "show within a show"
       ],
       "voteCount": 170,
-      "popularity": 7.0932,
+      "popularity": 5.6339,
       "actors": [
-        "Zhang Ting-hu",
-        "Lee Hsing-wen",
-        "Wu Yi-jung",
-        "Hsu An-chih",
-        "Chen Bo-zheng",
-        "Hangee Liu",
-        "Chang Lee",
-        "Lotus Wang",
-        "Chen Wei-min",
-        "Vicky Tseng"
+        "Emma Stone",
+        "Nathan Fielder",
+        "Benny Safdie",
+        "Barkhad Abdi",
+        "Oscar Avila",
+        "Hikmah Warsame",
+        "Christopher D. Calderon",
+        "Nizhonniya Austin",
+        "Edward Martinez",
+        "Sidni"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -7180,13 +7193,18 @@
         "sincere"
       ],
       "voteCount": 420,
-      "popularity": 10.109,
+      "popularity": 8.7798,
       "actors": [
-        "Jithin Raj",
-        "P.T. Manoj",
-        "Manglu Shreedhar",
-        "K.N Premkumar",
-        "Sanal Mananthavady"
+        "Mackenzie Davis",
+        "Himesh Patel",
+        "Matilda Lawler",
+        "David Wilmot",
+        "Nabhaan Rizwan",
+        "Daniel Zovatto",
+        "Philippine Velge",
+        "Lori Petty",
+        "Gael García Bernal",
+        "Timothy Simons"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -8118,19 +8136,19 @@
         "objectum sexuality",
         "body horror"
       ],
-      "voteCount": 1694,
-      "popularity": 2.7482,
+      "voteCount": 1695,
+      "popularity": 3.0003,
       "actors": [
-        "Emile Hirsch",
-        "Lexi Medrano",
-        "Charlie Saxton",
-        "Kelsey Grammer",
-        "Alfred Molina",
-        "Steven Yeun",
-        "Nick Frost",
-        "Colin O'Donoghue",
-        "Diego Luna",
-        "Tatiana Maslany"
+        "Vincent Lindon",
+        "Agathe Rousselle",
+        "Garance Marillier",
+        "Laïs Salameh",
+        "Mara Cissé",
+        "Marin Judas",
+        "Diong-Kéba Tacu",
+        "Myriem Akheddiou",
+        "Bertrand Bonello",
+        "Céline Carrère"
       ],
       "originalLanguage": "fr",
       "countries": [
@@ -13017,18 +13035,18 @@
         "chile"
       ],
       "voteCount": 252,
-      "popularity": 0.8224,
+      "popularity": 0.6792,
       "actors": [
-        "Henning Baum",
-        "Solomon Gordon",
-        "Annette Frier",
-        "Uwe Ochsenknecht",
-        "Christoph Maria Herbst",
-        "Milan Peschel",
-        "Rick Kavanian",
-        "Eden Gough",
-        "Leighanne Esperanzate",
-        "Kao Chenmin"
+        "Mariana di Girolamo",
+        "Gael García Bernal",
+        "Santiago Cabrera",
+        "Paola Giannini",
+        "Cristián Suárez",
+        "Mariana Loyola",
+        "Catalina Saavedra",
+        "Susana Hidalgo",
+        "Josefina Fiebelkorn",
+        "Giannina Fruttero"
       ],
       "originalLanguage": "es",
       "countries": [
@@ -19426,8 +19444,18 @@
         "serious"
       ],
       "voteCount": 31,
-      "popularity": 2.5307,
-      "actors": [],
+      "popularity": 2.6648,
+      "actors": [
+        "Paul Reubens",
+        "Cassandra Peterson",
+        "Debi Mazar",
+        "David Arquette",
+        "Natasha Lyonne",
+        "Lynne Marie Stewart",
+        "Tracy Newman",
+        "Tim Burton",
+        "Laraine Newman"
+      ],
       "originalLanguage": "en",
       "countries": [
         "US"
@@ -24188,22 +24216,37 @@
       "rating": 4,
       "watchedDate": "2022-12-11",
       "letterboxdUri": "https://boxd.it/Azw8",
-      "genres": [],
+      "genres": [
+        "Documentary"
+      ],
       "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
-      "director": null,
+      "synopsis": "A celebration of Paul Newman and Joanne Woodward’s iconic careers and decades-long partnership. Director Ethan Hawke brings life and color to this definitive history of their love, lives, and philanthropy.",
+      "posterPath": "/9L6AkTv9CDdxqwWICIB4OuLeNdM.jpg",
+      "director": "Emily Wachtel",
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "cerebral"
+      ],
+      "keywords": [
+        "husband wife relationship",
+        "biography",
+        "miniseries",
+        "movie star"
+      ],
+      "voteCount": 21,
+      "popularity": 5.7183,
+      "actors": [
+        "Paul Newman",
+        "Joanne Woodward"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 157021
     },
     {
       "id": "UbvU",
@@ -30070,22 +30113,42 @@
       "rating": 3.5,
       "watchedDate": "2025-08-01",
       "letterboxdUri": "https://boxd.it/Wngm",
-      "genres": [],
+      "genres": [
+        "Documentary"
+      ],
       "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
-      "director": null,
+      "synopsis": "An expansive portrait of the life and music of Billy Joel, exploring the love, loss, and personal struggles that fuel his songwriting. With unprecedented access to never-before-seen performances, home movies, and personal photographs, along with extensive, in-depth one-on-one interviews, the documentary intimately explores the life and work of Joel, whose music has endured across generations.",
+      "posterPath": "/xxXyWzAMNanhgiBzvfpRZJ5RdMU.jpg",
+      "director": "Susan Lacy, Jessica Levin",
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "electric",
+        "cerebral"
+      ],
+      "keywords": [
+        "composer",
+        "miniseries",
+        "singer-songwriter",
+        "music documentary",
+        "male pianist",
+        "life and career",
+        "american musician",
+        "biographical",
+        "biographical documentary"
+      ],
+      "voteCount": 13,
+      "popularity": 1.7562,
+      "actors": [
+        "Billy Joel"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 287967
     },
     {
       "id": "KRbM",
@@ -39724,22 +39787,31 @@
       "rating": 3.5,
       "watchedDate": "2022-05-09",
       "letterboxdUri": "https://boxd.it/wEUw",
-      "genres": [],
-      "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
+      "genres": [
+        "Documentary"
+      ],
+      "runtime": 112,
+      "synopsis": "An unprecedented, sweeping portrait of New Yorkers as they rebuild and rebound, from a devastating terrorist attack through the ongoing global pandemic, weaving together visual imagery and first-hand accounts from a variety of New Yorkers.",
+      "posterPath": "/qRQcNVk07ceysyUCoMlf27ytCUl.jpg",
       "director": null,
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
+      "moods": [
+        "cerebral"
+      ],
+      "keywords": [
+        "post 9/11"
+      ],
+      "voteCount": 4,
+      "popularity": 0.9124,
       "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 131139
     },
     {
       "id": "B4Le",
@@ -41586,22 +41658,48 @@
       "rating": 3.5,
       "watchedDate": "2025-12-08",
       "letterboxdUri": "https://boxd.it/ZbvA",
-      "genres": [],
+      "genres": [
+        "Documentary",
+        "Crime"
+      ],
       "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
+      "synopsis": "A revealing look at Sean 'Diddy' Combs' journey from music mogul to high-profile sexual offender, featuring footage and insider accounts that expose both his groundbreaking success with Bad Boy Entertainment and the troubling shadows behind his empire.",
+      "posterPath": "/zvozYQ1idmnkF0ugfTud82lpNIJ.jpg",
       "director": null,
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "cerebral",
+        "tense",
+        "electric"
+      ],
+      "keywords": [
+        "rape",
+        "hip-hop",
+        "investigation",
+        "miniseries",
+        "sex trafficking",
+        "true crime",
+        "sexual assault",
+        "meditative",
+        "rap",
+        "critical",
+        "empathetic",
+        "frustrated",
+        "subjective"
+      ],
+      "voteCount": 72,
+      "popularity": 6.8553,
+      "actors": [
+        "Sean Combs"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 255251
     },
     {
       "id": "29J8",
@@ -44310,18 +44408,18 @@
         "dramatic"
       ],
       "voteCount": 1555,
-      "popularity": 2.6918,
+      "popularity": 2.2734,
       "actors": [
-        "Manaka Iwami",
-        "Miyu Irino",
-        "Yuuki Sakurai",
-        "Ai Kayano",
-        "Yuki Kaji",
-        "Yoshimasa Hosoya",
-        "Rina Sato",
-        "Yoko Hikasa",
-        "Miyuki Sawashiro",
-        "Tomokazu Sugita"
+        "Awkwafina",
+        "Zhao Shuzhen",
+        "Hong Lu",
+        "Hong Lin",
+        "Tzi Ma",
+        "Diana Lin Xiaojie",
+        "Yang Xuejian",
+        "Becca Khalil",
+        "Jiang Yongbo",
+        "Chen Han"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -50090,22 +50188,53 @@
       "rating": 3,
       "watchedDate": "2025-09-17",
       "letterboxdUri": "https://boxd.it/XwoG",
-      "genres": [],
+      "genres": [
+        "Documentary"
+      ],
       "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
-      "director": null,
+      "synopsis": "Actor Charlie Sheen tells his story in this candid two-part documentary tracing his dazzling Hollywood rise, tabloid-topping fall and road to recovery.",
+      "posterPath": "/pHAM8Fzek7xwTbqmaxPXAjCAjz1.jpg",
+      "director": "Andrew Renzi",
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "devastating",
+        "cerebral"
+      ],
+      "keywords": [
+        "rise and fall",
+        "miniseries",
+        "redemption",
+        "recovering alcoholic",
+        "recovering addict",
+        "healing process",
+        "hollywood star",
+        "addiction recovery",
+        "healing journeys",
+        "life and career",
+        "life after personal tragedy",
+        "documentary portrait",
+        "biographical documentary"
+      ],
+      "voteCount": 58,
+      "popularity": 3.8911,
+      "actors": [
+        "Charlie Sheen",
+        "Jon Cryer",
+        "Sean Penn",
+        "Ramon Estevez",
+        "Chris Tucker",
+        "Tony Todd",
+        "Martin Sheen",
+        "Emilio Estevez"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 298234
     },
     {
       "id": "2b1i",
@@ -54910,19 +55039,19 @@
         "female painter",
         "frida kahlo"
       ],
-      "voteCount": 2181,
-      "popularity": 4.6983,
+      "voteCount": 2182,
+      "popularity": 4.9554,
       "actors": [
-        "Kane Hodder",
-        "Jeff Geddis",
-        "Lexa Doig",
-        "David Cronenberg",
-        "Markus Parilo",
-        "Jonathan Potts",
-        "Lisa Ryder",
-        "Dov Tiefenbach",
-        "Chuck Campbell",
-        "Melyssa Ade"
+        "Salma Hayek Pinault",
+        "Alfred Molina",
+        "Mía Maestro",
+        "Patricia Reyes Spíndola",
+        "Edward Norton",
+        "Antonio Banderas",
+        "Diego Luna",
+        "Roger Rees",
+        "Ashley Judd",
+        "Saffron Burrows"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -59047,22 +59176,62 @@
       "rating": 3,
       "watchedDate": "2021-06-14",
       "letterboxdUri": "https://boxd.it/u2h8",
-      "genres": [],
+      "genres": [
+        "Drama",
+        "Crime",
+        "Mystery"
+      ],
       "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
-      "director": null,
+      "synopsis": "A detective in a small Pennsylvania town investigates a local murder while trying to keep her life from falling apart.",
+      "posterPath": "/78aK4Msbr22A5PGa6PZV0pAvdwf.jpg",
+      "director": "Brad Ingelsby",
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "tense",
+        "devastating",
+        "warm",
+        "twisted"
+      ],
+      "keywords": [
+        "detective",
+        "drug abuse",
+        "pennsylvania, usa",
+        "small town",
+        "therapist",
+        "investigation",
+        "alcoholism",
+        "murder",
+        "dysfunctional family",
+        "miniseries",
+        "whodunit",
+        "divorcee",
+        "death",
+        "female detective",
+        "mysterious disappearance",
+        "tense"
+      ],
+      "voteCount": 1690,
+      "popularity": 9.9666,
+      "actors": [
+        "Kate Winslet",
+        "Jean Smart",
+        "Julianne Nicholson",
+        "Angourie Rice",
+        "Evan Peters",
+        "Sosie Bacon",
+        "David Denman",
+        "Neal Huff",
+        "James McArdle",
+        "Guy Pearce"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 115004
     },
     {
       "id": "2bd4",
@@ -59135,22 +59304,45 @@
       "rating": 3,
       "watchedDate": "2026-02-13",
       "letterboxdUri": "https://boxd.it/10m2G",
-      "genres": [],
+      "genres": [
+        "Documentary",
+        "Comedy"
+      ],
       "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
+      "synopsis": "Directors Judd Apatow and Michael Bonfiglio explore the life and legacy of Mel Brooks, one of the most enduring comedic voices of our time.",
+      "posterPath": "/htSwFYOyepCbLUUuyCtvC0uCQ3b.jpg",
       "director": null,
       "moodTags": [
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "cerebral",
+        "breezy"
+      ],
+      "keywords": [
+        "miniseries",
+        "biographical documentary"
+      ],
+      "voteCount": 13,
+      "popularity": 4.7394,
+      "actors": [
+        "Mel Brooks",
+        "Judd Apatow",
+        "Rob Reiner",
+        "Jerry Seinfeld",
+        "Nicholas Brooks",
+        "Larry Karaszewski",
+        "Scott Alexander",
+        "Dana Gould",
+        "Adam Sandler",
+        "Ben Stiller"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 308112
     },
     {
       "id": "244u",
@@ -77306,20 +77498,44 @@
       "rating": 2.5,
       "watchedDate": "2021-06-04",
       "letterboxdUri": "https://boxd.it/u0FW",
-      "genres": [],
-      "runtime": null,
-      "synopsis": "Mini drama about 2 guys that feel love one for each other, but their parents don't accept that relationship, So they decide to escape together and thus be happy for an eternity.",
-      "posterPath": "/juCJF8WlZo5iOKfciHLmpEf7nVT.jpg",
-      "director": "Enoc Daniel Rodriguez",
+      "genres": [
+        "Drama"
+      ],
+      "runtime": 59,
+      "synopsis": "Longing for love, obsessed with sex, Linda is on the hunt for the perfect lover. But finding Mr. Right is much harder than she thought.",
+      "posterPath": "/dHSLmNXesBcfSl3Th7EUa1Y71eJ.jpg",
+      "director": "Emily Mortimer",
       "moodTags": [],
-      "tmdbId": 741286,
-      "moods": [],
-      "keywords": [],
-      "voteCount": 0,
-      "popularity": 0.0495,
-      "actors": [],
+      "tmdbId": 118947,
+      "moods": [
+        "warm",
+        "sharp"
+      ],
+      "keywords": [
+        "based on novel or book",
+        "friendship",
+        "friends",
+        "romance",
+        "miniseries"
+      ],
+      "voteCount": 47,
+      "popularity": 2.1871,
+      "actors": [
+        "Lily James",
+        "Emily Beecham",
+        "Andrew Scott",
+        "Dominic West",
+        "Emily Mortimer",
+        "Dolly Wells",
+        "Beattie Edmondson",
+        "Assaad Bouab",
+        "Shazad Latif",
+        "Freddie Fox"
+      ],
       "originalLanguage": "en",
-      "countries": []
+      "countries": [
+        "GB"
+      ]
     },
     {
       "id": "8bdA",
@@ -84460,23 +84676,36 @@
       "rating": 2,
       "watchedDate": "2022-06-17",
       "letterboxdUri": "https://boxd.it/usEs",
-      "genres": [],
-      "runtime": null,
-      "synopsis": null,
-      "posterPath": null,
+      "genres": [
+        "Documentary"
+      ],
+      "runtime": 90,
+      "synopsis": "The '90s: The Last Great Decade? revisits the decade through \"inside out\" storytelling and analysis via 120 original interviews—from unsung heroes behind the decade's most riveting stories to the biggest names in politics, tech, movies and music. They reveal a decade of highs and lows: Bill Clinton swept into office on the promise of change; we all made new \"Friends\"; the LA Riots kept us glued to our TVs; Nirvana gave Generation X a voice but everyone danced the Macarena; and \"The Real World\" and Jerry Springer changed the television programming landscape. With a star-studded cast of actors, eyewitnesses, politicians and celebrity interviewees, The '90s tells the story of 10 years before boom turned into bust; 10 years when the Web was wide open; 10 years before global terror hit hard.",
+      "posterPath": "/mkOzYqhj19RggYcX9tBk4FK4rkh.jpg",
       "director": null,
       "moodTags": [
         "2000s",
         "contemporary",
         "modern"
       ],
-      "moods": [],
-      "keywords": [],
-      "voteCount": null,
-      "popularity": null,
-      "actors": [],
-      "originalLanguage": null,
-      "countries": []
+      "moods": [
+        "warm",
+        "y2k"
+      ],
+      "keywords": [
+        "nostalgia",
+        "1990s"
+      ],
+      "voteCount": 7,
+      "popularity": 0.8547,
+      "actors": [
+        "Rob Lowe"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ],
+      "tmdbId": 61015
     },
     {
       "id": "2AwK",
@@ -91981,28 +92210,48 @@
       "watchedDate": "2020-06-22",
       "letterboxdUri": "https://boxd.it/ppHI",
       "genres": [
-        "Animation"
+        "Sci-Fi & Fantasy",
+        "Drama",
+        "Mystery"
       ],
-      "runtime": 3,
-      "synopsis": "Reality demands radical changes in the construction of a human being.",
-      "posterPath": "/2slHYYuAoh2aunoQLHeARf50WIX.jpg",
-      "director": "Sasha Svirsky",
+      "runtime": 52,
+      "synopsis": "Young computer engineer Lily Chan investigates the secretive development division of her employer, a cutting-edge tech company based in San Francisco, which she believes is behind the murder of her boyfriend.",
+      "posterPath": "/uv63iNWOh69bSJYJQZjiX6n8B3m.jpg",
+      "director": "Alex Garland",
       "moodTags": [
         "animation"
       ],
-      "tmdbId": 620481,
+      "tmdbId": 81349,
       "moods": [
-        "warm",
-        "breezy",
+        "tense",
+        "twisted",
         "sharp"
       ],
-      "keywords": [],
-      "voteCount": 1,
-      "popularity": 0.0547,
-      "actors": [],
-      "originalLanguage": "ru",
+      "keywords": [
+        "simulation",
+        "silicon valley",
+        "mysterious",
+        "complex",
+        "anxious",
+        "determinism",
+        "intimate",
+        "baffled",
+        "distressing"
+      ],
+      "voteCount": 814,
+      "popularity": 9.7443,
+      "actors": [
+        "Sonoya Mizuno",
+        "Nick Offerman",
+        "Jin Ha",
+        "Cailee Spaeny",
+        "Stephen McKinley Henderson",
+        "Alison Pill",
+        "Zach Grenier"
+      ],
+      "originalLanguage": "en",
       "countries": [
-        "RU"
+        "US"
       ]
     },
     {
@@ -96499,5 +96748,5 @@
     }
   ],
   "total": 1601,
-  "generated": "2026-07-08T18:41:07.169Z"
+  "generated": "2026-07-08T19:17:14.948Z"
 }

@@ -26,10 +26,31 @@ async function tmdb(path) {
   return res.json()
 }
 
-async function castFor(tmdbId) {
-  const key = String(tmdbId)
+// Letterboxd ids of records that are TV series: their tmdbId lives in TMDB's
+// TV namespace, where the same number can belong to an unrelated movie, so
+// cast must come from /tv/…/credits (cached under a tv: key).
+const TV_IDS = new Set([
+  'TvUy', // Pee-wee as Himself
+  'sG9O', // Station Eleven
+  'K7fI', // Scavengers Reign
+  'gACc', // Blue Planet II
+  'IWYq', // The Curse
+  'ppHI', // Devs
+  'u0FW', // The Pursuit of Love
+  'u2h8', // Mare of Easttown
+  'Azw8', // The Last Movie Stars
+  'Wngm', // Billy Joel: And So It Goes
+  'wEUw', // NYC Epicenters 9/11➔2021½
+  'ZbvA', // Sean Combs: The Reckoning
+  'XwoG', // aka Charlie Sheen
+  '10m2G', // Mel Brooks: The 99 Year Old Man!
+  'usEs', // The '90s: The Last Great Decade?
+])
+
+async function castFor(tmdbId, type) {
+  const key = type === 'tv' ? `tv:${tmdbId}` : String(tmdbId)
   if (cache[key]) return cache[key]
-  const credits = await tmdb(`/movie/${tmdbId}/credits?language=en-US`)
+  const credits = await tmdb(`/${type}/${tmdbId}/credits?language=en-US`)
   const actors = credits.cast?.slice(0, 10).map(c => c.name) || []
   cache[key] = actors
   return actors
@@ -48,7 +69,7 @@ console.log(`Backfilling cast for ${movies.length} movies…`)
 await processInBatches(movies, 15, async (movie) => {
   if (!movie.tmdbId) { movie.actors = []; missing++; return }
   try {
-    movie.actors = await castFor(movie.tmdbId)
+    movie.actors = await castFor(movie.tmdbId, TV_IDS.has(movie.id) ? 'tv' : 'movie')
     done++
   } catch (err) {
     movie.actors = []

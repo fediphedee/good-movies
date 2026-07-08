@@ -4535,6 +4535,72 @@
       ]
     },
     {
+      "id": "blue-valentine",
+      "title": "Blue Valentine",
+      "year": 2010,
+      "rating": 4.5,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/blue-valentine",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 112,
+      "synopsis": "Dean and Cindy live a quiet life in a modest neighborhood. They appear to have the world at their feet at the outset of the relationship. However, his lack of ambition and her retreat into self-absorption cause potentially irreversible cracks in their marriage.",
+      "posterPath": "/dc8BdKnDY5Iy28KzUGtHIXuqqFK.jpg",
+      "director": "Derek Cianfrance",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 46705,
+      "moods": [
+        "devastating",
+        "cerebral",
+        "twisted"
+      ],
+      "keywords": [
+        "depression",
+        "dancing",
+        "nurse",
+        "pennsylvania, usa",
+        "love at first sight",
+        "pregnancy",
+        "classroom",
+        "marriage",
+        "bridge",
+        "dysfunctional family",
+        "alcoholism",
+        "love",
+        "divorce",
+        "nonlinear timeline",
+        "shocking",
+        "abortion",
+        "student",
+        "broken marriage",
+        "romantic"
+      ],
+      "voteCount": 3537,
+      "popularity": 4.1089,
+      "actors": [
+        "Ryan Gosling",
+        "Michelle Williams",
+        "John Doman",
+        "Mike Vogel",
+        "Ben Shenkman",
+        "Jen Jones",
+        "Maryann Plunkett",
+        "Faith Wladyka",
+        "Marshall Johnson",
+        "James Benatti"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "226e",
       "title": "Carlito's Way",
       "year": 1993,
@@ -8742,6 +8808,68 @@
       ]
     },
     {
+      "id": "about-a-boy",
+      "title": "About a Boy",
+      "year": 2002,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/about-a-boy",
+      "genres": [
+        "Drama",
+        "Comedy",
+        "Romance"
+      ],
+      "runtime": 101,
+      "synopsis": "Will Freeman is a good-looking, smooth-talking bachelor whose primary goal in life is avoiding any kind of responsibility. But when he invents an imaginary son in order to meet attractive single moms, Will gets a hilarious lesson about life from a bright, but hopelessly geeky 12-year-old named Marcus. Now, as Will struggles to teach Marcus the art of being cool, Marcus teaches Will that you're never too old to grow up.",
+      "posterPath": "/qoZ1bD0q9EFqcNiEYbEigsRcNCt.jpg",
+      "director": "Chris Weitz",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 245,
+      "moods": [
+        "warm",
+        "electric"
+      ],
+      "keywords": [
+        "friendship",
+        "london, england",
+        "rock 'n' roll",
+        "rap music",
+        "based on novel or book",
+        "single parent",
+        "becoming an adult",
+        "bachelor",
+        "single",
+        "christmas",
+        "hopeful",
+        "optimistic"
+      ],
+      "voteCount": 2425,
+      "popularity": 2.778,
+      "actors": [
+        "Hugh Grant",
+        "Nicholas Hoult",
+        "Toni Collette",
+        "Rachel Weisz",
+        "Natalia Tena",
+        "Victoria Smurfit",
+        "Augustus Prew",
+        "Sharon Small",
+        "Madison Cook",
+        "Jordan Cook"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "US",
+        "FR",
+        "DE"
+      ]
+    },
+    {
       "id": "lx5a",
       "title": "After Yang",
       "year": 2021,
@@ -8920,6 +9048,60 @@
       "originalLanguage": "en",
       "countries": [
         "GB",
+        "US"
+      ]
+    },
+    {
+      "id": "am-i-ok",
+      "title": "Am I OK?",
+      "year": 2022,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/am-i-ok",
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Drama"
+      ],
+      "runtime": 86,
+      "synopsis": "Lucy and Jane have been best friends for most of their lives and think they know everything there is to know about each other. But when Jane announces she's moving to London, Lucy reveals a long-held secret. As Jane tries to help Lucy, their friendship is thrown into chaos.",
+      "posterPath": "/qKkaG7HVFVe7C1JuxTGwNz0eSyL.jpg",
+      "director": "Stephanie Allynne",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 641934,
+      "moods": [
+        "warm",
+        "breezy",
+        "sharp"
+      ],
+      "keywords": [
+        "coming out",
+        "friendship",
+        "female friendship",
+        "lgbt",
+        "woman director",
+        "reflective",
+        "lesbian"
+      ],
+      "voteCount": 345,
+      "popularity": 2.2878,
+      "actors": [
+        "Dakota Johnson",
+        "Sonoya Mizuno",
+        "Jermaine Fowler",
+        "Kiersey Clemons",
+        "Molly Gordon",
+        "Whitmer Thomas",
+        "Sean Hayes",
+        "Tig Notaro",
+        "Odessa A'zion",
+        "Patrick McDonald"
+      ],
+      "originalLanguage": "en",
+      "countries": [
         "US"
       ]
     },
@@ -9719,6 +9901,61 @@
       ]
     },
     {
+      "id": "away-we-go",
+      "title": "Away We Go",
+      "year": 2009,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/away-we-go",
+      "genres": [
+        "Drama",
+        "Comedy",
+        "Romance"
+      ],
+      "runtime": 98,
+      "synopsis": "Verona and Burt have moved to Colorado to be close to Burt's parents but, with Verona expecting their first child, Burt's parents inexplicably decide to move to Belgium, now leaving them in a place they hate and without a support structure in place. They set off on a whirlwind tour of of disparate locations where they have friends or relatives, sampling not only different cities and climates but also different families. Along the way they realize that the journey is less about discovering where they want to live and more about figuring out what type of parents they want to be.",
+      "posterPath": "/zWxjopWXpnC1vSbnO7mw2URna22.jpg",
+      "director": "Sam Mendes",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 19255,
+      "moods": [
+        "breezy",
+        "warm"
+      ],
+      "keywords": [
+        "interracial relationship",
+        "biracial",
+        "bedtime story",
+        "medical illustrator",
+        "disguised voice",
+        "student protest",
+        "sonogram"
+      ],
+      "voteCount": 635,
+      "popularity": 1.3147,
+      "actors": [
+        "John Krasinski",
+        "Maya Rudolph",
+        "Carmen Ejogo",
+        "Catherine O'Hara",
+        "Jeff Daniels",
+        "Allison Janney",
+        "Jim Gaffigan",
+        "Samantha Pryor",
+        "Conor Carroll",
+        "Maggie Gyllenhaal"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "US"
+      ]
+    },
+    {
       "id": "1Yh8",
       "title": "Babe",
       "year": 1995,
@@ -10438,6 +10675,75 @@
       ]
     },
     {
+      "id": "brick",
+      "title": "Brick",
+      "year": 2005,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/brick",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Crime"
+      ],
+      "runtime": 110,
+      "synopsis": "A teenage loner pushes his way into the underworld of a high school crime ring to investigate the disappearance of his ex-girlfriend.",
+      "posterPath": "/5WVk8JpNIxepn4fpZzQeCumkOL5.jpg",
+      "director": "Rian Johnson",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 9270,
+      "moods": [
+        "tense",
+        "twisted",
+        "electric",
+        "late-night"
+      ],
+      "keywords": [
+        "drug dealer",
+        "high school",
+        "california",
+        "ex-girlfriend",
+        "investigation",
+        "manipulation",
+        "lone wolf",
+        "halloween party",
+        "murder",
+        "disappearance",
+        "whodunit",
+        "drugs",
+        "criminal underworld",
+        "drug lord",
+        "ex-boyfriend ex-girlfriend relationship",
+        "loner",
+        "loose cannon",
+        "paranoid",
+        "criminal organization",
+        "murder mystery"
+      ],
+      "voteCount": 1385,
+      "popularity": 2.2843,
+      "actors": [
+        "Joseph Gordon-Levitt",
+        "Nora Zehetner",
+        "Matt O'Leary",
+        "Noah Fleiss",
+        "Lukas Haas",
+        "Meagan Good",
+        "Emilie de Ravin",
+        "Noah Segan",
+        "Brian J. White",
+        "Richard Roundtree"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "rac",
       "title": "Bridesmaids",
       "year": 2011,
@@ -10636,6 +10942,63 @@
         "KR",
         "US",
         "CA"
+      ]
+    },
+    {
+      "id": "byzantium",
+      "title": "Byzantium",
+      "year": 2012,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/byzantium",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Thriller"
+      ],
+      "runtime": 118,
+      "synopsis": "Residents of a coastal town learn, with deadly consequences, the secret shared by the two mysterious women who have sought refuge at a local boarding house, the Byzantium.",
+      "posterPath": "/kFkfRnXz6Rk9tAKgUznJH1FURQ6.jpg",
+      "director": "Neil Jordan",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 102780,
+      "moods": [
+        "gothic",
+        "strange",
+        "tense"
+      ],
+      "keywords": [
+        "parent child relationship",
+        "vampire",
+        "bite",
+        "bat",
+        "gothic horror",
+        "blood sucking"
+      ],
+      "voteCount": 969,
+      "popularity": 1.948,
+      "actors": [
+        "Gemma Arterton",
+        "Saoirse Ronan",
+        "Sam Riley",
+        "Jonny Lee Miller",
+        "Caleb Landry Jones",
+        "Daniel Mays",
+        "Kate Ashfield",
+        "Maria Doyle Kennedy",
+        "Uri Gavriel",
+        "Thure Lindhardt"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "IE",
+        "GB",
+        "US",
+        "BE"
       ]
     },
     {
@@ -11381,6 +11744,74 @@
       ],
       "originalLanguage": "en",
       "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "constantine",
+      "title": "Constantine",
+      "year": 2005,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/constantine",
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Horror"
+      ],
+      "runtime": 121,
+      "synopsis": "John Constantine has literally been to Hell and back. When he teams up with a policewoman to solve the mysterious suicide of her twin sister, their investigation takes them through the world of demons and angels that exists beneath the landscape of contemporary Los Angeles.",
+      "posterPath": "/vPYgvd2MwHlxTamAOjwVQp4qs1W.jpg",
+      "director": "Francis Lawrence",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 561,
+      "moods": [
+        "strange",
+        "gothic"
+      ],
+      "keywords": [
+        "self sacrifice",
+        "angel",
+        "christianity",
+        "confession",
+        "superhero",
+        "supernatural",
+        "exorcism",
+        "archangel gabriel",
+        "holy water",
+        "redemption",
+        "based on comic",
+        "lucifer",
+        "demon",
+        "biting",
+        "occult",
+        "aftercreditsstinger",
+        "demon hunter",
+        "mysticism",
+        "supernatural power",
+        "good versus evil"
+      ],
+      "voteCount": 8263,
+      "popularity": 15.8306,
+      "actors": [
+        "Keanu Reeves",
+        "Rachel Weisz",
+        "Shia LaBeouf",
+        "Djimon Hounsou",
+        "Max Baker",
+        "Pruitt Taylor Vince",
+        "Gavin Rossdale",
+        "Tilda Swinton",
+        "Peter Stormare",
+        "Jesse Ramirez"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "DE",
         "US"
       ]
     },
@@ -12503,6 +12934,64 @@
       ]
     },
     {
+      "id": "elizabethtown",
+      "title": "Elizabethtown",
+      "year": 2005,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/elizabethtown",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 123,
+      "synopsis": "Drew Baylor is fired after causing his shoe company to lose hundreds of millions of dollars. To make matters worse, he's also dumped by his girlfriend. On the verge of ending it all, Drew gets a new lease on life when he returns to his family's small Kentucky hometown after his father dies. Along the way, he meets a flight attendant with whom he falls in love.",
+      "posterPath": "/mOdlzAQxhMgiaazRzif1YtJzg9s.jpg",
+      "director": "Cameron Crowe",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 9621,
+      "moods": [
+        "devastating",
+        "breezy",
+        "warm"
+      ],
+      "keywords": [
+        "hotel room",
+        "new love",
+        "airplane",
+        "funeral",
+        "suicide attempt",
+        "lovers",
+        "falling in love",
+        "hometown",
+        "return to hometown"
+      ],
+      "voteCount": 1200,
+      "popularity": 2.8814,
+      "actors": [
+        "Orlando Bloom",
+        "Kirsten Dunst",
+        "Susan Sarandon",
+        "Alec Baldwin",
+        "Bruce McGill",
+        "Judy Greer",
+        "Jessica Biel",
+        "Paul Schneider",
+        "Loudon Wainwright III",
+        "Gailard Sartain"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US",
+        "DE"
+      ]
+    },
+    {
       "id": "jHWa",
       "title": "Ema",
       "year": 2019,
@@ -12804,6 +13293,60 @@
         "Harry Shum Jr.",
         "Biff Wiff",
         "Sunita Mani"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "fantasia",
+      "title": "Fantasia",
+      "year": 1940,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/fantasia",
+      "genres": [
+        "Animation",
+        "Family",
+        "Fantasy"
+      ],
+      "runtime": 124,
+      "synopsis": "Walt Disney's timeless masterpiece is an extravaganza of sight and sound! See the music come to life, hear the pictures burst into song and experience the excitement that is Fantasia over and over again.",
+      "posterPath": "/5m9njnidjR0syG2gpVPVgcEMB2X.jpg",
+      "director": "Samuel Armstrong",
+      "moodTags": [
+        "classic",
+        "old hollywood",
+        "black and white"
+      ],
+      "tmdbId": 756,
+      "moods": [
+        "electric",
+        "warm",
+        "breezy",
+        "strange"
+      ],
+      "keywords": [
+        "classical music",
+        "cartoon",
+        "villain",
+        "orchestra",
+        "musical",
+        "cartoon mouse",
+        "wizard",
+        "live action and animation",
+        "whimsical",
+        "amused",
+        "joyful"
+      ],
+      "voteCount": 3328,
+      "popularity": 4.2505,
+      "actors": [
+        "Deems Taylor",
+        "Walt Disney",
+        "Julietta Novis",
+        "Leopold Stokowski"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -13266,6 +13809,58 @@
       ]
     },
     {
+      "id": "foxcatcher",
+      "title": "Foxcatcher",
+      "year": 2014,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/foxcatcher",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "runtime": 134,
+      "synopsis": "The greatest Olympic Wrestling Champion brother team joins Team Foxcatcher led by multimillionaire sponsor John E. du Pont as they train for the 1988 games in Seoul - a union that leads to unlikely circumstances.",
+      "posterPath": "/w6Sl079QtUcQ9dVQ2RP6aN9NBXx.jpg",
+      "director": "Bennett Miller",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 87492,
+      "moods": [
+        "devastating",
+        "tense"
+      ],
+      "keywords": [
+        "sports",
+        "wrestling",
+        "biography",
+        "based on true story",
+        "tragedy",
+        "brothers"
+      ],
+      "voteCount": 2492,
+      "popularity": 1.7967,
+      "actors": [
+        "Steve Carell",
+        "Channing Tatum",
+        "Mark Ruffalo",
+        "Sienna Miller",
+        "Vanessa Redgrave",
+        "Anthony Michael Hall",
+        "Guy Boyd",
+        "Brett Rice",
+        "Jackson Frazer",
+        "Samara Lee"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "2VCa",
       "title": "From Up on Poppy Hill",
       "year": 2011,
@@ -13446,6 +14041,69 @@
       ]
     },
     {
+      "id": "gigi",
+      "title": "Gigi",
+      "year": 1958,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/gigi",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "runtime": 115,
+      "synopsis": "A home, a motorcar, servants, the latest fashions: the most eligible and most finicky bachelor in Paris offers them all to Gigi. But she, who's gone from girlish gawkishness to cultured glamour before our eyes, yearns for that wonderful something money can't buy.",
+      "posterPath": "/3GSuecnDr4N5ZaqTrwElSzt6eC2.jpg",
+      "director": "Vincente Minnelli",
+      "moodTags": [
+        "classic",
+        "old hollywood",
+        "black and white"
+      ],
+      "tmdbId": 17281,
+      "moods": [
+        "cerebral",
+        "breezy",
+        "warm"
+      ],
+      "keywords": [
+        "paris, france",
+        "based on novel or book",
+        "jewelry",
+        "courtesan",
+        "musical",
+        "champagne",
+        "based on play or musical",
+        "coming of age",
+        "playboy",
+        "love",
+        "memory",
+        "class differences",
+        "park",
+        "courtship",
+        "ice rink",
+        "bois de boulogne"
+      ],
+      "voteCount": 350,
+      "popularity": 2.6912,
+      "actors": [
+        "Leslie Caron",
+        "Maurice Chevalier",
+        "Louis Jourdan",
+        "Hermione Gingold",
+        "Eva Gabor",
+        "Jacques Bergerac",
+        "Isabel Jeans",
+        "John Abbott",
+        "Corinne Marchand",
+        "Marie-Hélène Arnaud"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "7WyI",
       "title": "Girlhood",
       "year": 2014,
@@ -13558,6 +14216,61 @@
       "countries": [
         "GB",
         "US"
+      ]
+    },
+    {
+      "id": "good-bye-lenin",
+      "title": "Good Bye, Lenin!",
+      "year": 2003,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/good-bye-lenin",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 121,
+      "synopsis": "Alex Kerner's mother was in a coma while the Berlin wall fell. When she wakes up he must try to keep her from learning what happened (as she was an avid communist supporter) to avoid shocking her which could lead to another heart attack.",
+      "posterPath": "/uHk1oGEbnvQGLnyiiYxTslZLoog.jpg",
+      "director": "Wolfgang Becker",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 338,
+      "moods": [
+        "devastating",
+        "breezy"
+      ],
+      "keywords": [
+        "husband wife relationship",
+        "coma",
+        "bureaucracy",
+        "police state",
+        "berlin wall",
+        "loss of loved one",
+        "german democratic republic",
+        "socialism",
+        "single"
+      ],
+      "voteCount": 2640,
+      "popularity": 2.1559,
+      "actors": [
+        "Daniel Brühl",
+        "Katrin Sass",
+        "Chulpan Khamatova",
+        "Maria Simon",
+        "Florian Lukas",
+        "Alexander Beyer",
+        "Burghart Klaußner",
+        "Michael Gwisdek",
+        "Christine Schorn",
+        "Jürgen Holtz"
+      ],
+      "originalLanguage": "de",
+      "countries": [
+        "DE"
       ]
     },
     {
@@ -14830,6 +15543,76 @@
       ]
     },
     {
+      "id": "insomnia-2002",
+      "title": "Insomnia",
+      "year": 2002,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/insomnia-2002",
+      "genres": [
+        "Thriller",
+        "Crime",
+        "Drama"
+      ],
+      "runtime": 118,
+      "synopsis": "Two Los Angeles homicide detectives are dispatched to a northern town where the sun doesn't set to investigate the methodical murder of a local teen.",
+      "posterPath": "/riVXh3EimGO0y5dgQxEWPRy5Itg.jpg",
+      "director": "Christopher Nolan",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 320,
+      "moods": [
+        "warm",
+        "tense",
+        "strange",
+        "late-night",
+        "electric"
+      ],
+      "keywords": [
+        "hotel",
+        "small town",
+        "homicide",
+        "confession",
+        "blackmail",
+        "detective",
+        "fbi",
+        "investigation",
+        "hallucination",
+        "insomnia",
+        "flashback",
+        "love",
+        "remake",
+        "murder",
+        "alaska",
+        "shootout",
+        "cynical",
+        "guilt",
+        "phone call",
+        "neo-noir"
+      ],
+      "voteCount": 5343,
+      "popularity": 6.6789,
+      "actors": [
+        "Al Pacino",
+        "Robin Williams",
+        "Hilary Swank",
+        "Maura Tierney",
+        "Martin Donovan",
+        "Nicky Katt",
+        "Paul Dooley",
+        "Jonathan Jackson",
+        "Larry Holden",
+        "Katharine Isabelle"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "2aVO",
       "title": "Jackie Brown",
       "year": 1997,
@@ -15608,6 +16391,69 @@
       "originalLanguage": "en",
       "countries": [
         "GB"
+      ]
+    },
+    {
+      "id": "lars-and-the-real-girl",
+      "title": "Lars and the Real Girl",
+      "year": 2007,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/lars-and-the-real-girl",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 107,
+      "synopsis": "Extremely shy Lars finds it impossible to make friends or socialize. His brother and sister-in-law worry about him, so when he announces that he has a girlfriend he met on the Internet, they are overjoyed. But Lars' new lady is a life-size plastic woman. On the advice of a doctor, his family and the rest of the community go along with his delusion.",
+      "posterPath": "/nkAt4a7KIPc7Fi1BhxNHhYYbe2b.jpg",
+      "director": "Craig Gillespie",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 6615,
+      "moods": [
+        "late-night",
+        "devastating",
+        "breezy"
+      ],
+      "keywords": [
+        "dying and death",
+        "shyness",
+        "wisconsin",
+        "delusion",
+        "lone wolf",
+        "loss",
+        "loneliness",
+        "doll",
+        "mental illness",
+        "blow up doll",
+        "companion",
+        "introspective",
+        "lighthearted",
+        "ambivalent",
+        "tragic"
+      ],
+      "voteCount": 2089,
+      "popularity": 3.4781,
+      "actors": [
+        "Ryan Gosling",
+        "Emily Mortimer",
+        "Paul Schneider",
+        "R.D. Reid",
+        "Kelli Garner",
+        "Nancy Beatty",
+        "Doug Lennox",
+        "Joe Bostick",
+        "Liz Gordon",
+        "Nicky Guadagni"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
       ]
     },
     {
@@ -17474,6 +18320,64 @@
       ]
     },
     {
+      "id": "napoleon-dynamite",
+      "title": "Napoleon Dynamite",
+      "year": 2004,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/napoleon-dynamite",
+      "genres": [
+        "Comedy"
+      ],
+      "runtime": 95,
+      "synopsis": "A listless and alienated teenager decides to help his new friend win the class presidency in their small western high school, while he must deal with his bizarre family life back home.",
+      "posterPath": "/6Iv6Uwa2SBLN0dSGM00rdrwN4MJ.jpg",
+      "director": "Jared Hess",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 8193,
+      "moods": [
+        "electric",
+        "mumblecore"
+      ],
+      "keywords": [
+        "underdog",
+        "high school",
+        "sibling relationship",
+        "idaho",
+        "chat",
+        "friends",
+        "school dance",
+        "social outcast",
+        "aftercreditsstinger",
+        "socially awkward",
+        "based on short film",
+        "indifferent",
+        "quirky characters"
+      ],
+      "voteCount": 2187,
+      "popularity": 3.0909,
+      "actors": [
+        "Jon Heder",
+        "Efren Ramirez",
+        "Tina Majorino",
+        "Aaron Ruell",
+        "Jon Gries",
+        "Sandy Martin",
+        "Diedrich Bader",
+        "Haylie Duff",
+        "Trevor Snarr",
+        "Shondrella Avery"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "4exq",
       "title": "Nebraska",
       "year": 2013,
@@ -17531,6 +18435,71 @@
       "originalLanguage": "en",
       "countries": [
         "US"
+      ]
+    },
+    {
+      "id": "never-let-me-go-2010",
+      "title": "Never Let Me Go",
+      "year": 2010,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/never-let-me-go-2010",
+      "genres": [
+        "Drama",
+        "Romance",
+        "Science Fiction"
+      ],
+      "runtime": 104,
+      "synopsis": "As children, Kathy, Ruth, and Tommy spend their childhood at an idyllic and secluded English boarding school. As they grow into adults, they must come to terms with the complexity and strength of their love for one another while also preparing for the haunting reality awaiting them.",
+      "posterPath": "/8F0r5ng9Fp60OhzQfR5v33fppq.jpg",
+      "director": "Mark Romanek",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 42188,
+      "moods": [
+        "cerebral",
+        "late-night"
+      ],
+      "keywords": [
+        "london, england",
+        "based on novel or book",
+        "love triangle",
+        "england",
+        "boarding school",
+        "forgiveness",
+        "dystopia",
+        "sadness",
+        "aging",
+        "cloning",
+        "morality",
+        "human rights",
+        "existentialism",
+        "human clone",
+        "crime against humanity",
+        "medical ethics",
+        "organ trafficking",
+        "abomination"
+      ],
+      "voteCount": 2482,
+      "popularity": 3.6078,
+      "actors": [
+        "Carey Mulligan",
+        "Keira Knightley",
+        "Andrew Garfield",
+        "Izzy Meikle-Small",
+        "Ella Purnell",
+        "Charlie Rowe",
+        "Sally Hawkins",
+        "Charlotte Rampling",
+        "Domhnall Gleeson",
+        "Andrea Riseborough"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB"
       ]
     },
     {
@@ -17852,6 +18821,126 @@
       ]
     },
     {
+      "id": "nosferatu",
+      "title": "Nosferatu",
+      "year": 1922,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/nosferatu",
+      "genres": [
+        "Horror",
+        "Fantasy"
+      ],
+      "runtime": 89,
+      "synopsis": "The mysterious Count Orlok summons a happily married real estate agent to his castle, located up in the Transylvanian mountains, to finalise a terrifying deal.",
+      "posterPath": "/zv7J85D8CC9qYagAEhPM63CIG6j.jpg",
+      "director": "F. W. Murnau",
+      "moodTags": [
+        "classic",
+        "old hollywood",
+        "black and white"
+      ],
+      "tmdbId": 653,
+      "moods": [
+        "devastating",
+        "gothic",
+        "strange",
+        "sharp"
+      ],
+      "keywords": [
+        "based on novel or book",
+        "self sacrifice",
+        "transylvania",
+        "germany",
+        "loss of loved one",
+        "vampire",
+        "shapeshifting",
+        "coffin",
+        "supernatural",
+        "castle",
+        "ghost ship",
+        "black and white",
+        "gothic horror",
+        "gothic",
+        "silent film",
+        "seashore",
+        "vampire bat",
+        "real estate agent",
+        "ghoul",
+        "psychotronic"
+      ],
+      "voteCount": 2464,
+      "popularity": 4.2652,
+      "actors": [
+        "Max Schreck",
+        "Gustav von Wangenheim",
+        "Greta Schröder",
+        "Georg H. Schnell",
+        "Ruth Landshoff",
+        "Gustav Botz",
+        "Alexander Granach",
+        "John Gottowt",
+        "Max Nemetz",
+        "Wolfgang Heinz"
+      ],
+      "originalLanguage": "de",
+      "countries": [
+        "DE"
+      ]
+    },
+    {
+      "id": "obvious-child",
+      "title": "Obvious Child",
+      "year": 2014,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/obvious-child",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "runtime": 85,
+      "synopsis": "An immature, newly unemployed comic must navigate the murky waters of adulthood after her fling with a graduate student results in an unplanned pregnancy.",
+      "posterPath": "/vAVuQuboHiqc6ClsFeWQXBHJkOX.jpg",
+      "director": "Gillian Robespierre",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 248774,
+      "moods": [
+        "breezy",
+        "warm",
+        "sharp"
+      ],
+      "keywords": [
+        "one-night stand",
+        "woman director",
+        "abortion",
+        "unexpected pregnancy",
+        "stand-up comedian"
+      ],
+      "voteCount": 463,
+      "popularity": 1.2581,
+      "actors": [
+        "Jenny Slate",
+        "Jake Lacy",
+        "Gaby Hoffmann",
+        "Paul Briganti",
+        "Stephen Singer",
+        "Richard Kind",
+        "Polly Draper",
+        "Gabe Liedman",
+        "Cindy Cheung",
+        "Ernest Mingione"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "2aZm",
       "title": "Ocean's Eleven",
       "year": 2001,
@@ -17978,6 +19067,68 @@
       "originalLanguage": "en",
       "countries": [
         "US"
+      ]
+    },
+    {
+      "id": "only-lovers-left-alive",
+      "title": "Only Lovers Left Alive",
+      "year": 2013,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/only-lovers-left-alive",
+      "genres": [
+        "Drama",
+        "Romance",
+        "Fantasy"
+      ],
+      "runtime": 123,
+      "synopsis": "A depressed musician reunites with his lover. However, their romance, already played over several centuries, is disrupted by the arrival of her uncontrollable younger sister.",
+      "posterPath": "/6siwECwpRbNX70ybF8iqZqnspGP.jpg",
+      "director": "Jim Jarmusch",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 152603,
+      "moods": [
+        "gothic",
+        "warm",
+        "strange"
+      ],
+      "keywords": [
+        "guitar",
+        "musician",
+        "immortality",
+        "vampire",
+        "tangier morocco",
+        "love",
+        "detroit, michigan",
+        "suicidal thoughts",
+        "contamination",
+        "vampiress (female vampire)",
+        "blood"
+      ],
+      "voteCount": 2411,
+      "popularity": 2.9555,
+      "actors": [
+        "Tilda Swinton",
+        "Tom Hiddleston",
+        "Anton Yelchin",
+        "Mia Wasikowska",
+        "Jeffrey Wright",
+        "Slimane Dazi",
+        "John Hurt",
+        "Carter Logan",
+        "Aurélie Thépaut",
+        "Ali Amine"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "DE",
+        "FR",
+        "GR"
       ]
     },
     {
@@ -18470,6 +19621,74 @@
       "originalLanguage": "en",
       "countries": [
         "GB",
+        "US"
+      ]
+    },
+    {
+      "id": "pinocchio",
+      "title": "Pinocchio",
+      "year": 1940,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/pinocchio",
+      "genres": [
+        "Animation",
+        "Family",
+        "Fantasy"
+      ],
+      "runtime": 88,
+      "synopsis": "When the gentle woodcarver Geppetto builds a marionette to be his substitute son, a benevolent fairy brings the toy to life. The puppet, named Pinocchio, is not yet a human boy. He must earn the right to be real by proving that he is brave, truthful, and unselfish.",
+      "posterPath": "/bnZJrLRnoQHpzEJdka1KYfsAF3N.jpg",
+      "director": "Hamilton Luske",
+      "moodTags": [
+        "classic",
+        "old hollywood",
+        "black and white"
+      ],
+      "tmdbId": 10895,
+      "moods": [
+        "devastating",
+        "epic",
+        "sharp"
+      ],
+      "keywords": [
+        "rescue",
+        "sea",
+        "child abuse",
+        "based on novel or book",
+        "magic",
+        "whale",
+        "italy",
+        "donkey",
+        "lie",
+        "fairy",
+        "fox",
+        "cartoon",
+        "villain",
+        "carnival",
+        "wish",
+        "puppet",
+        "nose",
+        "conscience",
+        "wish fulfillment",
+        "toy comes to life"
+      ],
+      "voteCount": 6274,
+      "popularity": 10.2692,
+      "actors": [
+        "Dickie Jones",
+        "Cliff Edwards",
+        "Christian Rub",
+        "Evelyn Venable",
+        "Walter Catlett",
+        "Mel Blanc",
+        "Charles Judels",
+        "Frankie Darro",
+        "Don Brodie",
+        "Marion Darlington"
+      ],
+      "originalLanguage": "en",
+      "countries": [
         "US"
       ]
     },
@@ -20452,6 +21671,74 @@
       ]
     },
     {
+      "id": "snow-white-and-the-seven-dwarfs",
+      "title": "Snow White and the Seven Dwarfs",
+      "year": 1937,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/snow-white-and-the-seven-dwarfs",
+      "genres": [
+        "Fantasy",
+        "Animation",
+        "Family"
+      ],
+      "runtime": 83,
+      "synopsis": "A beautiful girl, Snow White, takes refuge in the forest in the house of seven dwarfs to hide from her stepmother, the wicked Queen. The Queen is jealous because she wants to be known as \"the fairest in the land,\" and Snow White's beauty surpasses her own.",
+      "posterPath": "/3VAHfuNb6Z7UiW12iYKANSPBl8m.jpg",
+      "director": "David Hand",
+      "moodTags": [
+        "classic",
+        "old hollywood",
+        "black and white"
+      ],
+      "tmdbId": 408,
+      "moods": [
+        "gothic",
+        "strange",
+        "sharp"
+      ],
+      "keywords": [
+        "witch",
+        "dying and death",
+        "princess",
+        "becoming an adult",
+        "dwarf",
+        "poison",
+        "sadness",
+        "queen",
+        "attempted murder",
+        "cartoon",
+        "villain",
+        "kiss",
+        "miner",
+        "surrogate mother",
+        "love",
+        "apple",
+        "candlelight vigil",
+        "evil queen",
+        "based on fairy tale",
+        "magic mirror"
+      ],
+      "voteCount": 8005,
+      "popularity": 9.1723,
+      "actors": [
+        "Adriana Caselotti",
+        "Lucille La Verne",
+        "Harry Stockwell",
+        "Roy Atwell",
+        "Pinto Colvig",
+        "Otis Harlan",
+        "Scotty Mattraw",
+        "Billy Gilbert",
+        "Eddie Collins",
+        "Moroni Olsen"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "JKNi",
       "title": "Sorry, Baby",
       "year": 2025,
@@ -22019,6 +23306,113 @@
       ]
     },
     {
+      "id": "the-caiman",
+      "title": "The Caiman",
+      "year": 2006,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/the-caiman",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "runtime": 112,
+      "synopsis": "Bruno Bonomo was a famous producer of B-movies in the ‘70s. After a long hiatus, Bonomo offers a screenplay to RAI centered on the figure of Italy’s prime minister and media tycoon Silvio Berlusconi, a subject so controversial that even the public television broadcaster refuses to produce it",
+      "posterPath": "/mPil7yQR4norsr2urNofv9Ym1Ql.jpg",
+      "director": "Nanni Moretti",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 31289,
+      "moods": [
+        "breezy"
+      ],
+      "keywords": [
+        "film in film"
+      ],
+      "voteCount": 283,
+      "popularity": 0.5189,
+      "actors": [
+        "Silvio Orlando",
+        "Margherita Buy",
+        "Jasmine Trinca",
+        "Michele Placido",
+        "Antonello Grimaldi",
+        "Elio De Capitani",
+        "Paolo Sorrentino",
+        "Paolo Virzì",
+        "Giuliano Montaldo",
+        "Tatti Sanguineti"
+      ],
+      "originalLanguage": "it",
+      "countries": [
+        "IT",
+        "FR"
+      ]
+    },
+    {
+      "id": "the-chase-1966-4",
+      "title": "The Chase",
+      "year": 1966,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/the-chase-1966-4",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "runtime": 135,
+      "synopsis": "The escape of Bubber Reeves from prison affects the inhabitants of a small Southern town.",
+      "posterPath": "/lpX8szjdzaXqxKBiV8xfRVNzSiu.jpg",
+      "director": "Arthur Penn",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture"
+      ],
+      "tmdbId": 31602,
+      "moods": [
+        "devastating",
+        "tense",
+        "electric"
+      ],
+      "keywords": [
+        "prison",
+        "sheriff",
+        "escaped convict",
+        "house party",
+        "man hunt",
+        "jump from train",
+        "criminal",
+        "alcohol abuse",
+        "hatred",
+        "getaway",
+        "lynch mob",
+        "oil baron",
+        "drunkenness"
+      ],
+      "voteCount": 327,
+      "popularity": 2.2669,
+      "actors": [
+        "Marlon Brando",
+        "Jane Fonda",
+        "Robert Redford",
+        "E.G. Marshall",
+        "Angie Dickinson",
+        "Janice Rule",
+        "Miriam Hopkins",
+        "Martha Hyer",
+        "Robert Duvall",
+        "Richard Bradford"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "24as",
       "title": "The Darjeeling Limited",
       "year": 2007,
@@ -22192,6 +23586,74 @@
       "originalLanguage": "en",
       "countries": [
         "GB"
+      ]
+    },
+    {
+      "id": "the-evil-dead",
+      "title": "The Evil Dead",
+      "year": 1981,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/the-evil-dead",
+      "genres": [
+        "Horror"
+      ],
+      "runtime": 85,
+      "synopsis": "In 1979, a group of college students find a Sumerian Book of the Dead in an old wilderness cabin they've rented for a weekend getaway.",
+      "posterPath": "/54C1qdaiSijIU5NeNb4WsPJdNkG.jpg",
+      "director": "Sam Raimi",
+      "moodTags": [
+        "seventies",
+        "new hollywood",
+        "gritty",
+        "eighties",
+        "blockbuster era"
+      ],
+      "tmdbId": 764,
+      "moods": [
+        "gothic",
+        "strange",
+        "sharp"
+      ],
+      "keywords": [
+        "falsely accused",
+        "audio tape",
+        "aggression",
+        "log cabin",
+        "friends",
+        "cabin",
+        "zombie",
+        "occult",
+        "book of the dead",
+        "evil dead",
+        "necronomicon",
+        "demonic possession",
+        "macabre",
+        "disturbed",
+        "aggressive",
+        "zealous",
+        "based on short film",
+        "lovecraftian",
+        "antagonistic",
+        "disgusted"
+      ],
+      "voteCount": 4520,
+      "popularity": 13.6542,
+      "actors": [
+        "Bruce Campbell",
+        "Ellen Sandweiss",
+        "Richard DeManincor",
+        "Betsy Baker",
+        "Theresa Tilly",
+        "Philip A. Gillis",
+        "Dorothy Tapert",
+        "Cheryl Klam",
+        "Barbara Carey",
+        "David Horton"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
       ]
     },
     {
@@ -23333,6 +24795,59 @@
       ]
     },
     {
+      "id": "the-puffy-chair",
+      "title": "The Puffy Chair",
+      "year": 2005,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/the-puffy-chair",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 85,
+      "synopsis": "Josh, a struggling musician, wins a vintage recliner in an eBay auction. Since he lives in New York and the chair is in Atlanta, this poses a bit of a problem. He asks his girlfriend, Emily, to accompany him on the trip, and his hippie brother Rhett joins the pair along the way.",
+      "posterPath": "/fybmkedrXx02p7i6TZMl9sC5NvM.jpg",
+      "director": "Jay Duplass",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 24055,
+      "moods": [
+        "mumblecore",
+        "breezy",
+        "warm",
+        "sharp"
+      ],
+      "keywords": [
+        "chair",
+        "road trip",
+        "mumblecore",
+        "craigslist"
+      ],
+      "voteCount": 59,
+      "popularity": 0.725,
+      "actors": [
+        "Mark Duplass",
+        "Katie Aselton",
+        "Rhett Wilkins",
+        "Julie Fischer",
+        "Larry Duplass",
+        "Bari Hyman",
+        "Gerald Finnegan",
+        "Henry Barendse",
+        "Cindy Duplass",
+        "David Parsons"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "1EXI",
       "title": "The Red Shoes",
       "year": 1948,
@@ -23815,6 +25330,118 @@
         "Debbie Turner",
         "Kym Karath",
         "Duane Chase"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "the-souvenir",
+      "title": "The Souvenir",
+      "year": 2019,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/the-souvenir",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "runtime": 120,
+      "synopsis": "A shy but ambitious film student falls into an intense, emotionally fraught relationship with a charismatic but untrustworthy older man.",
+      "posterPath": "/2Nj04HsZ0lNkv07JnfBZ0bAIECn.jpg",
+      "director": "Joanna Hogg",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 473019,
+      "moods": [
+        "warm"
+      ],
+      "keywords": [
+        "drug addiction",
+        "filmmaking",
+        "semi autobiographical",
+        "woman director",
+        "1980s",
+        "film school",
+        "mother daughter relationship",
+        "toxic relationship"
+      ],
+      "voteCount": 284,
+      "popularity": 3.3926,
+      "actors": [
+        "Honor Swinton Byrne",
+        "Tom Burke",
+        "Tilda Swinton",
+        "Richard Ayoade",
+        "Ariane Labed",
+        "Jaygann Ayeh",
+        "Jack McMullen",
+        "Chyna Terrelonge Vaughan",
+        "Tosin Cole",
+        "Hannah Ashby Ward"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "US"
+      ]
+    },
+    {
+      "id": "the-squid-and-the-whale",
+      "title": "The Squid and the Whale",
+      "year": 2005,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/the-squid-and-the-whale",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 81,
+      "synopsis": "Based on the true childhood experiences of Noah Baumbach and his brother, The Squid and the Whale tells the touching story of two young boys dealing with their parents' divorce in Brooklyn in the 1980s.",
+      "posterPath": "/9NbXn1NMdfGM491V3EFjZADR9SX.jpg",
+      "director": "Noah Baumbach",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 10707,
+      "moods": [
+        "mumblecore",
+        "languid",
+        "sharp"
+      ],
+      "keywords": [
+        "uniform",
+        "new york city",
+        "museum",
+        "coming of age",
+        "writer",
+        "private",
+        "brooklyn, new york city",
+        "tryst",
+        "semi autobiographical",
+        "broken family",
+        "1980s"
+      ],
+      "voteCount": 1078,
+      "popularity": 1.9751,
+      "actors": [
+        "Jeff Daniels",
+        "Laura Linney",
+        "Jesse Eisenberg",
+        "Owen Kline",
+        "William Baldwin",
+        "Halley Feiffer",
+        "Anna Paquin",
+        "David Benger",
+        "Molly Barton",
+        "Bo Berkman"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -25380,6 +27007,59 @@
       ]
     },
     {
+      "id": "vanity-fair",
+      "title": "Vanity Fair",
+      "year": 2004,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/vanity-fair",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 141,
+      "synopsis": "In early 19th century England, orphaned Becky Sharp defies her poverty-stricken background and ascends the social ladder alongside her best friend.",
+      "posterPath": "/6GCjrrd1XIl8VSwjKo8c94LTwtd.jpg",
+      "director": "Mira Nair",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 11632,
+      "moods": [
+        "epic",
+        "warm"
+      ],
+      "keywords": [
+        "london, england",
+        "advancement",
+        "lover",
+        "british empire",
+        "aristocrat",
+        "woman director"
+      ],
+      "voteCount": 359,
+      "popularity": 2.0098,
+      "actors": [
+        "Reese Witherspoon",
+        "Eileen Atkins",
+        "Jim Broadbent",
+        "Gabriel Byrne",
+        "Romola Garai",
+        "Bob Hoskins",
+        "Rhys Ifans",
+        "Geraldine McEwan",
+        "James Purefoy",
+        "Jonathan Rhys Meyers"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "US"
+      ]
+    },
+    {
       "id": "2apI",
       "title": "Vertigo",
       "year": 1958,
@@ -25967,6 +27647,66 @@
         "Richard LeParmentier",
         "Lou Hirsch",
         "Betsy Brantley"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "whos-afraid-of-virginia-woolf",
+      "title": "Who's Afraid of Virginia Woolf?",
+      "year": 1966,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/whos-afraid-of-virginia-woolf",
+      "genres": [
+        "Drama"
+      ],
+      "runtime": 131,
+      "synopsis": "A history professor and his wife entertain a young couple who are new to the university's faculty. As the drinks flow, secrets come to light, and the middle-aged couple unload onto their guests the full force of the bitterness, dysfunction, and animosity that defines their marriage.",
+      "posterPath": "/wF7ihB5V5gSm6zxjv3ZhHOpgREI.jpg",
+      "director": "Mike Nichols",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture"
+      ],
+      "tmdbId": 396,
+      "moods": [
+        "devastating"
+      ],
+      "keywords": [
+        "adultery",
+        "professor",
+        "married couple",
+        "guest",
+        "black humor",
+        "based on play or musical",
+        "campus",
+        "dysfunctional marriage",
+        "black and white",
+        "alcohol abuse",
+        "new england",
+        "cuckold",
+        "one night",
+        "henpecked husband",
+        "angry",
+        "aggressive",
+        "house guest",
+        "college professor",
+        "marital tensions",
+        "academia"
+      ],
+      "voteCount": 921,
+      "popularity": 2.8623,
+      "actors": [
+        "Elizabeth Taylor",
+        "Richard Burton",
+        "George Segal",
+        "Sandy Dennis",
+        "Agnes Flanagan",
+        "Frank Flanagan"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -94758,6 +96498,6 @@
       ]
     }
   ],
-  "total": 1572,
-  "generated": "2026-07-07T07:30:34.165Z"
+  "total": 1601,
+  "generated": "2026-07-08T18:41:07.169Z"
 }

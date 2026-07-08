@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { asset } from '../lib/asset'
 import { isMumblecore } from '../lib/mumblecore'
+import { isCalm, isChaos } from '../lib/vibes'
 
 export interface Movie {
   id: string
@@ -86,8 +87,8 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   short: ['sharp'], quick: ['sharp'], tight: ['sharp'],
   '90min': ['sharp'], 'under 90': ['sharp'],
 
-  // twisted
-  twist: ['twisted'], 'plot twist': ['twisted'], shocking: ['twisted'],
+  // twisted — "shocking" now hard-filters to the chaos list (see wantsChaos)
+  twist: ['twisted'], 'plot twist': ['twisted'],
   'didn\'t see it coming': ['twisted'], unpredictable: ['twisted'],
   reveal: ['twisted'],
 
@@ -203,6 +204,14 @@ const isPureComedy = (m: Movie) =>
 
 // "mumblecore" (and close cousins) → only films on the manual curated list.
 const wantsMumblecore = (q: string) => /\b(mumblecore|indie|lo-?fi|naturalistic)\b/.test(q)
+
+// "calm" / "relaxed" → only films on the manual calm list (lib/vibes.ts).
+const wantsCalm = (q: string) => /\b(calm|calming|relax(ed|ing)?)\b/.test(q)
+
+// "chaos" / "wild" / "shocking" (and friends) → only films on the manual
+// chaos list (lib/vibes.ts). "cahotic" kept on purpose — favourite typo.
+const wantsChaos = (q: string) =>
+  /\b(chaos|chaotic|cahotic|havoc|anarchy|anarchic|wild|shock(ing|ed)?)\b/.test(q)
 
 // Christmas films are hidden unless the query is explicitly festive; then only
 // they show. Matched on the "christmas" keyword.
@@ -395,6 +404,8 @@ export function useMovieSearch() {
     const comedy = wantsComedy(fullQuery)
     const pureComedy = wantsPureComedy(fullQuery)
     const mumblecore = wantsMumblecore(fullQuery)
+    const calm = wantsCalm(fullQuery)
+    const chaos = wantsChaos(fullQuery)
     // "…I haven't seen" → surface obscure picks first (ascending popularity)
     const obscureFirst = /haven'?t\s+(seen|watched|heard)|never\s+seen|unseen|underseen/.test(fullQuery)
     const targetMoods = new Set<string>()
@@ -432,8 +443,10 @@ export function useMovieSearch() {
       .filter(m => !bw || m.keywords.some(k => k.toLowerCase().includes('black and white')))
       // classic = 1980 or earlier
       .filter(m => !classic || m.year <= CLASSIC_MAX_YEAR)
-      // christmas films only surface for festive queries; hidden otherwise
-      .filter(m => (festive ? isChristmasFilm(m) : !isChristmasFilm(m)))
+      // christmas films only surface for festive queries; hidden otherwise —
+      // except explicit curated vibe picks (The Green Knight has a "christmas"
+      // keyword but belongs to the chaos list)
+      .filter(m => (festive ? isChristmasFilm(m) : calm || chaos || !isChristmasFilm(m)))
       // "musical" → real musicals only
       .filter(m => !musical || isMusical(m))
       // "laugh" → comedies only
@@ -442,6 +455,9 @@ export function useMovieSearch() {
       .filter(m => !pureComedy || isPureComedy(m))
       // "mumblecore" → manual curated list only
       .filter(m => !mumblecore || isMumblecore(m.title, m.year))
+      // "calm" / "chaos" → manual curated vibe lists only
+      .filter(m => !calm || isCalm(m.title, m.year))
+      .filter(m => !chaos || isChaos(m.title, m.year))
       .filter(m => {
         if (themes.size === 0) return true
         return m.keywords.some(k => {

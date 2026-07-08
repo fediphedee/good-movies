@@ -1,14 +1,18 @@
 // Manually curated mumblecore canon (Wikipedia's film list + personal additions).
 // "mumblecore" searches hard-filter to these titles instead of the auto mood tag.
 // Matched by normalized title + year (±1 for premiere/release discrepancies).
+import { makeCuratedMatcher } from './curated'
 
 const MUMBLECORE_TITLES: [string, number][] = [
   ['Funny Ha Ha', 2002],
   ['All the Real Girls', 2003],
+  ['Napoleon Dynamite', 2004],
   ['Kissing on the Mouth', 2005],
   ['The Puffy Chair', 2005],
   ['Mutual Appreciation', 2005],
   ['Ellie Parker', 2005],
+  ['The Squid and the Whale', 2005],
+  ['Lars and the Real Girl', 2007],
   ['Dance Party USA', 2006],
   ['LOL', 2006],
   ['Young American Bodies', 2006],
@@ -30,6 +34,7 @@ const MUMBLECORE_TITLES: [string, number][] = [
   ["It's Nick's Birthday", 2009],
   ['Goodbye Promise', 2009],
   ['Alexander the Last', 2009],
+  ['Away We Go', 2009],
   ['Medicine for Melancholy', 2009],
   ['Humpday', 2009],
   ['Beeswax', 2009],
@@ -37,6 +42,7 @@ const MUMBLECORE_TITLES: [string, number][] = [
   ['Sorry, Thanks', 2009],
   ['The Exploding Girl', 2009],
   ['Breaking Upwards', 2009],
+  ['Blue Valentine', 2010],
   ['Cyrus', 2010],
   ['The Freebie', 2010],
   ['Guy and Madeline on a Park Bench', 2010],
@@ -71,6 +77,7 @@ const MUMBLECORE_TITLES: [string, number][] = [
   ['I Love You, Apple, I Love You, Orange', 2013],
   ['Coherence', 2013],
   ['About Alex', 2014],
+  ['Obvious Child', 2014],
   ['Swim Little Fish Swim', 2014],
   ['Happy Christmas', 2014],
   ['Sulemani Keeda', 2014],
@@ -90,6 +97,8 @@ const MUMBLECORE_TITLES: [string, number][] = [
   ['Only One Day in Berlin', 2018],
   ['The Christmas Ride', 2020],
   ['Shithouse', 2020],
+  ['Am I OK?', 2022],
+  ['Cha Cha Real Smooth', 2022],
   ['Yelling Fire in an Empty Theater', 2023],
   ['The Astrid Experience', 2023],
   ['Connection at the End of the World', 2025],
@@ -98,21 +107,4 @@ const MUMBLECORE_TITLES: [string, number][] = [
   ['The Baltimorons', 2025],
 ]
 
-const normalizeTitle = (title: string) =>
-  title
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/['’‘"“”:.,!?()\-–—]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-
-const byTitle = new Map<string, number[]>()
-for (const [title, year] of MUMBLECORE_TITLES) {
-  const key = normalizeTitle(title)
-  byTitle.set(key, [...(byTitle.get(key) ?? []), year])
-}
-
-export function isMumblecore(title: string, year: number): boolean {
-  const years = byTitle.get(normalizeTitle(title))
-  return years !== undefined && years.some(y => Math.abs(y - year) <= 1)
-}
+export const isMumblecore = makeCuratedMatcher(MUMBLECORE_TITLES)

@@ -874,7 +874,9 @@
       ],
       "voteCount": 342,
       "popularity": 4.2597,
-      "actors": [],
+      "actors": [
+        "David Attenborough"
+      ],
       "originalLanguage": "en",
       "countries": [
         "GB"
@@ -2549,7 +2551,18 @@
       ],
       "voteCount": 424,
       "popularity": 10.387,
-      "actors": [],
+      "actors": [
+        "Sunita Mani",
+        "Wunmi Mosaku",
+        "Alia Shawkat",
+        "Bob Stephenson",
+        "Ted Travelstead",
+        "Pollyanna McIntosh",
+        "Dash Williams",
+        "Sepideh Moafi",
+        "Freddy Rodríguez",
+        "Chris Diamantopoulos"
+      ],
       "originalLanguage": "en",
       "countries": [
         "US"
@@ -3033,16 +3046,16 @@
       "voteCount": 170,
       "popularity": 7.0932,
       "actors": [
-        "Zhang Ting-hu",
-        "Lee Hsing-wen",
-        "Wu Yi-jung",
-        "Hsu An-chih",
-        "Chen Bo-zheng",
-        "Hangee Liu",
-        "Chang Lee",
-        "Lotus Wang",
-        "Chen Wei-min",
-        "Vicky Tseng"
+        "Emma Stone",
+        "Nathan Fielder",
+        "Benny Safdie",
+        "Barkhad Abdi",
+        "Oscar Avila",
+        "Hikmah Warsame",
+        "Christopher D. Calderon",
+        "Nizhonniya Austin",
+        "Edward Martinez",
+        "Sidni"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -7182,11 +7195,16 @@
       "voteCount": 420,
       "popularity": 10.109,
       "actors": [
-        "Jithin Raj",
-        "P.T. Manoj",
-        "Manglu Shreedhar",
-        "K.N Premkumar",
-        "Sanal Mananthavady"
+        "Mackenzie Davis",
+        "Himesh Patel",
+        "Matilda Lawler",
+        "David Wilmot",
+        "Nabhaan Rizwan",
+        "Daniel Zovatto",
+        "Philippine Velge",
+        "Lori Petty",
+        "Gael García Bernal",
+        "Timothy Simons"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -8121,16 +8139,16 @@
       "voteCount": 1694,
       "popularity": 2.7482,
       "actors": [
-        "Emile Hirsch",
-        "Lexi Medrano",
-        "Charlie Saxton",
-        "Kelsey Grammer",
-        "Alfred Molina",
-        "Steven Yeun",
-        "Nick Frost",
-        "Colin O'Donoghue",
-        "Diego Luna",
-        "Tatiana Maslany"
+        "Vincent Lindon",
+        "Agathe Rousselle",
+        "Garance Marillier",
+        "Laïs Salameh",
+        "Mara Cissé",
+        "Marin Judas",
+        "Diong-Kéba Tacu",
+        "Myriem Akheddiou",
+        "Bertrand Bonello",
+        "Céline Carrère"
       ],
       "originalLanguage": "fr",
       "countries": [
@@ -13019,16 +13037,16 @@
       "voteCount": 252,
       "popularity": 0.8224,
       "actors": [
-        "Henning Baum",
-        "Solomon Gordon",
-        "Annette Frier",
-        "Uwe Ochsenknecht",
-        "Christoph Maria Herbst",
-        "Milan Peschel",
-        "Rick Kavanian",
-        "Eden Gough",
-        "Leighanne Esperanzate",
-        "Kao Chenmin"
+        "Mariana di Girolamo",
+        "Gael García Bernal",
+        "Santiago Cabrera",
+        "Paola Giannini",
+        "Cristián Suárez",
+        "Mariana Loyola",
+        "Catalina Saavedra",
+        "Susana Hidalgo",
+        "Josefina Fiebelkorn",
+        "Giannina Fruttero"
       ],
       "originalLanguage": "es",
       "countries": [
@@ -19427,7 +19445,17 @@
       ],
       "voteCount": 31,
       "popularity": 2.5307,
-      "actors": [],
+      "actors": [
+        "Paul Reubens",
+        "Cassandra Peterson",
+        "Debi Mazar",
+        "David Arquette",
+        "Natasha Lyonne",
+        "Lynne Marie Stewart",
+        "Tracy Newman",
+        "Tim Burton",
+        "Laraine Newman"
+      ],
       "originalLanguage": "en",
       "countries": [
         "US"
@@ -44312,16 +44340,16 @@
       "voteCount": 1555,
       "popularity": 2.6918,
       "actors": [
-        "Manaka Iwami",
-        "Miyu Irino",
-        "Yuuki Sakurai",
-        "Ai Kayano",
-        "Yuki Kaji",
-        "Yoshimasa Hosoya",
-        "Rina Sato",
-        "Yoko Hikasa",
-        "Miyuki Sawashiro",
-        "Tomokazu Sugita"
+        "Awkwafina",
+        "Zhao Shuzhen",
+        "Hong Lu",
+        "Hong Lin",
+        "Tzi Ma",
+        "Diana Lin Xiaojie",
+        "Yang Xuejian",
+        "Becca Khalil",
+        "Jiang Yongbo",
+        "Chen Han"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -54913,16 +54941,16 @@
       "voteCount": 2181,
       "popularity": 4.6983,
       "actors": [
-        "Kane Hodder",
-        "Jeff Geddis",
-        "Lexa Doig",
-        "David Cronenberg",
-        "Markus Parilo",
-        "Jonathan Potts",
-        "Lisa Ryder",
-        "Dov Tiefenbach",
-        "Chuck Campbell",
-        "Melyssa Ade"
+        "Salma Hayek Pinault",
+        "Alfred Molina",
+        "Mía Maestro",
+        "Patricia Reyes Spíndola",
+        "Edward Norton",
+        "Antonio Banderas",
+        "Diego Luna",
+        "Roger Rees",
+        "Ashley Judd",
+        "Saffron Burrows"
       ],
       "originalLanguage": "en",
       "countries": [

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { asset } from '../lib/asset'
 import { isMumblecore } from '../lib/mumblecore'
-import { isCalm, isChaos } from '../lib/vibes'
+import { isCalm, isChaos, isDark } from '../lib/vibes'
 
 export interface Movie {
   id: string
@@ -52,7 +52,7 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   exciting: ['electric'], fast: ['electric'],
 
   // funny-dark
-  dark: ['funny-dark', 'gothic'], satire: ['funny-dark'], satirical: ['funny-dark'],
+  satire: ['funny-dark'], satirical: ['funny-dark'],
   absurd: ['funny-dark', 'strange'], uncomfortable: ['funny-dark'],
   twisted: ['twisted', 'funny-dark'],
 
@@ -94,7 +94,7 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
 
   // gothic
   gothic: ['gothic'], unsettling: ['gothic'], dread: ['gothic'],
-  creepy: ['gothic'], ominous: ['gothic'], sinister: ['gothic'],
+  creepy: ['gothic'],
   horror: ['gothic', 'tense'], haunting: ['gothic'],
 
   // languid
@@ -205,13 +205,20 @@ const isPureComedy = (m: Movie) =>
 // "mumblecore" (and close cousins) → only films on the manual curated list.
 const wantsMumblecore = (q: string) => /\b(mumblecore|indie|lo-?fi|naturalistic)\b/.test(q)
 
-// "calm" / "relaxed" → only films on the manual calm list (lib/vibes.ts).
-const wantsCalm = (q: string) => /\b(calm|calming|relax(ed|ing)?)\b/.test(q)
+// "calm" / "relaxed" (and friends) → only films on the manual calm list
+// (lib/vibes.ts).
+const wantsCalm = (q: string) =>
+  /\b(calm|calming|relax(ed|ing)?|soothing|chill|gentle|quiet)\b/.test(q)
 
 // "chaos" / "wild" / "shocking" (and friends) → only films on the manual
 // chaos list (lib/vibes.ts). "cahotic" kept on purpose — favourite typo.
 const wantsChaos = (q: string) =>
-  /\b(chaos|chaotic|cahotic|havoc|anarchy|anarchic|wild|shock(ing|ed)?)\b/.test(q)
+  /\b(chaos|chaotic|cahotic|havoc|anarchy|anarchic|wild|shock(ing|ed)?|unhinged|crazy|feral)\b/.test(q)
+
+// "dark" / "bleak" / "hopeless" (and friends) → only films on the manual
+// dark list (lib/vibes.ts).
+const wantsDark = (q: string) =>
+  /\b(dark|bleak|sinister|ominous|cold|miserable|hopeless|feel bad)\b/.test(q)
 
 // Christmas films are hidden unless the query is explicitly festive; then only
 // they show. Matched on the "christmas" keyword.
@@ -406,6 +413,7 @@ export function useMovieSearch() {
     const mumblecore = wantsMumblecore(fullQuery)
     const calm = wantsCalm(fullQuery)
     const chaos = wantsChaos(fullQuery)
+    const dark = wantsDark(fullQuery)
     // "…I haven't seen" → surface obscure picks first (ascending popularity)
     const obscureFirst = /haven'?t\s+(seen|watched|heard)|never\s+seen|unseen|underseen/.test(fullQuery)
     const targetMoods = new Set<string>()
@@ -446,7 +454,7 @@ export function useMovieSearch() {
       // christmas films only surface for festive queries; hidden otherwise —
       // except explicit curated vibe picks (The Green Knight has a "christmas"
       // keyword but belongs to the chaos list)
-      .filter(m => (festive ? isChristmasFilm(m) : calm || chaos || !isChristmasFilm(m)))
+      .filter(m => (festive ? isChristmasFilm(m) : calm || chaos || dark || !isChristmasFilm(m)))
       // "musical" → real musicals only
       .filter(m => !musical || isMusical(m))
       // "laugh" → comedies only
@@ -458,6 +466,7 @@ export function useMovieSearch() {
       // "calm" / "chaos" → manual curated vibe lists only
       .filter(m => !calm || isCalm(m.title, m.year))
       .filter(m => !chaos || isChaos(m.title, m.year))
+      .filter(m => !dark || isDark(m.title, m.year))
       .filter(m => {
         if (themes.size === 0) return true
         return m.keywords.some(k => {

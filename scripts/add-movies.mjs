@@ -27,6 +27,16 @@ const ADDITIONS = [
   // batch 4 (2026-07-13) — sunset-countdown chip pair; Before Sunrise is
   // already in the export (boxd.it/2bcU)
   { title: 'Before Sunset', year: 2004, slug: 'before-sunset', tmdbId: 80 },
+  // batch 5 (2026-07-13)
+  { title: 'Escape from New York', year: 1981, slug: 'escape-from-new-york', rating: 4.5 },
+  // NB: don't add 'The Tale of the Princess Kaguya' — already in the export
+  // as 'The Tale of The Princess Kaguya' (capital "The", boxd.it/4JQI); the
+  // duplicate-check is case-sensitive so it slipped through once already
+  // batch 7 (2026-07-13) — dark curated-list expansion
+  { title: 'The Fly', year: 1986, slug: 'the-fly', rating: 4 },
+  { title: 'Brazil', year: 1985, slug: 'brazil', rating: 4 },
+  { title: 'Killer Joe', year: 2011, slug: 'killer-joe', rating: 4 },
+  { title: 'Se7en', year: 1995, slug: 'se7en', rating: 4 },
 ]
 const DEFAULT_RATING = 4
 const WATCHED_DATE = '2026-07-08'

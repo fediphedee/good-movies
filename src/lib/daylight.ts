@@ -88,10 +88,11 @@ export interface Daylight {
   nextChange: Date
 }
 
-export function daylight(now: Date = new Date()): Daylight {
+export function daylight(now: Date = new Date(), opts?: { ignoreForce?: boolean }): Daylight {
   // Hidden preview seam — there's no toggle anymore, so ?sun=day / ?sun=night
-  // lets us check either look regardless of the actual hour
-  if (typeof location !== 'undefined') {
+  // lets us check either look regardless of the actual hour. Callers that need
+  // true sun times (e.g. the countdown chip) pass ignoreForce.
+  if (!opts?.ignoreForce && typeof location !== 'undefined') {
     const force = new URLSearchParams(location.search).get('sun')
     if (force === 'day' || force === 'night') {
       return { night: force === 'night', nextChange: new Date(now.getTime() + 86400000) }

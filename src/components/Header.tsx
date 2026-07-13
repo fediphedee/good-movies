@@ -1,10 +1,13 @@
 import { asset } from '../lib/asset'
+import { SunCountdown } from './SunCountdown'
 
 interface HeaderProps {
   onHome?: () => void
+  /** Sun-countdown chip click — queues the Before Sunset/Sunrise pair */
+  onSunClick?: (night: boolean) => void
 }
 
-export function Header({ onHome }: HeaderProps) {
+export function Header({ onHome, onSunClick }: HeaderProps) {
   return (
     <header>
       <div
@@ -49,6 +52,11 @@ export function Header({ onHome }: HeaderProps) {
         >
           Pretty Good<br />Movies
         </p>
+        {/* explicit column: the wordmark is display:none on mobile, which
+            would otherwise let this auto-place into the centre slot */}
+        <div style={{ gridColumn: 3, justifySelf: 'end' }}>
+          {onSunClick && <SunCountdown onClick={onSunClick} />}
+        </div>
       </div>
       <hr />
     </header>

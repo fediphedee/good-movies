@@ -24,7 +24,7 @@ const PROMPTS = [
 ]
 
 export default function App() {
-  const { search, random, loading } = useMovieSearch()
+  const { search, random, byId, loading } = useMovieSearch()
   // Theme follows local daylight: dark from sunset to sunrise
   const dark = useDaylight()
   const [query, setQuery] = useState('')
@@ -94,6 +94,20 @@ export default function App() {
     inputRef.current?.focus()
   }
 
+  // Sun-countdown chip → the Linklater double bill, presented like a search
+  // result. The film matching the countdown ("Before Sunset" by day,
+  // "Before Sunrise" by night) leads. Letterboxd ids from movies.json.
+  function showSunPair(night: boolean) {
+    const ids = night ? ['2bcU', 'before-sunset'] : ['before-sunset', '2bcU']
+    const pair = ids.map(byId).filter((m): m is Movie => m !== null)
+    if (pair.length === 0) return
+    setQuery('')
+    setResults(pair)
+    setHasSearched(true)
+    setCardIndex(0)
+    setVisibleCount(5)
+  }
+
   // "Try something else" — bring the search field back into view and focus it
   function backToSearch() {
     inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -102,7 +116,10 @@ export default function App() {
 
   return (
     <>
-      <Header onHome={() => { setQuery(''); setResults([]); setHasSearched(false) }} />
+      <Header
+        onHome={() => { setQuery(''); setResults([]); setHasSearched(false) }}
+        onSunClick={showSunPair}
+      />
 
       <main style={{ flex: 1, maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
 
@@ -250,21 +267,15 @@ export default function App() {
                       </h2>
                       <button
                         type="button"
+                        className="rgm-btn-link"
                         onClick={backToSearch}
                         style={{
-                          padding: '12px 28px',
-                          background: 'transparent',
-                          border: 'none',
-                          color: 'var(--muted)',
                           fontFamily: 'var(--font)',
                           fontSize: '12px',
                           letterSpacing: '0.15em',
                           textTransform: 'uppercase',
-                          cursor: 'pointer',
                           transition: 'color 0.15s ease',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.color = 'var(--fg)' }}
-                        onMouseLeave={e => { e.currentTarget.style.color = 'var(--muted)' }}
                       >
                         ↑ Try something else
                       </button>

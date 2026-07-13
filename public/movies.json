@@ -10112,6 +10112,63 @@
       ]
     },
     {
+      "id": "before-sunset",
+      "title": "Before Sunset",
+      "year": 2004,
+      "rating": 4,
+      "watchedDate": "2026-07-08",
+      "letterboxdUri": "https://letterboxd.com/film/before-sunset",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 80,
+      "synopsis": "Nine years later, Jesse travels across Europe giving readings from a book he wrote about the night he spent in Vienna with Celine. After his reading in Paris, Celine finds him, and they spend part of the day together before Jesse has to again leave for a flight. They are both in relationships now, and Jesse has a son, but as their strong feelings for each other start to return, both confess a longing for more.",
+      "posterPath": "/4sW5XH9ZfYXpvFzev00S1IGAEbg.jpg",
+      "director": "Richard Linklater",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 80,
+      "moods": [
+        "warm",
+        "sharp"
+      ],
+      "keywords": [
+        "journalist",
+        "talking",
+        "soulmates",
+        "walking",
+        "paris, france",
+        "bookshop",
+        "love of one's life",
+        "author",
+        "semi autobiographical",
+        "romantic",
+        "cliché"
+      ],
+      "voteCount": 3825,
+      "popularity": 4.8928,
+      "actors": [
+        "Ethan Hawke",
+        "Julie Delpy",
+        "Vernon Dobtcheff",
+        "Louise Lemoine Torrès",
+        "Rodolphe Pauly",
+        "Mariane Plasteig",
+        "Diabolo",
+        "Denis Evrard",
+        "Albert Delpy",
+        "Marie Pillet"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "1N06",
       "title": "Bianca",
       "year": 1984,
@@ -96526,6 +96583,6 @@
       ]
     }
   ],
-  "total": 1601,
-  "generated": "2026-07-08T18:41:07.169Z"
+  "total": 1602,
+  "generated": "2026-07-13T14:03:44.874Z"
 }

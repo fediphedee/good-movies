@@ -24,6 +24,9 @@ const ADDITIONS = [
   { title: 'Away We Go', year: 2009, slug: 'away-we-go' },
   { title: 'Blue Valentine', year: 2010, slug: 'blue-valentine', rating: 4.5 },
   { title: 'Obvious Child', year: 2014, slug: 'obvious-child' },
+  // batch 4 (2026-07-13) — sunset-countdown chip pair; Before Sunrise is
+  // already in the export (boxd.it/2bcU)
+  { title: 'Before Sunset', year: 2004, slug: 'before-sunset', tmdbId: 80 },
 ]
 const DEFAULT_RATING = 4
 const WATCHED_DATE = '2026-07-08'

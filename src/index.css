@@ -67,11 +67,15 @@
 .rgm-btn-primary span { background-image: none !important; }
 .rgm-btn-ghost { border: 1px solid var(--divider) !important; color: var(--fg) !important; }
 .rgm-btn-ghost:disabled { color: var(--muted) !important; }
+/* link: bare text — fg label; hover → accent + underline; disabled → muted */
+.rgm-btn-link { padding: 12px 28px !important; background: none !important; border: none !important; color: var(--fg) !important; cursor: pointer; }
+.rgm-btn-link:disabled { color: var(--muted) !important; }
 /* Hover styles only where hovering exists — on touch, a tap would otherwise
    leave the button stuck in its hover state after the card re-renders */
 @media (hover: hover) {
   .rgm-btn-primary:hover:not(:disabled) { background-color: var(--muted) !important; }
   .rgm-btn-ghost:hover:not(:disabled) { border-color: transparent !important; background: transparent !important; }
+  .rgm-btn-link:hover:not(:disabled) { color: var(--accent) !important; text-decoration: underline; }
 }
 
 /* Result poster: zoom 20% within its frame on hover (frame clips via overflow) */
@@ -95,7 +99,10 @@
   /* comfortable 48px touch targets: input, action buttons, and chips */
   main input,
   main button[data-kumo-component='Button'] { height: 48px !important; }
+  /* nav sun-countdown chip: compact next to the logo on small screens */
+  .rgm-sun-chip { padding: 8px 12px !important; font-size: 10px !important; }
   /* mobile-only image nudges (added on top of the base transform) */
+  .rgm-iw-What { --m-dx: -20px; }        /* what: 20px to the left */
   .rgm-iw-feel { --m-dy: -20px; }        /* feel: 20px higher (was -40) */
   .rgm-iw-tonight { --m-dx: -80px; }     /* tonight: 80px to the left */
   .rgm-iw-watching { --m-dx: -24px; }    /* watching: 24px to the left (off the edge) */

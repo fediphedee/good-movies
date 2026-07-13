@@ -483,5 +483,12 @@ export function useMovieSearch() {
     return [...pool].sort(() => Math.random() - 0.5)
   }, [allMovies])
 
-  return { search, random, loading, total: allMovies.length }
+  // Direct lookup by Letterboxd id (the `id` field in movies.json), for
+  // curated features that pin specific films rather than searching.
+  const byId = useCallback(
+    (id: string): Movie | null => allMovies.find(m => m.id === id) ?? null,
+    [allMovies]
+  )
+
+  return { search, random, byId, loading, total: allMovies.length }
 }

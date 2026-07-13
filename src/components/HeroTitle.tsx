@@ -19,11 +19,13 @@ interface WordConfig {
   gapAfter?: number
 }
 
-// The title is a fixed sentence; image-bearing words carry a film still that
-// sits *behind* the letters, woven into the line like a collage. Positions are
-// expressed relative to each word so the whole thing reflows fluidly. Line
-// breaks are art-directed to match the mockup (greedy wrapping can't reproduce
-// it — "What do you feel" and "feel like watching" are near-identical widths):
+// The title reads "…watching today?" in daylight and "…watching tonight?"
+// after sunset (the theme flips with it); image-bearing words carry a film
+// still that sits *behind* the letters, woven into the line like a collage.
+// Positions are expressed relative to each word so the whole thing reflows
+// fluidly. Line breaks are art-directed to match the mockup (greedy wrapping
+// can't reproduce it — "What do you feel" and "feel like watching" are
+// near-identical widths):
 //   desktop → "What do you" / "feel like watching" / "tonight?"
 //   mobile  → "What do you" / "feel like" / "watching" / "tonight?"
 const WORDS: WordConfig[] = [
@@ -150,6 +152,8 @@ export function HeroTitle({ dark }: { dark: boolean }) {
         const hasImage = !!imageLight
         const src = hasImage ? asset((dark ? imageDark : imageLight)!) : ''
         const idx = hasImage ? imgIndex++ : -1
+        // Day/night wording; the config keeps "tonight?" as the stable key
+        const label = word === 'tonight?' && !dark ? 'today?' : word
 
         return (
           <Fragment key={word}>
@@ -161,7 +165,7 @@ export function HeroTitle({ dark }: { dark: boolean }) {
                 zIndex: 1,
               }}
             >
-              {word}
+              {label}
               {hasImage && (
                 <span
                   aria-hidden

@@ -2,8 +2,8 @@ import type { Movie } from '../hooks/useMovieSearch'
 import { posterUrl } from '../lib/poster'
 
 // Mobile single-movie view: one film at a time, poster-forward and centred.
-// The "give me another" CTA sits directly under the poster so its position
-// (the touch point) never shifts as the synopsis length varies.
+// The "next movie" CTA sits between the film credits and the synopsis, so
+// only title length (not synopsis length) can shift the touch point.
 export function MovieCard({ movie, onNext }: { movie: Movie; onNext?: () => void }) {
   const src = posterUrl(movie, 'w500')
   const poster = src ? (
@@ -57,14 +57,21 @@ export function MovieCard({ movie, onNext }: { movie: Movie; onNext?: () => void
         )}
       </div>
 
+      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.05, paddingTop: '16px' }}>
+        {movie.title}
+      </h2>
+
+      <div style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.06em', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+        <span>{movie.year}</span>
+        {movie.director && <span>{movie.director}</span>}
+      </div>
+
       {onNext && (
         <button
           onClick={onNext}
+          className="rgm-btn-primary"
           style={{
-            width: '100%',
-            maxWidth: '300px',
-            height: '48px',
-            background: 'var(--fg)',
+            minHeight: '48px',
             color: 'var(--bg)',
             border: 'none',
             fontFamily: 'var(--font)',
@@ -74,18 +81,9 @@ export function MovieCard({ movie, onNext }: { movie: Movie; onNext?: () => void
             cursor: 'pointer',
           }}
         >
-          Give me another
+          Next movie
         </button>
       )}
-
-      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.05, paddingTop: '16px' }}>
-        {movie.title}
-      </h2>
-
-      <div style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.06em', display: 'flex', gap: '10px', justifyContent: 'center' }}>
-        <span>{movie.year}</span>
-        {movie.director && <span>{movie.director}</span>}
-      </div>
 
       {movie.synopsis && (
         <p style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '440px' }}>

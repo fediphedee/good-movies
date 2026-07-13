@@ -7,6 +7,7 @@ import { MovieResult } from './components/MovieResult'
 import { MovieCard } from './components/MovieCard'
 import { useMovieSearch } from './hooks/useMovieSearch'
 import type { Movie } from './hooks/useMovieSearch'
+import { useDaylight } from './hooks/useDaylight'
 import { asset } from './lib/asset'
 
 const PROMPTS = [
@@ -24,16 +25,8 @@ const PROMPTS = [
 
 export default function App() {
   const { search, random, loading } = useMovieSearch()
-  const [dark, setDark] = useState(
-    () => document.documentElement.getAttribute('data-theme') === 'dark'
-  )
-  useEffect(() => {
-    const obs = new MutationObserver(() =>
-      setDark(document.documentElement.getAttribute('data-theme') === 'dark')
-    )
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    return () => obs.disconnect()
-  }, [])
+  // Theme follows local daylight: dark from sunset to sunrise
+  const dark = useDaylight()
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Movie[]>([])
   const [hasSearched, setHasSearched] = useState(false)
@@ -125,9 +118,9 @@ export default function App() {
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Search by mood"
-              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--fg)! focus:placeholder:text-transparent! pl-(--space-8)! pr-(--space-40)! py-(--space-8)!"
+              className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--focus)! focus:placeholder:text-transparent! pl-(--space-8)! pr-(--space-40)! py-(--space-8)!"
             />
-            {(query || hasSearched) && (
+            {query !== '' && (
               <button
                 type="button"
                 aria-label="Clear search"
@@ -168,14 +161,8 @@ export default function App() {
               variant="primary"
               onClick={() => handleSearch(query)}
               disabled={loading || !query.trim()}
-              className="text-xs tracking-widest uppercase text-(--bg)! px-(--space-8)! py-(--space-4)! justify-center"
-              style={{
-                flex: isMobile ? 1 : undefined,
-                '--kumo-button-emphasis-bg': 'var(--fg)',
-                '--kumo-button-emphasis-ring': 'var(--fg)',
-                '--kumo-button-emphasis-gradient-start': 'var(--fg)',
-                '--kumo-button-emphasis-gradient-end': 'var(--fg)',
-              } as React.CSSProperties}
+              className="rgm-btn-primary text-xs tracking-widest uppercase text-(--bg)! justify-center"
+              style={{ flex: isMobile ? 1 : undefined }}
             >
               Find a film
             </Button>
@@ -183,7 +170,7 @@ export default function App() {
               variant="ghost"
               onClick={() => { setResults(random()); setQuery(''); setHasSearched(true); setCardIndex(0); setVisibleCount(5) }}
               disabled={loading}
-              className="text-xs tracking-widest uppercase px-(--space-8)! py-(--space-4)! justify-center"
+              className="rgm-btn-ghost text-xs tracking-widest uppercase justify-center"
               style={{ flex: isMobile ? 1 : undefined }}
             >
               Surprise me
@@ -212,7 +199,7 @@ export default function App() {
                   key={p}
                   variant="outline"
                   onClick={() => applyPrompt(p)}
-                  className="text-xs tracking-wide text-(--muted) border-(--divider) hover:text-(--fg) hover:border-(--fg) px-(--space-8)! py-(--space-4)!"
+                  className="text-xs tracking-wide text-(--muted) border-(--divider) hover:text-(--fg) px-(--space-8)! py-(--space-4)!"
                 >
                   {p}
                 </Button>
@@ -242,12 +229,10 @@ export default function App() {
                   {visibleCount < Math.min(15, results.length) ? (
                     <button
                       type="button"
+                      className="rgm-btn-ghost"
                       onClick={() => setVisibleCount(v => Math.min(v + 5, 15))}
                       style={{
-                        padding: '12px 28px',
                         background: 'transparent',
-                        border: '1px solid var(--divider)',
-                        color: 'var(--fg)',
                         fontFamily: 'var(--font)',
                         fontSize: '12px',
                         letterSpacing: '0.15em',
@@ -255,8 +240,6 @@ export default function App() {
                         cursor: 'pointer',
                         transition: 'border-color 0.15s ease',
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--fg)' }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--divider)' }}
                     >
                       Load more
                     </button>
@@ -269,7 +252,7 @@ export default function App() {
                         type="button"
                         onClick={backToSearch}
                         style={{
-                          padding: '12px 20px',
+                          padding: '12px 28px',
                           background: 'transparent',
                           border: 'none',
                           color: 'var(--muted)',

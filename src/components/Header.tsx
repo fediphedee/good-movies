@@ -1,4 +1,3 @@
-import { ThemeToggle } from './ThemeToggle'
 import { asset } from '../lib/asset'
 
 interface HeaderProps {
@@ -10,9 +9,11 @@ export function Header({ onHome }: HeaderProps) {
     <header>
       <div
         style={{
-          display: 'flex',
+          // 1fr | auto | 1fr keeps the wordmark centred now that nothing
+          // balances the logo on the right
+          display: 'grid',
+          gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center',
-          justifyContent: 'space-between',
           padding: '20px 24px 18px',
         }}
       >
@@ -25,7 +26,7 @@ export function Header({ onHome }: HeaderProps) {
               onHome()
             }
           }}
-          style={{ display: 'block', lineHeight: 0 }}
+          style={{ display: 'block', lineHeight: 0, justifySelf: 'start' }}
         >
           <img
             src={asset('/muybridge_race.gif')}
@@ -44,12 +45,10 @@ export function Header({ onHome }: HeaderProps) {
             lineHeight: 1.4,
             textAlign: 'center',
             color: 'var(--fg)',
-            flex: 1,
           }}
         >
           Pretty Good<br />Movies
         </p>
-        <ThemeToggle />
       </div>
       <hr />
     </header>

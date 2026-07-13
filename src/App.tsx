@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Button } from '@cloudflare/kumo/components/button'
 import { Input } from '@cloudflare/kumo/components/input'
+import { Text } from '@cloudflare/kumo/components/text'
 import { Header } from './components/Header'
 import { HeroTitle } from './components/HeroTitle'
 import { MovieResult } from './components/MovieResult'
@@ -127,6 +128,12 @@ export default function App() {
         <div style={{ padding: isMobile ? '24px 0 40px' : '64px 0 40px' }}>
           <HeroTitle dark={dark} />
 
+          <div style={{ textAlign: 'center', maxWidth: '480px', margin: '0 auto 32px' }}>
+            <Text variant="body" size="base">
+              Just a tight list of pretty good movies, matched to your mood. Type how you feel and we'll do the rest.
+            </Text>
+          </div>
+
           {/* Search input */}
           <div style={{ marginBottom: '24px', position: 'relative' }}>
             <Input
@@ -134,7 +141,7 @@ export default function App() {
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Search by mood"
+              placeholder="e.g. something classic but not boring"
               className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--focus)! focus:placeholder:text-transparent! pl-(--space-8)! pr-(--space-40)! py-(--space-8)!"
             />
             {query !== '' && (

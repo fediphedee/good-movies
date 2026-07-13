@@ -61,18 +61,24 @@
    outline fades; disabled → muted label. */
 .rgm-btn-primary, .rgm-btn-ghost { padding: 12px 28px !important; }
 .rgm-btn-primary { background-color: var(--accent) !important; background-image: none !important; box-shadow: none !important; }
-.rgm-btn-primary:hover:not(:disabled) { background-color: var(--muted) !important; }
 .rgm-btn-primary:disabled { background-color: var(--muted) !important; opacity: 0.4 !important; }
 /* Kumo paints the primary surface via a gradient on an inner span — hide it
    so the button's own flat token background shows through in every state */
 .rgm-btn-primary span { background-image: none !important; }
 .rgm-btn-ghost { border: 1px solid var(--divider) !important; color: var(--fg) !important; }
-.rgm-btn-ghost:hover:not(:disabled) { border-color: transparent !important; background: transparent !important; }
 .rgm-btn-ghost:disabled { color: var(--muted) !important; }
+/* Hover styles only where hovering exists — on touch, a tap would otherwise
+   leave the button stuck in its hover state after the card re-renders */
+@media (hover: hover) {
+  .rgm-btn-primary:hover:not(:disabled) { background-color: var(--muted) !important; }
+  .rgm-btn-ghost:hover:not(:disabled) { border-color: transparent !important; background: transparent !important; }
+}
 
 /* Result poster: zoom 20% within its frame on hover (frame clips via overflow) */
 .rgm-poster-img { transition: transform 0.45s ease; }
-.rgm-poster:hover .rgm-poster-img { transform: scale(1.2); }
+@media (hover: hover) {
+  .rgm-poster:hover .rgm-poster-img { transform: scale(1.2); }
+}
 
 /* Hero title sizing. Images inside scale in em, so bumping the font size on
    mobile enlarges the film stills by the same factor (60% bigger below 640px). */

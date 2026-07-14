@@ -92,9 +92,8 @@ const MOOD_TRIGGERS: Record<string, string[]> = {
   'didn\'t see it coming': ['twisted'], unpredictable: ['twisted'],
   reveal: ['twisted'],
 
-  // gothic
+  // gothic — "creepy" now hard-filters to the Horror genre (see wantsHorror)
   gothic: ['gothic'], unsettling: ['gothic'], dread: ['gothic'],
-  creepy: ['gothic'],
   horror: ['gothic', 'tense'], haunting: ['gothic'],
 
   // languid
@@ -193,6 +192,10 @@ const isMusical = (m: Movie) =>
 
 // "laugh" → comedies only (hard genre filter).
 const wantsComedy = (q: string) => /\blaugh(s|ing)?\b/.test(q)
+
+// "scary" / "creepy" / "halloween" (and friends) → Horror genre only.
+const wantsHorror = (q: string) =>
+  /\b(scary|scarier|scariest|scared|frighten(ing|ed)?|horrif(ying|ic)|terror|terrify(ing)?|creepy|bloody|spook(y|ie|ier)?|halloween)\b/.test(q)
 
 // "happy" / "joy" / "merry" → pure comedies only: Comedy genre without Drama,
 // so bittersweet dramedies don't leak into upbeat queries. Films that pass the
@@ -409,6 +412,7 @@ export function useMovieSearch() {
     const festive = wantsChristmas(fullQuery)
     const musical = wantsMusical(fullQuery)
     const comedy = wantsComedy(fullQuery)
+    const horror = wantsHorror(fullQuery)
     const pureComedy = wantsPureComedy(fullQuery)
     const mumblecore = wantsMumblecore(fullQuery)
     const calm = wantsCalm(fullQuery)
@@ -459,6 +463,8 @@ export function useMovieSearch() {
       .filter(m => !musical || isMusical(m))
       // "laugh" → comedies only
       .filter(m => !comedy || m.genres.includes('Comedy'))
+      // "scary" / "creepy" / "halloween" → horror only
+      .filter(m => !horror || m.genres.includes('Horror'))
       // "happy" / "joy" / "merry" → pure comedies only (no Drama)
       .filter(m => !pureComedy || isPureComedy(m))
       // "mumblecore" → manual curated list only

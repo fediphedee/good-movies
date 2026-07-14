@@ -130,7 +130,7 @@ export default function App() {
 
           <div style={{ textAlign: 'center', maxWidth: '480px', margin: '0 auto 32px' }}>
             <Text variant="body" size="base">
-              Just a tight list of pretty good movies, matched to your mood. Type how you feel and we'll do the rest.
+              Just a tight list of pretty good movies. Type in your mood or the vibe you're looking for, and we'll do the rest.
             </Text>
           </div>
 
@@ -141,7 +141,7 @@ export default function App() {
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="e.g. something classic but not boring"
+              placeholder="e.g. something relaxing"
               className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--focus)! focus:placeholder:text-transparent! pl-(--space-8)! pr-(--space-40)! py-(--space-8)!"
             />
             {query !== '' && (

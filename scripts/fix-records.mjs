@@ -13,6 +13,10 @@ if (!TOKEN) { console.error('Missing TMDB_TOKEN'); process.exit(1) }
 // The records to fix: Letterboxd id, movie|tv, and the correct TMDB id
 // (hard-coded — auto-search mis-matched the ambiguous movie titles).
 const FIXES = [
+  // Angels in America (2003) — the Mike Nichols HBO miniseries. Auto-search hit
+  // an unrelated operatic adaptation. TV created_by is the playwright (Tony
+  // Kushner), so the director is overridden to the miniseries' actual director.
+  { id: '1yug', type: 'tv',    tmdbId: 11245,  director: 'Mike Nichols' },
   { id: 'jHWa', type: 'movie', tmdbId: 540709 }, // Ema (2019, Pablo Larraín)
   { id: 'nlQC', type: 'movie', tmdbId: 630240 }, // Titane (2021, Julia Ducournau)
   { id: 'TvUy', type: 'tv',    tmdbId: 277685 }, // Pee-wee as Himself (2025)
@@ -79,13 +83,14 @@ async function fetchRecord(tmdbId, type) {
   }
 }
 
-for (const { id, type, tmdbId: fixedId } of FIXES) {
+for (const { id, type, tmdbId: fixedId, director: directorOverride } of FIXES) {
   const movie = data.movies.find(m => m.id === id)
   if (!movie) { console.error(`  ✗ ${id}: not found in movies.json`); continue }
   try {
     const tmdbId = fixedId || await findId(movie.title, movie.year, type)
     if (!tmdbId) { console.error(`  ✗ ${movie.title}: no ${type} match`); continue }
     const rec = await fetchRecord(tmdbId, type)
+    if (directorOverride) rec.director = directorOverride
     // Patch (keep Letterboxd-authoritative title/year/rating/id/letterboxdUri)
     movie.tmdbId = rec.tmdbId
     movie.synopsis = rec.synopsis

@@ -130,7 +130,7 @@ export default function App() {
 
           <div style={{ textAlign: 'center', maxWidth: '480px', margin: '0 auto 32px' }}>
             <Text variant="body" size="base">
-              Just a tight list of pretty good movies. Type in your mood or the vibe you're looking for, and we'll do the rest.
+              Just a tight list of pretty good movies.<br /> Type in your mood or the vibe you're looking for, and we'll do the rest.
             </Text>
           </div>
 

@@ -9467,22 +9467,53 @@
       "rating": 4,
       "watchedDate": "2024-07-18",
       "letterboxdUri": "https://boxd.it/1yug",
-      "genres": [],
-      "runtime": 140,
-      "synopsis": "Peter Eötvös's operatic adaptation of Tony Kushner's \"Angels in America.\"",
-      "posterPath": "/ocyYTeUKHKVLdYAl8XPfF9CyLWy.jpg",
-      "director": null,
+      "genres": [
+        "Drama",
+        "Sci-Fi & Fantasy"
+      ],
+      "runtime": 58,
+      "synopsis": "God has abandoned Heaven. It's 1985: the Reagans are in the White House and Death swings the scythe of AIDS. In Manhattan, Prior Walter tells Louis, his lover of four years, he's ill; Louis leaves but as disease and loneliness ravage Prior, guilt invades Louis. Joe Pitt, a Mormon Republican attorney, is pushed by right-wing fixer Roy Cohn toward a job at the Justice Department. Pitt and Cohn are closeted: Pitt, out of shame and religious turmoil; Cohn, to preserve his power and access. Pitt's wife Harper is strung out on Valium, aching to escape a sexless marriage. An angel invites Prior to be a prophet in death.",
+      "posterPath": "/rrV0kCmzcP8oB00gemSZDns90rb.jpg",
+      "director": "Mike Nichols",
       "moodTags": [],
-      "tmdbId": 743164,
-      "moods": [],
-      "keywords": [],
-      "voteCount": 0,
-      "popularity": 0.1303,
+      "tmdbId": 11245,
+      "moods": [
+        "mumblecore",
+        "languid",
+        "devastating",
+        "sharp"
+      ],
+      "keywords": [
+        "new york city",
+        "angel",
+        "aids",
+        "drag queen",
+        "drug addiction",
+        "heaven",
+        "terminal illness",
+        "ronald reagan",
+        "hiv",
+        "based on play or musical",
+        "miniseries",
+        "social commentary",
+        "cross dressing",
+        "sexual repression",
+        "mormon",
+        "lgbt",
+        "1980s",
+        "closeted homosexual",
+        "gay theme",
+        "political drama"
+      ],
+      "voteCount": 257,
+      "popularity": 3.7266,
       "actors": [
         "Julia Migenes"
       ],
       "originalLanguage": "en",
-      "countries": []
+      "countries": [
+        "US"
+      ]
     },
     {
       "id": "3lyy",
@@ -96865,5 +96896,5 @@
     }
   ],
   "total": 1606,
-  "generated": "2026-07-13T15:52:20.120Z"
+  "generated": "2026-07-14T15:19:41.055Z"
 }

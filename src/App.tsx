@@ -3,7 +3,7 @@ import { Button } from '@cloudflare/kumo/components/button'
 import { Input } from '@cloudflare/kumo/components/input'
 import { Text } from '@cloudflare/kumo/components/text'
 import { Header } from './components/Header'
-import { HeroTitle } from './components/HeroTitle'
+import { HeroTitle, INTRO_DURATION } from './components/HeroTitle'
 import { MovieResult } from './components/MovieResult'
 import { MovieCard } from './components/MovieCard'
 import { useMovieSearch } from './hooks/useMovieSearch'
@@ -43,6 +43,35 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Movie[]>([])
   const [hasSearched, setHasSearched] = useState(false)
+  // The hero title runs a self-playing "hover preview" of its keyword clips on
+  // first landing; the rest of the page fades in once that intro finishes.
+  const [introDone, setIntroDone] = useState(false)
+  // A simple counter that climbs 0 → 100% over the intro, shown under the title
+  // while the keyword clips preview-play. Finishes as the page reveals.
+  const [introPct, setIntroPct] = useState(0)
+  // Flips true on the frame after mount so the header can dissolve up from the
+  // opening black screen (and then stay put at the top).
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
+  useEffect(() => {
+    const start = performance.now()
+    let raf = 0
+    const step = (now: number) => {
+      const p = Math.min(100, Math.round(((now - start) / INTRO_DURATION) * 100))
+      setIntroPct(p)
+      if (p < 100) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+  const reveal = {
+    opacity: introDone ? 1 : 0,
+    transition: 'opacity 0.85s ease',
+    pointerEvents: introDone ? 'auto' : 'none',
+  } as const
   const inputRef = useRef<HTMLInputElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
 
@@ -164,10 +193,15 @@ export default function App() {
 
   return (
     <>
-      <Header
-        onHome={() => { setQuery(''); setResults([]); setHasSearched(false) }}
-        onSunClick={showSunPair}
-      />
+      {/* The brand header dissolves up from the opening black screen and then
+          stays at the top through the loading intro — it is not part of the
+          reveal that waits for the intro to finish. */}
+      <div style={{ opacity: mounted ? 1 : 0, transition: 'opacity 1s ease' }}>
+        <Header
+          onHome={() => { setQuery(''); setResults([]); setHasSearched(false) }}
+          onSunClick={showSunPair}
+        />
+      </div>
 
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
 
@@ -177,8 +211,30 @@ export default function App() {
         <div style={!hasSearched
           ? { flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '24px 0' }
           : { padding: isMobile ? '24px 0 40px' : '64px 0 40px' }}>
-          <HeroTitle dark={dark} />
+          <HeroTitle dark={dark} onIntroDone={() => setIntroDone(true)} />
 
+          {!introDone && (
+            <div
+              aria-hidden
+              style={{
+                position: 'relative',
+                zIndex: 2, // sit above the title's clip layer (e.g. the "tonight?" clip)
+                textAlign: 'center',
+                marginTop: '-56px',
+                marginBottom: '24px',
+                fontFamily: 'var(--font)',
+                fontSize: '11px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--muted)',
+                fontVariantNumeric: 'tabular-nums',
+              }}
+            >
+              {introPct}% loading
+            </div>
+          )}
+
+          <div style={reveal}>
           <div style={{ textAlign: 'center', maxWidth: '480px', margin: '0 auto 32px' }}>
             <Text variant="body" size="xs">
               Just a tight list of pretty good movies.<br /> Type in your mood or the vibe you're looking for, and we'll do the rest.
@@ -260,11 +316,13 @@ export default function App() {
               Surprise me
             </button>
           </div>
+          </div>
         </div>
 
         {/* Suggestion prompts — shown when idle */}
         {!hasSearched && (
           <div style={{
+            ...reveal,
             borderTop: '1px solid var(--divider)',
             paddingTop: '24px',
             // full-bleed: pull the top hairline out to the viewport edges,
@@ -355,7 +413,7 @@ export default function App() {
         )}
       </main>
 
-      <footer style={{ borderTop: '1px solid var(--divider)', padding: '32px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginTop: '64px', textAlign: 'center' }}>
+      <footer style={{ ...reveal, borderTop: '1px solid var(--divider)', padding: '32px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginTop: '64px', textAlign: 'center' }}>
         <p style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.04em' }}>
           Powered by my{' '}
           <a

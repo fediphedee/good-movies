@@ -27,6 +27,19 @@ const WORDS: WordConfig[] = [
 
 const DIM = 0.4 // resting opacity for every word
 
+// The clip-bearing words, in reading order. On first landing we auto-play each
+// one's clip in turn — as if the visitor were hovering each keyword — so they
+// see the hover preview before the rest of the page fades in.
+const INTRO_WORDS = WORDS.filter(w => w.videoLight || w.videoDark).map(w => w.word)
+const INTRO_HOLD = 800 // ms each keyword stays revealed during the intro
+const INTRO_LEAD = 450 // ms of black before the title starts dissolving in
+const INTRO_FADE = 900 // ms the title takes to dissolve in before clips start
+
+// Total run time of the landing intro — the page's "% loading" counter counts
+// up over this span, finishing as the sequence settles and the page reveals:
+// black hold → title dissolve → each keyword clip in turn.
+export const INTRO_DURATION = INTRO_LEAD + INTRO_FADE + INTRO_WORDS.length * INTRO_HOLD
+
 // Pick a clip for the current theme, falling back to the other theme's clip
 // when a variant is missing (the current asset set is incomplete).
 function clipFor(c: WordConfig | undefined, dark: boolean): string | null {
@@ -35,13 +48,22 @@ function clipFor(c: WordConfig | undefined, dark: boolean): string | null {
   return src ?? null
 }
 
-export function HeroTitle({ dark }: { dark: boolean }) {
+// The word that stays lit at rest: nothing on desktop (wait for a hover), and
+// on mobile — where there's no hover — "watching" is kept active as a default.
+function restingWord(): string | null {
+  return typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches
+    ? 'watching'
+    : null
+}
+
+export function HeroTitle({ dark, onIntroDone }: { dark: boolean; onIntroDone?: () => void }) {
   // The word whose clip is currently revealed (hovered on desktop, tapped on
-  // mobile). Null = nothing revealed, everything dimmed. On mobile there's no
-  // hover, so start with "feel" already active (as if tapped).
-  const [active, setActive] = useState<string | null>(() =>
-    typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches ? 'feel' : null
-  )
+  // mobile). Null = nothing revealed, everything dimmed. We open on nothing so
+  // the title dissolves in clean; the intro then cycles through every clip and
+  // settles on the resting word (null on desktop, "watching" on mobile).
+  const [active, setActive] = useState<string | null>(null)
+  // Title dissolve-in: start fully transparent (black screen), then fade up.
+  const [shown, setShown] = useState(false)
   // Remember how the last interaction started, so a touch-tap toggles the
   // clip while a mouse-click doesn't fight the hover state.
   const ptr = useRef<'mouse' | 'pen' | 'touch'>('mouse')
@@ -51,6 +73,40 @@ export function HeroTitle({ dark }: { dark: boolean }) {
   const wordRefs = useRef<Record<string, HTMLSpanElement | null>>({})
 
   const activeClip = clipFor(WORDS.find(w => w.word === active), dark)
+
+  // Intro: open on black, dissolve the title in, then step through each clip-
+  // bearing word (~0.6s each) as a self-playing preview of the hover, then settle
+  // on the resting word and tell the page it can reveal the rest. Honours
+  // prefers-reduced-motion by skipping straight to the resting state. Runs once.
+  useEffect(() => {
+    const reduce =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduce) {
+      setShown(true)
+      setActive(restingWord())
+      onIntroDone?.()
+      return
+    }
+    const timers: number[] = []
+    // after the black hold, dissolve the title in
+    timers.push(window.setTimeout(() => setShown(true), INTRO_LEAD))
+    // once it's in, run the clip sequence
+    let i = 0
+    const tick = () => {
+      if (i < INTRO_WORDS.length) {
+        setActive(INTRO_WORDS[i])
+        i++
+        timers.push(window.setTimeout(tick, INTRO_HOLD))
+      } else {
+        setActive(restingWord())
+        onIntroDone?.()
+      }
+    }
+    timers.push(window.setTimeout(tick, INTRO_LEAD + INTRO_FADE))
+    return () => timers.forEach(window.clearTimeout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Load + play the active clip; pause when nothing is revealed. Swapping the
   // src on activation keeps us from preloading every (large) clip at once.
@@ -96,6 +152,8 @@ export function HeroTitle({ dark }: { dark: boolean }) {
       width: 'min(988px, 92vw)',
       transform: 'translateX(-50%)',
       color: 'var(--fg)',
+      opacity: shown ? 1 : 0,
+      transition: `opacity ${INTRO_FADE}ms ease`,
     }}>
       {/* One clip layer, behind the whole title (every line sits on top of it),
           centred on whichever word is active. */}
@@ -111,7 +169,7 @@ export function HeroTitle({ dark }: { dark: boolean }) {
           transform: 'translate(-50%, -50%)',
           overflow: 'hidden',
           opacity: activeClip ? 1 : 0,
-          transition: 'opacity 0.4s ease',
+          transition: 'opacity 0.6s ease',
           pointerEvents: 'none',
           zIndex: -1,
         }}
@@ -166,7 +224,7 @@ export function HeroTitle({ dark }: { dark: boolean }) {
                 display: 'inline-block',
                 marginRight: '0.22em',
                 opacity: isActive ? 1 : DIM,
-                transition: 'opacity 0.35s ease',
+                transition: 'opacity 0.5s ease',
                 cursor: hasVideo ? 'pointer' : 'default',
                 outline: 'none',
                 WebkitTapHighlightColor: 'transparent',

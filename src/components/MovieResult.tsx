@@ -21,19 +21,25 @@ export function MovieResult({ movie, index }: MovieResultProps) {
     </span>
   )
 
-  return (
-    <article
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '120px 1fr',
-        gap: '0 24px',
-        borderBottom: '1px solid var(--divider)',
-        opacity: 0,
-        animation: `fadeUp 0.3s ease forwards`,
-        animationDelay: `${index * 80}ms`,
-      }}
-    >
-      {/* Poster slot — links to the film on Letterboxd, zooms within frame on hover */}
+  const href = movie.letterboxdUri
+
+  // Poster is 30% larger than before (120px → 156px wide)
+  const cardStyle = {
+    display: 'grid',
+    gridTemplateColumns: '156px 1fr',
+    gap: '0 24px',
+    alignItems: 'start',
+    padding: '16px',
+    // base border lives in CSS (.rgm-card) so the :hover outline can override it
+    color: 'var(--fg)',
+    opacity: 0,
+    animation: 'fadeUp 0.3s ease forwards',
+    animationDelay: `${index * 80}ms`,
+  } as const
+
+  const inner = (
+    <>
+      {/* Poster slot — zooms within its frame on card hover */}
       <div
         className="rgm-poster"
         style={{
@@ -42,33 +48,20 @@ export function MovieResult({ movie, index }: MovieResultProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '20px 0 20px 0',
           flexShrink: 0,
           overflow: 'hidden',
         }}
       >
-        {movie.letterboxdUri && src ? (
-          <a
-            href={movie.letterboxdUri}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${movie.title} on Letterboxd`}
-            style={{ display: 'block', width: '100%', height: '100%' }}
-          >
-            {poster}
-          </a>
-        ) : (
-          poster
-        )}
+        {poster}
       </div>
 
       {/* Info */}
-      <div style={{ padding: '20px 0', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
           {movie.title}
         </h2>
 
-        <div style={{ fontSize: '11px', color: 'var(--muted)', letterSpacing: '0.06em', display: 'flex', gap: '14px' }}>
+        <div style={{ fontSize: '10px', color: 'var(--muted)', letterSpacing: '0.06em', display: 'flex', gap: '14px' }}>
           <span>{movie.year}</span>
           {movie.director && <span>{movie.director}</span>}
         </div>
@@ -78,7 +71,47 @@ export function MovieResult({ movie, index }: MovieResultProps) {
             {movie.synopsis.slice(0, 180)}{movie.synopsis.length > 180 ? '…' : ''}
           </p>
         )}
+
+        {/* Hover-only link cue: an up-right arrow + a call to read reviews */}
+        {href && (
+          <span
+            className="rgm-card-link"
+            style={{
+              marginTop: '8px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '7px',
+              fontSize: '11px',
+              letterSpacing: '0.04em',
+              color: 'var(--fg)',
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+              <path d="M3.5 8.5 8.5 3.5M8.5 3.5H4M8.5 3.5V8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            see what people say
+          </span>
+        )}
       </div>
+    </>
+  )
+
+  // The whole card is the link (content included). Films without a Letterboxd
+  // URL render as a plain, non-clickable card.
+  return href ? (
+    <a
+      className="rgm-card"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${movie.title} on Letterboxd`}
+      style={cardStyle}
+    >
+      {inner}
+    </a>
+  ) : (
+    <article className="rgm-card" style={cardStyle}>
+      {inner}
     </article>
   )
 }

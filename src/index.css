@@ -78,10 +78,16 @@
   .rgm-btn-link:hover:not(:disabled) { color: var(--accent) !important; text-decoration: underline; }
 }
 
-/* Result poster: zoom 20% within its frame on hover (frame clips via overflow) */
+/* Desktop result cards: no dividers at rest; the whole card is one link. On
+   hover an outline appears, the poster zooms within its frame, and a link cue
+   fades in. */
+.rgm-card { border: 1px solid transparent; transition: border-color 0.2s ease; }
 .rgm-poster-img { transition: transform 0.45s ease; }
+.rgm-card-link { opacity: 0; transition: opacity 0.2s ease; }
 @media (hover: hover) {
-  .rgm-poster:hover .rgm-poster-img { transform: scale(1.2); }
+  .rgm-card:hover { border-color: var(--fg); }
+  .rgm-card:hover .rgm-poster-img { transform: scale(1.12); }
+  .rgm-card:hover .rgm-card-link { opacity: 1; }
 }
 
 /* Hero title sizing. The title sits dimmed; keyword words reveal a film still

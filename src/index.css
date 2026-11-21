@@ -91,6 +91,8 @@
 .rgm-hero { font-size: clamp(44px, 13vw, 133px); }
 
 @media (max-width: 640px) {
+  /* Mobile title ~30% larger than the continuous desktop clamp */
+  .rgm-hero { font-size: clamp(57px, 17vw, 133px); }
   /* iOS auto-zooms (and stays zoomed) when a focused input is < 16px */
   main input { font-size: 16px !important; }
   /* comfortable 48px touch targets: input, action buttons, and chips */

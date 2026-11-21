@@ -24,6 +24,18 @@ const PROMPTS = [
   'a famous classic',
 ]
 
+// Short mood examples the search placeholder types out, one after another, to
+// signal "type your vibe here". Kept lowercase and brief so they read as hints.
+const PLACEHOLDER_MOODS = [
+  'something relaxing',
+  'slow and beautiful',
+  'a feel-good rewatch',
+  'funny but not stupid',
+  "late night, can't sleep",
+  'something to cry to',
+  'a 70s thriller',
+]
+
 export default function App() {
   const { search, random, byId, loading } = useMovieSearch()
   // Theme follows local daylight: dark from sunset to sunrise
@@ -33,6 +45,41 @@ export default function App() {
   const [hasSearched, setHasSearched] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
+
+  // Animated placeholder: type a mood out, pause, delete it, move to the next —
+  // a lo-fi "type here" nudge. Pauses while the field is focused or has text.
+  const [typed, setTyped] = useState('')
+  const [caretOn, setCaretOn] = useState(true)
+  const [inputFocused, setInputFocused] = useState(false)
+  const animatePlaceholder = !inputFocused && query === ''
+
+  useEffect(() => {
+    const t = setInterval(() => setCaretOn(c => !c), 530)
+    return () => clearInterval(t)
+  }, [])
+
+  useEffect(() => {
+    if (!animatePlaceholder) return
+    let phrase = 0
+    let chars = 0
+    let deleting = false
+    let timer: number
+    const step = () => {
+      const full = PLACEHOLDER_MOODS[phrase % PLACEHOLDER_MOODS.length]
+      chars += deleting ? -1 : 1
+      setTyped(full.slice(0, chars))
+      let delay = deleting ? 28 : 60
+      if (!deleting && chars === full.length) { deleting = true; delay = 1700 }
+      else if (deleting && chars === 0) { deleting = false; phrase++; delay = 350 }
+      timer = window.setTimeout(step, delay)
+    }
+    timer = window.setTimeout(step, 450)
+    return () => clearTimeout(timer)
+  }, [animatePlaceholder])
+
+  const placeholder = animatePlaceholder
+    ? `e.g. ${typed}${caretOn ? '▌' : ' '}`
+    : 'e.g. something relaxing'
 
   // Mobile shows one movie at a time (a "deck" we walk through); desktop lists.
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 640px)').matches)
@@ -122,14 +169,18 @@ export default function App() {
         onSunClick={showSunPair}
       />
 
-      <main style={{ flex: 1, maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', maxWidth: '720px', margin: '0 auto', width: '100%', padding: '0 24px', boxSizing: 'border-box' }}>
 
-        {/* Hero prompt */}
-        <div style={{ padding: isMobile ? '24px 0 40px' : '64px 0 40px' }}>
+        {/* Hero prompt — fills the first viewport (content centred) while idle;
+            compacts once results/suggestions are shown. 24px padding; the
+            horizontal 24 comes from <main>. */}
+        <div style={!hasSearched
+          ? { flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '24px 0' }
+          : { padding: isMobile ? '24px 0 40px' : '64px 0 40px' }}>
           <HeroTitle dark={dark} />
 
           <div style={{ textAlign: 'center', maxWidth: '480px', margin: '0 auto 32px' }}>
-            <Text variant="body" size="base">
+            <Text variant="body" size="xs">
               Just a tight list of pretty good movies.<br /> Type in your mood or the vibe you're looking for, and we'll do the rest.
             </Text>
           </div>
@@ -141,7 +192,9 @@ export default function App() {
               value={query}
               onChange={e => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="e.g. something relaxing"
+              onFocus={() => setInputFocused(true)}
+              onBlur={() => setInputFocused(false)}
+              placeholder={placeholder}
               className="w-full shadow-none! ring-0! bg-transparent! text-base tracking-wide rounded-none! border-[1px]! border-solid! border-(--divider)! focus:border-(--focus)! focus:placeholder:text-transparent! pl-(--space-8)! pr-(--space-40)! py-(--space-8)!"
             />
             {query !== '' && (
@@ -177,28 +230,35 @@ export default function App() {
             )}
           </div>
 
-          {/* Submit — full-width split row on mobile, centred auto-width on desktop */}
+          {/* Submit — "Find a film" is the primary action; "Surprise me" is a
+              quiet text link so it doesn't compete for attention. */}
           <div style={isMobile
-            ? { display: 'flex', gap: '8px', width: '100%' }
-            : { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+            ? { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', width: '100%' }
+            : { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
             <Button
               variant="primary"
               onClick={() => handleSearch(query)}
               disabled={loading || !query.trim()}
               className="rgm-btn-primary text-xs tracking-widest uppercase text-(--bg)! justify-center"
-              style={{ flex: isMobile ? 1 : undefined }}
+              style={{ width: isMobile ? '100%' : undefined }}
             >
               Find a film
             </Button>
-            <Button
-              variant="ghost"
+            <button
+              type="button"
+              className="rgm-btn-link"
               onClick={() => { setResults(random()); setQuery(''); setHasSearched(true); setCardIndex(0); setVisibleCount(5) }}
               disabled={loading}
-              className="rgm-btn-ghost text-xs tracking-widest uppercase justify-center"
-              style={{ flex: isMobile ? 1 : undefined }}
+              style={{
+                fontFamily: 'var(--font)',
+                fontSize: '12px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                transition: 'color 0.15s ease',
+              }}
             >
               Surprise me
-            </Button>
+            </button>
           </div>
         </div>
 

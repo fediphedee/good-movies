@@ -37,8 +37,11 @@ function clipFor(c: WordConfig | undefined, dark: boolean): string | null {
 
 export function HeroTitle({ dark }: { dark: boolean }) {
   // The word whose clip is currently revealed (hovered on desktop, tapped on
-  // mobile). Null = nothing revealed, everything dimmed.
-  const [active, setActive] = useState<string | null>(null)
+  // mobile). Null = nothing revealed, everything dimmed. On mobile there's no
+  // hover, so start with "feel" already active (as if tapped).
+  const [active, setActive] = useState<string | null>(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches ? 'feel' : null
+  )
   // Remember how the last interaction started, so a touch-tap toggles the
   // clip while a mouse-click doesn't fight the hover state.
   const ptr = useRef<'mouse' | 'pen' | 'touch'>('mouse')

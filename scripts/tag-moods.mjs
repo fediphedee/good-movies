@@ -292,6 +292,16 @@ const kwCache = existsSync(KW_CACHE_PATH)
 
 const { movies } = JSON.parse(readFileSync(MOVIES_PATH, 'utf8'))
 
+// Seed the cache from keywords already stored on each record. The cache file is
+// gitignored, so on a cold run (e.g. CI) this avoids re-fetching keywords for
+// every film — we only hit TMDB for records that have neither a cache entry nor
+// stored keywords.
+for (const m of movies) {
+  if (m.tmdbId && !kwCache[m.tmdbId] && Array.isArray(m.keywords) && m.keywords.length) {
+    kwCache[m.tmdbId] = m.keywords
+  }
+}
+
 const toFetch = movies.filter(m => m.tmdbId && !kwCache[m.tmdbId])
 console.log(`Fetching keywords for ${toFetch.length} films (${movies.length - toFetch.length} cached)…`)
 

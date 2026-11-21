@@ -1,0 +1,56 @@
+name: Sync Letterboxd diary
+
+# Pulls new films from the Letterboxd diary RSS feed once a month and opens a
+# PR with them (films rated ★3+, rewatches excluded). Review the PR and merge.
+#
+# One-time setup (see scripts/sync-diary.mjs and the PR description):
+#   1. Repo Settings → Secrets and variables → Actions → add secret TMDB_TOKEN.
+#   2. Repo Settings → Actions → General → Workflow permissions →
+#      enable "Allow GitHub Actions to create and approve pull requests".
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'   # 06:00 UTC on the 1st of each month
+  workflow_dispatch: {}    # also runnable on demand from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Date stamp (ties the branch/PR to when films were added)
+        id: date
+        run: echo "ymd=$(date -u +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Sync diary and re-tag moods
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+        run: |
+          node scripts/sync-diary.mjs --write
+          node scripts/tag-moods.mjs
+
+      - name: Open a PR with the new films
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: diary-sync-${{ steps.date.outputs.ymd }}
+          base: main
+          commit-message: "Diary sync — new films (${{ steps.date.outputs.ymd }})"
+          title: "🎬 Diary sync — ${{ steps.date.outputs.ymd }}"
+          body: |
+            Automated pull from the Letterboxd diary RSS feed on ${{ steps.date.outputs.ymd }}.
+            Criteria: films rated ★3 or higher, rewatches excluded, skips
+            anything already in the list.
+
+            Review the diff on `public/movies.json` and merge if it looks right.
+          add-paths: public/movies.json
+          assignees: fediphedee
+          delete-branch: true

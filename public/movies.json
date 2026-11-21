@@ -3964,6 +3964,44 @@
       ]
     },
     {
+      "id": "40-years-of-fuckin-up",
+      "title": "40 Years of Fuckin' Up",
+      "year": 2026,
+      "rating": 4.5,
+      "watchedDate": "2026-11-08",
+      "letterboxdUri": "https://letterboxd.com/film/40-years-of-fuckin-up",
+      "genres": [
+        "Documentary"
+      ],
+      "runtime": 120,
+      "synopsis": "The Truth Behind The Insanity of The Iconic Punk Band NOFX",
+      "posterPath": "/OtXVfMpLzMijaY1u4tGT2Q82Vj.jpg",
+      "director": "James Buddy Day",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1618403,
+      "moods": [
+        "cerebral"
+      ],
+      "keywords": [
+        "punk rock"
+      ],
+      "voteCount": 1,
+      "popularity": 0.7439,
+      "actors": [
+        "Fat Mike",
+        "El Hefe",
+        "Eric Melvin",
+        "Erik Sandin"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "29M2",
       "title": "Annie Hall",
       "year": 1977,
@@ -5894,6 +5932,70 @@
       "originalLanguage": "en",
       "countries": [
         "US"
+      ]
+    },
+    {
+      "id": "la-bola-negra",
+      "title": "La Bola Negra",
+      "year": 2026,
+      "rating": 4.5,
+      "watchedDate": "2026-09-27",
+      "letterboxdUri": "https://letterboxd.com/film/la-bola-negra",
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "runtime": 159,
+      "synopsis": "The intertwined lives of three men in three different eras, three lives intimately linked by sexuality and desire, pain, and legacy.",
+      "posterPath": "/7HwFQTMghL6HOvzEnXYUvyuZXeh.jpg",
+      "director": "Javier Ambrossi",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1422041,
+      "moods": [
+        "epic",
+        "devastating"
+      ],
+      "keywords": [
+        "based on novel or book",
+        "spanish civil war (1936-39)",
+        "historical fiction",
+        "period drama",
+        "lgbt",
+        "spanish second republic (1931-39)",
+        "somber",
+        "1930s",
+        "2010s",
+        "gay theme",
+        "romantic drama",
+        "war drama",
+        "romantic",
+        "hopeful",
+        "tragic",
+        "based on real person",
+        "multiple timelines",
+        "inspired by real events"
+      ],
+      "voteCount": 242,
+      "popularity": 113.0409,
+      "actors": [
+        "Guitarricadelafuente",
+        "Miguel Bernardeau",
+        "Carlos González",
+        "Milo Quifes",
+        "Lola Dueñas",
+        "Penélope Cruz",
+        "Glenn Close",
+        "Julio Torres",
+        "Yenesi",
+        "Lorenzo Zurzolo"
+      ],
+      "originalLanguage": "es",
+      "countries": [
+        "ES",
+        "FR"
       ]
     },
     {
@@ -9024,6 +9126,64 @@
       ]
     },
     {
+      "id": "alice-doesnt-live-here-anymore",
+      "title": "Alice Doesn't Live Here Anymore",
+      "year": 1974,
+      "rating": 4,
+      "watchedDate": "2026-08-08",
+      "letterboxdUri": "https://letterboxd.com/film/alice-doesnt-live-here-anymore",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "runtime": 112,
+      "synopsis": "After her husband dies, Alice and her son, Tommy, leave their small New Mexico town for California, where Alice hopes to make a new life for herself as a singer. Money problems force them to settle in Arizona instead, where Alice takes a job as waitress in a small diner.",
+      "posterPath": "/A99yzz1W3NCG6zR2HXSwn2kWlse.jpg",
+      "director": "Martin Scorsese",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture",
+        "seventies",
+        "new hollywood",
+        "gritty"
+      ],
+      "tmdbId": 16153,
+      "moods": [
+        "cerebral",
+        "tense"
+      ],
+      "keywords": [
+        "waitress",
+        "widow",
+        "arizona",
+        "son",
+        "road trip",
+        "singer",
+        "tucson, arizona",
+        "phoenix, arizona",
+        "psychological drama"
+      ],
+      "voteCount": 564,
+      "popularity": 2.2202,
+      "actors": [
+        "Ellen Burstyn",
+        "Alfred Lutter",
+        "Kris Kristofferson",
+        "Harvey Keitel",
+        "Diane Ladd",
+        "Lelia Goldoni",
+        "Billy Green Bush",
+        "Jodie Foster",
+        "Valerie Curtin",
+        "Vic Tayback"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "29LI",
       "title": "All About Eve",
       "year": 1950,
@@ -9960,6 +10120,56 @@
         "FR",
         "GB",
         "US"
+      ]
+    },
+    {
+      "id": "august-vacation",
+      "title": "August Vacation",
+      "year": 1996,
+      "rating": 4,
+      "watchedDate": "2026-08-16",
+      "letterboxdUri": "https://letterboxd.com/film/august-vacation",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 106,
+      "synopsis": "Like every August, journalist Sandro, his family and acquaintances vacation on the island of Ventotene. This time, however, they find out the house next door has been rented to a lower middle class family, whose crass nature and values soon clash with their own intellectual and progressive background.",
+      "posterPath": "/6tOhTuwoK46tQPtzW9tHSQT944b.jpg",
+      "director": "Paolo Virzì",
+      "moodTags": [
+        "eighties",
+        "blockbuster era",
+        "nineties",
+        "indie boom"
+      ],
+      "tmdbId": 56399,
+      "moods": [
+        "breezy"
+      ],
+      "keywords": [
+        "new neighbor",
+        "neighbor neighbor relationship",
+        "political humor",
+        "neighbor feud"
+      ],
+      "voteCount": 143,
+      "popularity": 0.4778,
+      "actors": [
+        "Silvio Orlando",
+        "Sabrina Ferilli",
+        "Ennio Fantastichini",
+        "Laura Morante",
+        "Antonella Ponziani",
+        "Piero Natoli",
+        "Paola Tiziana Cruciani",
+        "Gigio Alberti",
+        "Silvio Vannucci",
+        "Rocco Papaleo"
+      ],
+      "originalLanguage": "it",
+      "countries": [
+        "IT"
       ]
     },
     {
@@ -14782,6 +14992,68 @@
       ]
     },
     {
+      "id": "halloween-1978",
+      "title": "Halloween",
+      "year": 1978,
+      "rating": 4,
+      "watchedDate": "2026-10-23",
+      "letterboxdUri": "https://letterboxd.com/film/halloween-1978",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "runtime": 91,
+      "synopsis": "Fifteen years after murdering his sister on Halloween Night 1963, Michael Myers escapes from a mental hospital and returns to the small town of Haddonfield, Illinois to kill again.",
+      "posterPath": "/wijlZ3HaYMvlDTPqJoTCWKFkCPU.jpg",
+      "director": "John Carpenter",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture",
+        "seventies",
+        "new hollywood",
+        "gritty"
+      ],
+      "tmdbId": 948,
+      "moods": [
+        "tense",
+        "gothic"
+      ],
+      "keywords": [
+        "mask",
+        "police",
+        "halloween",
+        "babysitter",
+        "marijuana",
+        "stalking",
+        "serial killer",
+        "maniac",
+        "killing spree",
+        "family",
+        "evil",
+        "psychotic",
+        "escaped killer"
+      ],
+      "voteCount": 6546,
+      "popularity": 11.8117,
+      "actors": [
+        "Donald Pleasence",
+        "Jamie Lee Curtis",
+        "Nancy Kyes",
+        "P. J. Soles",
+        "Charles Cyphers",
+        "Kyle Richards",
+        "Brian Andrews",
+        "John Michael Graham",
+        "Nancy Stephens",
+        "Arthur Malet"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "kmvE",
       "title": "Hamilton",
       "year": 2020,
@@ -16768,6 +17040,70 @@
         "Joe Bostick",
         "Liz Gordon",
         "Nicky Guadagni"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "lenny",
+      "title": "Lenny",
+      "year": 1974,
+      "rating": 4,
+      "watchedDate": "2026-11-15",
+      "letterboxdUri": "https://letterboxd.com/film/lenny",
+      "genres": [
+        "Drama"
+      ],
+      "runtime": 112,
+      "synopsis": "The story of acerbic 1960s comic Lenny Bruce, whose groundbreaking, no-holds-barred style and social commentary was often deemed by the establishment as too obscene for the public.",
+      "posterPath": "/Avhk4pGdz3YQrzqLU65icjnE6vn.jpg",
+      "director": "Bob Fosse",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture",
+        "seventies",
+        "new hollywood",
+        "gritty"
+      ],
+      "tmdbId": 27094,
+      "moods": [
+        "cerebral",
+        "funny-dark"
+      ],
+      "keywords": [
+        "adultery",
+        "husband wife relationship",
+        "court case",
+        "court",
+        "drug addiction",
+        "freedom of speech",
+        "comedian",
+        "civil rights",
+        "biography",
+        "stripper",
+        "unfaithfulness",
+        "social satire",
+        "judaism",
+        "courtroom",
+        "self destructiveness",
+        "stand-up comedian"
+      ],
+      "voteCount": 328,
+      "popularity": 1.5646,
+      "actors": [
+        "Dustin Hoffman",
+        "Valerie Perrine",
+        "Jan Miner",
+        "Stanley Beck",
+        "Frankie Man",
+        "Rashel Novikoff",
+        "Gary Morton",
+        "Guy Rennie",
+        "Michele Yonge",
+        "Kathryn Witt"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -23865,6 +24201,77 @@
       ]
     },
     {
+      "id": "the-deer-hunter",
+      "title": "The Deer Hunter",
+      "year": 1978,
+      "rating": 4,
+      "watchedDate": "2026-11-09",
+      "letterboxdUri": "https://letterboxd.com/film/the-deer-hunter",
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "runtime": 183,
+      "synopsis": "Three steelworkers enlist in the army and are sent to Vietnam, one leaving behind a rushed marriage, the others a shared love. What they encounter during the war changes their lives forever.",
+      "posterPath": "/bbGtogDZOg09bm42KIpCXUXICkh.jpg",
+      "director": "Michael Cimino",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture",
+        "seventies",
+        "new hollywood",
+        "gritty"
+      ],
+      "tmdbId": 11778,
+      "moods": [
+        "epic",
+        "warm",
+        "devastating"
+      ],
+      "keywords": [
+        "vietnam war",
+        "vietnam veteran",
+        "small town",
+        "suicide",
+        "vietnam",
+        "post-traumatic stress disorder (ptsd)",
+        "escape",
+        "pennsylvania, usa",
+        "saigon",
+        "friends",
+        "russian roulette",
+        "wedding",
+        "deer hunting",
+        "steel worker",
+        "anti war",
+        "revolver",
+        "drunkenness",
+        "viet cong",
+        "romantic triangle",
+        "complex"
+      ],
+      "voteCount": 4482,
+      "popularity": 7.0483,
+      "actors": [
+        "Robert De Niro",
+        "Christopher Walken",
+        "John Cazale",
+        "John Savage",
+        "Meryl Streep",
+        "George Dzundza",
+        "Rutanya Alda",
+        "Pierre Segui",
+        "Amy Wright",
+        "Richard Kuss"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "US"
+      ]
+    },
+    {
       "id": "1VPm",
       "title": "The Englishman Who Went Up a Hill But Came Down a Mountain",
       "year": 1995,
@@ -24579,6 +24986,60 @@
       ]
     },
     {
+      "id": "the-invite-2026",
+      "title": "The Invite",
+      "year": 2026,
+      "rating": 4,
+      "watchedDate": "2026-11-03",
+      "letterboxdUri": "https://letterboxd.com/film/the-invite-2026",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 107,
+      "synopsis": "Joe and Angela's marriage is on thin ice. When they invite their enigmatic upstairs neighbors for a dinner party, the night spirals into unexpected places. Have they reignited the spark or lit the match that burns it all down?",
+      "posterPath": "/b7Dr8Chzse8VagexAporUu2RtLx.jpg",
+      "director": "Olivia Wilde",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 950028,
+      "moods": [
+        "funny-dark",
+        "breezy",
+        "warm"
+      ],
+      "keywords": [
+        "husband wife relationship",
+        "san francisco, california",
+        "dark comedy",
+        "remake",
+        "firefighter",
+        "sexologist",
+        "aggressive",
+        "candid",
+        "anxious",
+        "exuberant",
+        "neighbors"
+      ],
+      "voteCount": 987,
+      "popularity": 17.5388,
+      "actors": [
+        "Olivia Wilde",
+        "Seth Rogen",
+        "Penélope Cruz",
+        "Edward Norton",
+        "Rachel Thurow",
+        "Mario Valdez"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "Azw8",
       "title": "The Last Movie Stars",
       "year": 2022,
@@ -24951,6 +25412,71 @@
       ],
       "originalLanguage": "en",
       "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "the-odyssey-2026",
+      "title": "The Odyssey",
+      "year": 2026,
+      "rating": 4,
+      "watchedDate": "2026-07-19",
+      "letterboxdUri": "https://letterboxd.com/film/the-odyssey-2026",
+      "genres": [
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "runtime": 173,
+      "synopsis": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
+      "posterPath": "/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "director": "Christopher Nolan",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1368337,
+      "moods": [
+        "epic",
+        "languid"
+      ],
+      "keywords": [
+        "ship",
+        "trojan war",
+        "greek mythology",
+        "historical fiction",
+        "ancient world",
+        "period drama",
+        "based on song, poem or rhyme",
+        "greek history",
+        "voyage",
+        "peplum",
+        "ancient",
+        "trojan horse",
+        "mediterranean sea",
+        "bronze age",
+        "mythical",
+        "odyssey",
+        "sword and sandal",
+        "epic fantasy"
+      ],
+      "voteCount": 5245,
+      "popularity": 481.7218,
+      "actors": [
+        "Matt Damon",
+        "Tom Holland",
+        "Anne Hathaway",
+        "Robert Pattinson",
+        "Himesh Patel",
+        "Charlize Theron",
+        "John Leguizamo",
+        "Travis Scott",
+        "Corey Hawkins",
+        "Jarreth J. Merz"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
         "US"
       ]
     },
@@ -27404,6 +27930,66 @@
       ]
     },
     {
+      "id": "under-the-silver-lake",
+      "title": "Under the Silver Lake",
+      "year": 2018,
+      "rating": 4,
+      "watchedDate": "2026-09-19",
+      "letterboxdUri": "https://letterboxd.com/film/under-the-silver-lake",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "runtime": 139,
+      "synopsis": "Young and disenchanted Sam meets a mysterious and beautiful woman who's swimming in his building's pool one night. When she suddenly vanishes the next morning, Sam embarks on a surreal quest across Los Angeles to decode the secret behind her disappearance, leading him into the murkiest depths of mystery, scandal and conspiracy.",
+      "posterPath": "/cJ9aKlEgTLYtpYjNqin06YqJRUl.jpg",
+      "director": "David Robert Mitchell",
+      "moodTags": [
+        "2000s",
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 396461,
+      "moods": [
+        "funny-dark",
+        "strange",
+        "electric",
+        "late-night"
+      ],
+      "keywords": [
+        "secret society",
+        "seduction",
+        "dark comedy",
+        "surrealism",
+        "dream sequence",
+        "voyeur",
+        "part animation",
+        "mysterious",
+        "neo-noir",
+        "hollywood hills",
+        "subliminal message"
+      ],
+      "voteCount": 1716,
+      "popularity": 3.8303,
+      "actors": [
+        "Andrew Garfield",
+        "Riley Keough",
+        "Topher Grace",
+        "Callie Hernandez",
+        "Don McManus",
+        "Jeremy Bobb",
+        "Riki Lindhome",
+        "Patrick Fischler",
+        "Zosia Mamet",
+        "Jimmi Simpson"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "vanity-fair",
       "title": "Vanity Fair",
       "year": 2004,
@@ -28982,6 +29568,53 @@
       ]
     },
     {
+      "id": "albert-brooks-defending-my-life",
+      "title": "Albert Brooks: Defending My Life",
+      "year": 2023,
+      "rating": 3.5,
+      "watchedDate": "2026-09-28",
+      "letterboxdUri": "https://letterboxd.com/film/albert-brooks-defending-my-life",
+      "genres": [
+        "Documentary"
+      ],
+      "runtime": 88,
+      "synopsis": "Rob Reiner profiles Albert Brooks, comedic legend, acclaimed filmmaker, talented character actor and a lifelong friend, who Reiner first met in their high school drama club.",
+      "posterPath": "/slZsCmKcSW0vsUzGnaYNbox5PT5.jpg",
+      "director": "Rob Reiner",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1184849,
+      "moods": [
+        "cerebral",
+        "sharp"
+      ],
+      "keywords": [
+        "comedian",
+        "biography",
+        "actor"
+      ],
+      "voteCount": 25,
+      "popularity": 1.2287,
+      "actors": [
+        "Albert Brooks",
+        "Rob Reiner",
+        "Chris Rock",
+        "Conan O'Brien",
+        "Wanda Sykes",
+        "Jon Stewart",
+        "Ben Stiller",
+        "Steven Spielberg",
+        "Sarah Silverman",
+        "David Letterman"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "20zI",
       "title": "Alien Resurrection",
       "year": 1997,
@@ -29952,6 +30585,44 @@
         "Richard Dysart",
         "Pat Buttram",
         "Harry Carey, Jr."
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "bang-my-box-the-robin-byrd-story",
+      "title": "Bang My Box: The Robin Byrd Story",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-08-31",
+      "letterboxdUri": "https://letterboxd.com/film/bang-my-box-the-robin-byrd-story",
+      "genres": [
+        "Documentary"
+      ],
+      "runtime": 79,
+      "synopsis": "Robin Byrd pioneered NYC public access with her cult sex-positive call-in show.  Now the larger-than-life 70-year-old champion of free speech, queer visibility, and safe sex reflects on her unique legacy and her hidden, decades-long marriage behind the scenes.",
+      "posterPath": "/ApmyB3G71Gj83rjtIhxdolZ38Yu.jpg",
+      "director": "Stephanie Schwam",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1674087,
+      "moods": [
+        "cerebral",
+        "sharp"
+      ],
+      "keywords": [],
+      "voteCount": 9,
+      "popularity": 1.2248,
+      "actors": [
+        "Robin Byrd",
+        "Sandra Bernhard",
+        "Cheri Oteri",
+        "Annie Sprinkle",
+        "Daylon Orr"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -30956,6 +31627,60 @@
       ]
     },
     {
+      "id": "boomerang-1992",
+      "title": "Boomerang",
+      "year": 1992,
+      "rating": 3.5,
+      "watchedDate": "2026-10-24",
+      "letterboxdUri": "https://letterboxd.com/film/boomerang-1992",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "runtime": 117,
+      "synopsis": "Marcus is a successful advertising executive who woos and beds women almost at will. After a company merger he finds that his new boss, the ravishing Jacqueline, is treating him in exactly the same way. Completely traumatised by this, his work goes badly downhill.",
+      "posterPath": "/apwkBVaJqLuK6mxe6sOABCeNjRw.jpg",
+      "director": "Reginald Hudlin",
+      "moodTags": [
+        "eighties",
+        "blockbuster era",
+        "nineties",
+        "indie boom"
+      ],
+      "tmdbId": 11066,
+      "moods": [
+        "breezy",
+        "warm"
+      ],
+      "keywords": [
+        "ladykiller",
+        "success",
+        "ladies' man",
+        "casanova",
+        "womanizer",
+        "african american business",
+        "african american romance"
+      ],
+      "voteCount": 665,
+      "popularity": 2.9445,
+      "actors": [
+        "Eddie Murphy",
+        "Robin Givens",
+        "Halle Berry",
+        "David Alan Grier",
+        "Martin Lawrence",
+        "Grace Jones",
+        "Geoffrey Holder",
+        "Eartha Kitt",
+        "Chris Rock",
+        "Tisha Campbell"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "iMbG",
       "title": "Border",
       "year": 2018,
@@ -31738,6 +32463,78 @@
         "DE",
         "PL",
         "ES",
+        "US"
+      ]
+    },
+    {
+      "id": "carrie-1976",
+      "title": "Carrie",
+      "year": 1976,
+      "rating": 3.5,
+      "watchedDate": "2026-11-07",
+      "letterboxdUri": "https://letterboxd.com/film/carrie-1976",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "runtime": 98,
+      "synopsis": "Withdrawn and sensitive teenager Carrie White faces bullying from her classmates and abuse from her fanatically pious mother. When she begins to suspect that she has supernatural powers, things take a dark and violent turn.",
+      "posterPath": "/8tT1rqlsTguyfUBMrbHR9cv1rxM.jpg",
+      "director": "Brian De Palma",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture",
+        "seventies",
+        "new hollywood",
+        "gritty"
+      ],
+      "tmdbId": 7340,
+      "moods": [
+        "devastating",
+        "electric",
+        "tense",
+        "twisted",
+        "strange"
+      ],
+      "keywords": [
+        "high school",
+        "child abuse",
+        "based on novel or book",
+        "isolation",
+        "cemetery",
+        "stage",
+        "bible",
+        "telekinesis",
+        "teacher",
+        "revenge",
+        "unrequited love",
+        "prom",
+        "religion",
+        "teenage girl",
+        "school",
+        "cruelty",
+        "rage",
+        "humiliation",
+        "crucifix",
+        "praying"
+      ],
+      "voteCount": 4617,
+      "popularity": 10.2008,
+      "actors": [
+        "Sissy Spacek",
+        "Piper Laurie",
+        "Amy Irving",
+        "William Katt",
+        "John Travolta",
+        "Nancy Allen",
+        "Betty Buckley",
+        "P. J. Soles",
+        "Priscilla Pointer",
+        "Sydney Lassick"
+      ],
+      "originalLanguage": "en",
+      "countries": [
         "US"
       ]
     },
@@ -32578,6 +33375,67 @@
       ]
     },
     {
+      "id": "coyote-vs-acme",
+      "title": "Coyote vs. Acme",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-09-20",
+      "letterboxdUri": "https://letterboxd.com/film/coyote-vs-acme",
+      "genres": [
+        "Comedy",
+        "Adventure",
+        "Family",
+        "Animation"
+      ],
+      "runtime": 103,
+      "synopsis": "After Acme products fail him one too many times in his dogged pursuit of the Roadrunner, Wile E. Coyote decides to hire a billboard lawyer to sue the Acme Corporation.",
+      "posterPath": "/kYDCl2y0VPvhT5eYWbMRInPoB03.jpg",
+      "director": "Dave Green",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1204680,
+      "moods": [
+        "warm",
+        "strange",
+        "funny-dark"
+      ],
+      "keywords": [
+        "judge",
+        "lawsuit",
+        "lawyer",
+        "courtroom",
+        "unlikely friendship",
+        "coyote",
+        "live action and animation",
+        "based on magazine, newspaper or article",
+        "cartoon characters",
+        "cgi-live action hybrid",
+        "absurd",
+        "dramatic",
+        "celebratory"
+      ],
+      "voteCount": 1528,
+      "popularity": 53.2165,
+      "actors": [
+        "Will Forte",
+        "Lana Condor",
+        "John Cena",
+        "Tone Bell",
+        "Martha Kelly",
+        "Luis Guzmán",
+        "P.J. Byrne",
+        "John Early",
+        "Nancy Linehan Charles",
+        "Kenneth Choi"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "oiOg",
       "title": "Crip Camp: A Disability Revolution",
       "year": 2020,
@@ -32940,6 +33798,72 @@
         "Sarah Lind",
         "Luke Camilleri",
         "Victor Zinck Jr."
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "digger-2026",
+      "title": "Digger",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-11-14",
+      "letterboxdUri": "https://letterboxd.com/film/digger-2026",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 129,
+      "synopsis": "The most powerful man in the world embarks on a frantic mission to prove he is humanity's savior before the disaster he's unleashed destroys everything.",
+      "posterPath": "/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg",
+      "director": "Alejandro G. Iñárritu",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1248832,
+      "moods": [
+        "funny-dark",
+        "cerebral",
+        "strange"
+      ],
+      "keywords": [
+        "capitalism",
+        "greed",
+        "climate change",
+        "dark comedy",
+        "redemption",
+        "satire",
+        "billionaire",
+        "oil industry",
+        "ego",
+        "corporate power",
+        "political satire",
+        "aggressive",
+        "environmental disaster",
+        "satirical",
+        "ironic",
+        "political",
+        "power",
+        "absurd",
+        "depressing",
+        "assertive"
+      ],
+      "voteCount": 534,
+      "popularity": 22.7876,
+      "actors": [
+        "Tom Cruise",
+        "Riz Ahmed",
+        "John Goodman",
+        "Sandra Hüller",
+        "Michael Stuhlbarg",
+        "Jesse Plemons",
+        "Robert John Burke",
+        "Emma D'Arcy",
+        "Burn Gorman",
+        "Sophie Wilde"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -33568,6 +34492,62 @@
       ]
     },
     {
+      "id": "earth-wind-fire-to-be-celestial-vs-thats",
+      "title": "Earth, Wind & Fire (To Be Celestial vs. That's the Weight of the World)",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-10-31",
+      "letterboxdUri": "https://letterboxd.com/film/earth-wind-fire-to-be-celestial-vs-thats",
+      "genres": [
+        "Documentary",
+        "Music"
+      ],
+      "runtime": 119,
+      "synopsis": "Examines the legacy, cultural impact, and body of work of American R&B/funk/jazz/soul/disco band Earth, Wind & Fire, and will feature exclusive access to the band’s archives of visual, audio, and written material, as well as the support of the estate of Maurice White and the band.",
+      "posterPath": "/eCxbErDh65qZqXMvPK5ZeX9X9Jl.jpg",
+      "director": "Questlove",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1361071,
+      "moods": [
+        "late-night",
+        "languid",
+        "electric"
+      ],
+      "keywords": [
+        "1970s",
+        "jazz singer or musician",
+        "rhythm and blues (r&b)",
+        "disco",
+        "1980s",
+        "1960s",
+        "music documentary",
+        "funk music",
+        "soul music",
+        "afropop"
+      ],
+      "voteCount": 16,
+      "popularity": 1.958,
+      "actors": [
+        "Philip Bailey",
+        "Verdine White",
+        "Ralph Johnson",
+        "Barack Obama",
+        "Michelle Obama",
+        "Stevie Wonder",
+        "Lionel Richie",
+        "H.E.R.",
+        "Flea",
+        "George Faison"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "2aQE",
       "title": "East of Eden",
       "year": 1955,
@@ -33813,6 +34793,64 @@
       ],
       "originalLanguage": "en",
       "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "elizabeth",
+      "title": "Elizabeth",
+      "year": 1998,
+      "rating": 3.5,
+      "watchedDate": "2026-08-22",
+      "letterboxdUri": "https://letterboxd.com/film/elizabeth",
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "runtime": 123,
+      "synopsis": "The story of the ascension to the throne and the early reign of Queen Elizabeth the First, the endless attempts by her council to marry her off, the Catholic hatred of her and her romance with Lord Robert Dudley.",
+      "posterPath": "/qEk48VLOdibXFVIEzE9ETZUBcCs.jpg",
+      "director": "Shekhar Kapur",
+      "moodTags": [
+        "eighties",
+        "blockbuster era",
+        "nineties",
+        "indie boom"
+      ],
+      "tmdbId": 4518,
+      "moods": [
+        "epic"
+      ],
+      "keywords": [
+        "queen",
+        "duke",
+        "treason",
+        "queen elizabeth i",
+        "tudor",
+        "historical figure",
+        "catholic",
+        "protestant",
+        "palace intrigue",
+        "16th century",
+        "british monarchy"
+      ],
+      "voteCount": 1553,
+      "popularity": 4.0994,
+      "actors": [
+        "Cate Blanchett",
+        "Joseph Fiennes",
+        "Geoffrey Rush",
+        "Christopher Eccleston",
+        "John Gielgud",
+        "Richard Attenborough",
+        "Fanny Ardant",
+        "Éric Cantona",
+        "Vincent Cassel",
+        "Kathy Burke"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
         "US"
       ]
     },
@@ -42869,6 +43907,72 @@
       ]
     },
     {
+      "id": "spider-man-brand-new-day",
+      "title": "Spider-Man: Brand New Day",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-08-01",
+      "letterboxdUri": "https://letterboxd.com/film/spider-man-brand-new-day",
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "runtime": 145,
+      "synopsis": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
+      "posterPath": "/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+      "director": "Destin Daniel Cretton",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 969681,
+      "moods": [
+        "mumblecore",
+        "languid",
+        "cerebral"
+      ],
+      "keywords": [
+        "mind control",
+        "new york city",
+        "hero",
+        "mutation",
+        "secret identity",
+        "superhero",
+        "spider",
+        "villain",
+        "based on comic",
+        "sequel",
+        "transhumanism",
+        "super power",
+        "masked vigilante",
+        "spider web",
+        "aftercreditsstinger",
+        "marvel cinematic universe (mcu)",
+        "masked superhero",
+        "fight for justice",
+        "genetic mutation"
+      ],
+      "voteCount": 7016,
+      "popularity": 300.7952,
+      "actors": [
+        "Tom Holland",
+        "Sadie Sink",
+        "Tramell Tillman",
+        "Zendaya",
+        "Jacob Batalon",
+        "Jon Bernthal",
+        "Mark Ruffalo",
+        "Florence Pugh",
+        "Liza Colón-Zayas",
+        "Marisa Tomei"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "2aOe",
       "title": "Stand by Me",
       "year": 1986,
@@ -44663,6 +45767,68 @@
       ]
     },
     {
+      "id": "the-end-of-oak-street",
+      "title": "The End of Oak Street",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-08-16",
+      "letterboxdUri": "https://letterboxd.com/film/the-end-of-oak-street",
+      "genres": [
+        "Science Fiction",
+        "Mystery",
+        "Thriller"
+      ],
+      "runtime": 100,
+      "synopsis": "After a mysterious cosmic event rips Oak Street from suburbia and transports their neighborhood to someplace unknown, the Platt family soon discovers that their very survival depends on them sticking together as they navigate their now unrecognizable surroundings.",
+      "posterPath": "/7DmtuAK5gYGlMFA45Oxkl1bEpIC.jpg",
+      "director": "David Robert Mitchell",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1101383,
+      "moods": [
+        "cerebral",
+        "tense"
+      ],
+      "keywords": [
+        "teleportation",
+        "giant snake",
+        "time travel",
+        "wormhole",
+        "family relationships",
+        "suburbia",
+        "survival",
+        "prehistoric creature",
+        "dinosaur",
+        "survival horror",
+        "neighborhood",
+        "1980s",
+        "suburban",
+        "nuclear family",
+        "survival adventure",
+        "suburbs"
+      ],
+      "voteCount": 2525,
+      "popularity": 70.7176,
+      "actors": [
+        "Anne Hathaway",
+        "Ewan McGregor",
+        "Maisy Stella",
+        "Christian Convery",
+        "Jordan Alexa Davis",
+        "P.J. Byrne",
+        "Hudson Meek",
+        "Anne Gee Byrd",
+        "Emily Kuroda",
+        "Simms May"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "kIky",
       "title": "The Farewell",
       "year": 2019,
@@ -44723,6 +45889,58 @@
       "originalLanguage": "en",
       "countries": [
         "CN",
+        "US"
+      ]
+    },
+    {
+      "id": "the-four-seasons",
+      "title": "The Four Seasons",
+      "year": 1981,
+      "rating": 3.5,
+      "watchedDate": "2026-08-09",
+      "letterboxdUri": "https://letterboxd.com/film/the-four-seasons",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "runtime": 107,
+      "synopsis": "Three middle-aged wealthy couples take vacations together in Spring, Summer, Autumn and Winter. Along the way we are treated to mid-life, marital, parental and other crises.",
+      "posterPath": "/bNLuiBVpRYP28VCyyVEhxYBGhyl.jpg",
+      "director": "Alan Alda",
+      "moodTags": [
+        "seventies",
+        "new hollywood",
+        "gritty",
+        "eighties",
+        "blockbuster era"
+      ],
+      "tmdbId": 25113,
+      "moods": [
+        "languid",
+        "breezy",
+        "warm"
+      ],
+      "keywords": [
+        "vacation",
+        "divorce"
+      ],
+      "voteCount": 79,
+      "popularity": 1.3522,
+      "actors": [
+        "Alan Alda",
+        "Carol Burnett",
+        "Len Cariou",
+        "Sandy Dennis",
+        "Rita Moreno",
+        "Jack Weston",
+        "Bess Armstrong",
+        "Elizabeth Alda",
+        "Beatrice Alda",
+        "Robert Hitt"
+      ],
+      "originalLanguage": "en",
+      "countries": [
         "US"
       ]
     },
@@ -46297,6 +47515,63 @@
       ]
     },
     {
+      "id": "the-rivals-of-amziah-king",
+      "title": "The Rivals of Amziah King",
+      "year": 2025,
+      "rating": 3.5,
+      "watchedDate": "2026-09-30",
+      "letterboxdUri": "https://letterboxd.com/film/the-rivals-of-amziah-king",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "runtime": 131,
+      "synopsis": "Deep within the backwoods of rural Oklahoma, charismatic and musically gifted Amziah King herds a bluegrass-playing band of misfits while overseeing the premier honey-making operation in town. When Amziah’s estranged foster daughter unexpectedly returns, Amziah leaps at the possibility to renew connection and create a family business. But the honey game is ruthless, and Amziah’s rivals threaten to destroy everything he has built.",
+      "posterPath": "/xAdcsPCcW3I0bS4zUwDHWWZjSpd.jpg",
+      "director": "Andrew Patterson",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1124142,
+      "moods": [
+        "tense",
+        "electric"
+      ],
+      "keywords": [
+        "oklahoma",
+        "envy",
+        "atmospheric",
+        "foster home",
+        "runaway child",
+        "foster daughter",
+        "beekeeping",
+        "beekeeper",
+        "business rivalry",
+        "family bonds"
+      ],
+      "voteCount": 133,
+      "popularity": 6.7617,
+      "actors": [
+        "Matthew McConaughey",
+        "Kurt Russell",
+        "Angelina LookingGlass",
+        "Cole Sprouse",
+        "Scott Shepherd",
+        "Rob Morgan",
+        "Tony Revolori",
+        "Jake Horowitz",
+        "Owen Teague",
+        "Bruce Davis"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "GB",
+        "US"
+      ]
+    },
+    {
       "id": "MjnI",
       "title": "The Roses",
       "year": 2025,
@@ -47710,6 +48985,72 @@
       "originalLanguage": "en",
       "countries": [
         "US"
+      ]
+    },
+    {
+      "id": "tony-2026",
+      "title": "Tony",
+      "year": 2026,
+      "rating": 3.5,
+      "watchedDate": "2026-11-11",
+      "letterboxdUri": "https://letterboxd.com/film/tony-2026",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "runtime": 107,
+      "synopsis": "A 19-year-old Anthony Bourdain travels to Provincetown and stumbles into the chaotic world of a restaurant kitchen, setting off a summer that will shape the course of his life.",
+      "posterPath": "/uwZF5guNR5EnXkjIVTk4UPTVGiS.jpg",
+      "director": "Matt Johnson",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1329016,
+      "moods": [
+        "languid",
+        "epic"
+      ],
+      "keywords": [
+        "new jersey",
+        "1970s",
+        "lie",
+        "restaurant",
+        "crush",
+        "food",
+        "summer",
+        "chef",
+        "aspiring writer",
+        "dishwasher",
+        "provincetown, massachusetts",
+        "culinary arts",
+        "late coming of age",
+        "book writing",
+        "mischievous",
+        "independent film",
+        "comforting",
+        "optimistic",
+        "biographical drama",
+        "drama comedy"
+      ],
+      "voteCount": 224,
+      "popularity": 9.4668,
+      "actors": [
+        "Dominic Sessa",
+        "Antonio Banderas",
+        "Emilia Jones",
+        "Stavros Halkias",
+        "Leo Woodall",
+        "Monica Raymund",
+        "Michael Jibrin",
+        "Rich Sommer",
+        "Dagmara Dominczyk",
+        "Liam Fitch"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US",
+        "CA"
       ]
     },
     {
@@ -50987,6 +52328,49 @@
       "countries": [
         "GB",
         "US"
+      ]
+    },
+    {
+      "id": "another-summer-holiday",
+      "title": "Another Summer Holiday",
+      "year": 2024,
+      "rating": 3,
+      "watchedDate": "2026-08-18",
+      "letterboxdUri": "https://letterboxd.com/film/another-summer-holiday",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 115,
+      "synopsis": "Altiero Molino is a twenty-six-year-old digital entrepreneur who’s returning to Ventotene with his model husband in order to gather his old friends together around his ailing father so as to treat him to one last holiday in this place which is so special to him. He didn’t expect to find the island all abuzz with Sabry Mazzalupi’s marriage to her partner Cesare. This young woman, who’s the awkward daughter of Roman shopkeeper Ruggero, has become an online celebrity and her wedding is a global event attracting the media as well as mysterious emissaries from the new political regime. These two tribes of vacationers, two seemingly irreconcilable sides of Italy, are destined to come together during the Ferragosto holiday for an ultimate showdown.",
+      "posterPath": "/i0yItZfvxSRiUWasfTzdnCpL5X3.jpg",
+      "director": "Paolo Virzì",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1096252,
+      "moods": [
+        "breezy"
+      ],
+      "keywords": [],
+      "voteCount": 109,
+      "popularity": 0.66,
+      "actors": [
+        "Silvio Orlando",
+        "Sabrina Ferilli",
+        "Christian De Sica",
+        "Laura Morante",
+        "Andrea Carpenzano",
+        "Vinicio Marchioni",
+        "Anna Ferraioli Ravel",
+        "Emanuela Fanelli",
+        "Rocco Papaleo",
+        "Raffaele Vannoli"
+      ],
+      "originalLanguage": "it",
+      "countries": [
+        "IT"
       ]
     },
     {
@@ -55384,6 +56768,73 @@
         "Gailard Sartain",
         "Timothy Scott",
         "Gary Basaraba"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "from-hell",
+      "title": "From Hell",
+      "year": 2001,
+      "rating": 3,
+      "watchedDate": "2026-08-08",
+      "letterboxdUri": "https://letterboxd.com/film/from-hell",
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Thriller"
+      ],
+      "runtime": 122,
+      "synopsis": "Frederick Abberline is an opium-huffing inspector from Scotland Yard who falls for one of Jack the Ripper's prostitute targets in this Hughes brothers adaption of a graphic novel that posits the Ripper's true identity.",
+      "posterPath": "/t2WpWM8nBO4sULXr2bDfNEt4qgr.jpg",
+      "director": "Albert Hughes",
+      "moodTags": [
+        "nineties",
+        "indie boom",
+        "2000s"
+      ],
+      "tmdbId": 768,
+      "moods": [
+        "devastating",
+        "gothic",
+        "strange",
+        "funny-dark"
+      ],
+      "keywords": [
+        "london, england",
+        "loss of loved one",
+        "drug addiction",
+        "jack the ripper",
+        "based on comic",
+        "united kingdom",
+        "macabre",
+        "aggressive",
+        "somber",
+        "urban gothic",
+        "absurd",
+        "sinister",
+        "admiring",
+        "adoring",
+        "antagonistic",
+        "defiant",
+        "enthusiastic",
+        "vibrant"
+      ],
+      "voteCount": 3147,
+      "popularity": 3.6722,
+      "actors": [
+        "Johnny Depp",
+        "Heather Graham",
+        "Ian Holm",
+        "Robbie Coltrane",
+        "Ian Richardson",
+        "Jason Flemyng",
+        "Katrin Cartlidge",
+        "Terence Harvey",
+        "Susan Lynch",
+        "Paul Rhys"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -61415,6 +62866,69 @@
       ]
     },
     {
+      "id": "pleasantville",
+      "title": "Pleasantville",
+      "year": 1998,
+      "rating": 3,
+      "watchedDate": "2026-09-30",
+      "letterboxdUri": "https://letterboxd.com/film/pleasantville",
+      "genres": [
+        "Fantasy",
+        "Comedy",
+        "Drama"
+      ],
+      "runtime": 124,
+      "synopsis": "Geeky teenager David and his popular twin sister, Jennifer, get sucked into the black-and-white world of a 1950s TV sitcom called \"Pleasantville,\" and find a world where everything is peachy keen all the time. But when Jennifer's modern attitude disrupts Pleasantville's peaceful but boring routine, she literally brings color into its life.",
+      "posterPath": "/sjnRihb0OdmtD5GBe5lfdfBjSxo.jpg",
+      "director": "Gary Ross",
+      "moodTags": [
+        "eighties",
+        "blockbuster era",
+        "nineties",
+        "indie boom"
+      ],
+      "tmdbId": 2657,
+      "moods": [
+        "cerebral",
+        "funny-dark"
+      ],
+      "keywords": [
+        "sibling relationship",
+        "dystopia",
+        "diner",
+        "satire",
+        "book burning",
+        "coming of age",
+        "racism",
+        "black and white",
+        "bathtub",
+        "tv show in film",
+        "masturbation",
+        "magic realism",
+        "alternative reality",
+        "1950s",
+        "tv repairman"
+      ],
+      "voteCount": 2005,
+      "popularity": 3.9149,
+      "actors": [
+        "Tobey Maguire",
+        "Reese Witherspoon",
+        "William H. Macy",
+        "Joan Allen",
+        "Jeff Daniels",
+        "J.T. Walsh",
+        "Paul Walker",
+        "Don Knotts",
+        "Marley Shelton",
+        "Jane Kaczmarek"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
       "id": "21HS",
       "title": "Practical Magic",
       "year": 1998,
@@ -61794,6 +63308,74 @@
         "Elyse Levesque",
         "Nicky Guadagni",
         "John Ralston"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "ready-or-not-2-here-i-come",
+      "title": "Ready or Not 2: Here I Come",
+      "year": 2026,
+      "rating": 3,
+      "watchedDate": "2026-10-07",
+      "letterboxdUri": "https://letterboxd.com/film/ready-or-not-2-here-i-come",
+      "genres": [
+        "Horror",
+        "Comedy"
+      ],
+      "runtime": 108,
+      "synopsis": "Moments after surviving an all-out attack from the Le Domas family, Grace discovers she’s reached the next level of the nightmarish game — and this time with her estranged sister Faith at her side. Grace has one chance to survive, keep her sister alive, and claim the High Seat of the Council that controls the world. Four rival families are hunting her for the throne, and whoever wins rules it all.",
+      "posterPath": "/13ZcJzSGEqVgDSqsS9U5EkQwPkV.jpg",
+      "director": "Matt Bettinelli-Olpin",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1266127,
+      "moods": [
+        "funny-dark",
+        "tense",
+        "twisted",
+        "gothic",
+        "strange"
+      ],
+      "keywords": [
+        "escape",
+        "ritual",
+        "dark comedy",
+        "satanism",
+        "gore",
+        "pact with the devil",
+        "sequel",
+        "cat and mouse",
+        "game",
+        "exploding body",
+        "satanic ritual",
+        "satanic cult",
+        "estranged sister",
+        "sister sister relationship",
+        "mischievous",
+        "satanic",
+        "sisters",
+        "death game",
+        "horror",
+        "hilarious"
+      ],
+      "voteCount": 1821,
+      "popularity": 11.7968,
+      "actors": [
+        "Samara Weaving",
+        "Kathryn Newton",
+        "Sarah Michelle Gellar",
+        "Shawn Hatosy",
+        "Elijah Wood",
+        "Nestor Carbonell",
+        "Maia Jae",
+        "Juan Pablo Romero",
+        "Varun Saranga",
+        "Nadeem Umar-Khitab"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -62255,6 +63837,66 @@
         "Marcel Dalio",
         "Marcel Hillaire",
         "Nella Walker"
+      ],
+      "originalLanguage": "en",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "send-help",
+      "title": "Send Help",
+      "year": 2026,
+      "rating": 3,
+      "watchedDate": "2026-09-02",
+      "letterboxdUri": "https://letterboxd.com/film/send-help",
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Comedy"
+      ],
+      "runtime": 113,
+      "synopsis": "Two colleagues become stranded on a deserted island, the only survivors of a plane crash. On the island, they must overcome past grievances and work together to survive, but ultimately, it's a battle of wills and wits to make it out alive.",
+      "posterPath": "/zbJWVHOtj3ljBzWgL1P8pxP03Up.jpg",
+      "director": "Sam Raimi",
+      "moodTags": [
+        "contemporary",
+        "modern"
+      ],
+      "tmdbId": 1198994,
+      "moods": [
+        "tense",
+        "gothic",
+        "breezy"
+      ],
+      "keywords": [
+        "bullying",
+        "role reversal",
+        "survival",
+        "struggle for survival",
+        "survival horror",
+        "deserted island",
+        "power struggle",
+        "colleagues",
+        "bullying in the workplace",
+        "plane crash",
+        "gender inequality",
+        "comedy thriller",
+        "comedy horror"
+      ],
+      "voteCount": 2523,
+      "popularity": 11.5417,
+      "actors": [
+        "Rachel McAdams",
+        "Dylan O'Brien",
+        "Edyll Ismail",
+        "Xavier Samuel",
+        "Dennis Haysbert",
+        "Chris Pang",
+        "Thaneth Warakulnukroh",
+        "Emma Raimi",
+        "Kristy Best",
+        "Francesca Waters"
       ],
       "originalLanguage": "en",
       "countries": [
@@ -66424,6 +68066,52 @@
       "countries": [
         "GB",
         "US"
+      ]
+    },
+    {
+      "id": "the-new-monsters",
+      "title": "The New Monsters",
+      "year": 1977,
+      "rating": 3,
+      "watchedDate": "2026-08-29",
+      "letterboxdUri": "https://letterboxd.com/film/the-new-monsters",
+      "genres": [
+        "Comedy"
+      ],
+      "runtime": 115,
+      "synopsis": "A collection of dark-humoured vignettes, including tales of a cardinal with a liberal congregation, a motorist and a hitchhiker, mentally challenged tramps, parents contemplating their daughter's participation in a pornographic film, and a conniving husband.",
+      "posterPath": "/pcDAZ2pSmS6fgJKB8lEqlEhA8d2.jpg",
+      "director": "Mario Monicelli",
+      "moodTags": [
+        "new wave",
+        "sixties",
+        "counterculture",
+        "seventies",
+        "new hollywood",
+        "gritty"
+      ],
+      "tmdbId": 45004,
+      "moods": [
+        "breezy"
+      ],
+      "keywords": [],
+      "voteCount": 240,
+      "popularity": 0.8365,
+      "actors": [
+        "Alberto Sordi",
+        "Vittorio Gassman",
+        "Ugo Tognazzi",
+        "Ornella Muti",
+        "Eros Pagni",
+        "Aiche Nana",
+        "Luigi Diberti",
+        "Paolo Baroni",
+        "Margherita Horowitz",
+        "Yorgo Voyagis"
+      ],
+      "originalLanguage": "it",
+      "countries": [
+        "IT"
       ]
     },
     {
@@ -96895,6 +98583,6 @@
       ]
     }
   ],
-  "total": 1606,
-  "generated": "2026-07-14T15:19:41.055Z"
+  "total": 1635,
+  "generated": "2026-11-21T16:58:17.412Z"
 }

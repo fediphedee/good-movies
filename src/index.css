@@ -84,16 +84,13 @@
   .rgm-poster:hover .rgm-poster-img { transform: scale(1.2); }
 }
 
-/* Hero title sizing. Images inside scale in em, so bumping the font size on
-   mobile enlarges the film stills by the same factor (60% bigger below 640px). */
-.rgm-hero { font-size: clamp(52px, 10.4vw, 104px); }  /* desktop: +30% */
+/* Hero title sizing. The title sits dimmed; keyword words reveal a film still
+   below them on hover (mouse) / tap (touch). */
+/* One continuous clamp across all widths: scales smoothly from 166px on wide
+   screens down to 44px on a phone, with no breakpoint jump. */
+.rgm-hero { font-size: clamp(44px, 13vw, 133px); }
 
-/* Hero title: mobile-only art-directed line break (splits "feel like" /
-   "watching"). Desktop keeps "feel like watching" on one line. */
-.rgm-mobile-break { display: none; }
 @media (max-width: 640px) {
-  .rgm-mobile-break { display: inline; }
-  .rgm-hero { font-size: clamp(64px, 12.8vw, 128px); }
   /* iOS auto-zooms (and stays zoomed) when a focused input is < 16px */
   main input { font-size: 16px !important; }
   /* comfortable 48px touch targets: input, action buttons, and chips */
@@ -101,11 +98,6 @@
   main button[data-kumo-component='Button'] { height: 48px !important; }
   /* nav sun-countdown chip: compact next to the logo on small screens */
   .rgm-sun-chip { padding: 8px 12px !important; font-size: 10px !important; }
-  /* mobile-only image nudges (added on top of the base transform) */
-  .rgm-iw-What { --m-dx: -20px; }        /* what: 20px to the left */
-  .rgm-iw-feel { --m-dy: -20px; }        /* feel: 20px higher (was -40) */
-  .rgm-iw-tonight { --m-dx: -80px; }     /* tonight: 80px to the left */
-  .rgm-iw-watching { --m-dx: -24px; }    /* watching: 24px to the left (off the edge) */
 }
 
 /* ── Animations ──────────────────────────────────────────────── */

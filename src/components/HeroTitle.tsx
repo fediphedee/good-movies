@@ -1,140 +1,85 @@
-import { Fragment, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import type { PointerEvent as ReactPointerEvent, KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { asset } from '../lib/asset'
 
 interface WordConfig {
   word: string
-  imageLight?: string
-  imageDark?: string
-  /** horizontal anchor: where the image's left edge sits, as % across the word */
-  left?: string
-  /** vertical nudge from the word's centre, in em */
-  dy?: string
-  /** extra horizontal nudge from the shared +100px start, e.g. '-50px' */
-  dx?: string
-  /** image width, in em (scales with the fluid font size) */
-  w?: string
-  /** art-directed line break after this word */
-  breakAfter?: 'always' | 'mobile'
-  /** literal number of spaces to force after this word */
-  gapAfter?: number
+  videoLight?: string
+  videoDark?: string
 }
 
 // The title reads "…watching today?" in daylight and "…watching tonight?"
-// after sunset (the theme flips with it); image-bearing words carry a film
-// still that sits *behind* the letters, woven into the line like a collage.
-// Positions are expressed relative to each word so the whole thing reflows
-// fluidly. Line breaks are art-directed to match the mockup (greedy wrapping
-// can't reproduce it — "What do you feel" and "feel like watching" are
-// near-identical widths):
-//   desktop → "What do you" / "feel like watching" / "tonight?"
-//   mobile  → "What do you" / "feel like" / "watching" / "tonight?"
+// after sunset (the theme flips with it). The whole line sits dimmed (40%
+// opacity); the image-bearing words are the interactive ones. Hovering one
+// (mouse) or tapping it (touch) lifts that word to full colour and plays its
+// film clip in a single layer that sits *behind the entire title* (every line,
+// not just the hovered word) — farrynheight.com style. The title wraps
+// naturally with the viewport — no forced line breaks.
 const WORDS: WordConfig[] = [
-  { word: 'What',     imageLight: '/movies-stills/what_light.png',      imageDark: '/movies-stills/what_dark.png',     left: '52%', dy: '-0.18em', w: '1.95em', gapAfter: 8 },
+  { word: 'What',     videoLight: '/videos/what-light.mp4',     videoDark: '/videos/what-dark.mp4' },
   { word: 'do' },
-  { word: 'you', breakAfter: 'always' },
-  { word: 'feel',     imageLight: '/movies-stills/feel_light.png',      imageDark: '/movies-stills/feel_dark.png',     left: '58%', dy: '0.10em',  w: '1.95em', dx: '-50px', gapAfter: 8 },
-  { word: 'like', breakAfter: 'mobile' },
-  { word: 'watching', imageLight: '/movies-stills/whatching_light.png', imageDark: '/movies-stills/watching_dark.png', left: '46%', dy: '-0.32em', w: '1.95em', breakAfter: 'always' },
-  { word: 'tonight?', imageLight: '/movies-stills/tonight_light.png',   imageDark: '/movies-stills/tonight_dark.png',   left: '44%', dy: '0.36em',  w: '1.95em' },
+  { word: 'you' },
+  { word: 'feel',     videoLight: '/videos/feel-light.mp4',     videoDark: '/videos/feel-dark.mp4' },
+  { word: 'like' },
+  { word: 'watching', videoLight: '/videos/watching-light.mp4', videoDark: '/videos/watching-dark.mp4' },
+  { word: 'tonight?', videoLight: '/videos/tonight-light.mp4',  videoDark: '/videos/tonight-dark.mp4' },
 ]
 
-// Grouped cursor repulsion: the whole collage drifts away from the pointer as
-// one rigid unit. The target offset is a smooth tanh of the cursor's distance
-// from the title centre — continuous everywhere, so there's no direction-flip
-// "snap" when the cursor passes over an image. It just eases in and out.
-const MAX_OFFSET = 40 // px — how far the group can drift
-const SCALE = 320     // px — how quickly the drift saturates toward MAX_OFFSET
-const EASE = 0.08     // lerp factor toward the target each frame (lower = softer)
-// Per-image scroll-parallax speeds for touch devices (no cursor to react to).
-// Mixed signs/magnitudes give the collage depth as the page scrolls.
-const PARALLAX_FACTORS = [-0.08, 0.12, -0.14, 0.09, 0.06]
+const DIM = 0.4 // resting opacity for every word
+
+// Pick a clip for the current theme, falling back to the other theme's clip
+// when a variant is missing (the current asset set is incomplete).
+function clipFor(c: WordConfig | undefined, dark: boolean): string | null {
+  if (!c) return null
+  const src = dark ? (c.videoDark ?? c.videoLight) : (c.videoLight ?? c.videoDark)
+  return src ?? null
+}
 
 export function HeroTitle({ dark }: { dark: boolean }) {
-  const imgs = useRef<(HTMLImageElement | null)[]>([])
-  const h1Ref = useRef<HTMLHeadingElement>(null)
+  // The word whose clip is currently revealed (hovered on desktop, tapped on
+  // mobile). Null = nothing revealed, everything dimmed.
+  const [active, setActive] = useState<string | null>(null)
+  // Remember how the last interaction started, so a touch-tap toggles the
+  // clip while a mouse-click doesn't fight the hover state.
+  const ptr = useRef<'mouse' | 'pen' | 'touch'>('mouse')
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const clipLayerRef = useRef<HTMLSpanElement>(null)
+  // Per-word element refs, so the clip layer can be centred on the active word.
+  const wordRefs = useRef<Record<string, HTMLSpanElement | null>>({})
 
+  const activeClip = clipFor(WORDS.find(w => w.word === active), dark)
+
+  // Load + play the active clip; pause when nothing is revealed. Swapping the
+  // src on activation keeps us from preloading every (large) clip at once.
   useEffect(() => {
-    const els = imgs.current
-    const h1 = h1Ref.current
-    if (!h1) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const v = videoRef.current
+    if (!v) return
+    if (!activeClip) { v.pause(); return }
+    const full = asset(activeClip)
+    if (v.getAttribute('src') !== full) { v.src = full; v.load() }
+    v.currentTime = 0
+    const p = v.play()
+    if (p) p.catch(() => {})
+  }, [activeClip])
 
-    let raf = 0
-
-    // Touch devices (and the mobile layout width) can't rely on a cursor, so
-    // swap the repulsion for a scroll parallax: each still drifts vertically at
-    // its own rate as the page moves.
-    if (window.matchMedia('(hover: none)').matches || window.matchMedia('(max-width: 640px)').matches) {
-      const cur = els.map(() => 0)
-      let scrollY = window.scrollY
-      const frame = () => {
-        let moving = false
-        for (let i = 0; i < els.length; i++) {
-          const el = els[i]
-          if (!el) continue
-          const target = scrollY * PARALLAX_FACTORS[i % PARALLAX_FACTORS.length]
-          cur[i] += (target - cur[i]) * 0.1
-          if (Math.abs(target - cur[i]) > 0.1) moving = true
-          el.style.transform = `translate3d(0, ${cur[i].toFixed(2)}px, 0)`
-        }
-        raf = moving ? requestAnimationFrame(frame) : 0
-      }
-      const onScroll = () => {
-        scrollY = window.scrollY
-        if (!raf) raf = requestAnimationFrame(frame)
-      }
-      window.addEventListener('scroll', onScroll, { passive: true })
-      onScroll()
-      return () => {
-        window.removeEventListener('scroll', onScroll)
-        if (raf) cancelAnimationFrame(raf)
-      }
+  // Centre the (behind-everything) clip layer on the active word. Re-runs on
+  // resize so it stays aligned as the title reflows.
+  useEffect(() => {
+    const place = () => {
+      const layer = clipLayerRef.current
+      const el = active ? wordRefs.current[active] : null
+      if (!layer || !el) return
+      layer.style.left = `${el.offsetLeft + el.offsetWidth / 2}px`
+      layer.style.top = `${el.offsetTop + el.offsetHeight / 2}px`
     }
-
-    // Pointer devices: grouped cursor repulsion. The whole collage drifts away
-    // from the pointer as one unit; tanh keeps it smooth (no direction-flip
-    // "snap" when the cursor crosses an image) and capped at ±MAX_OFFSET.
-    let mx = -99999
-    let my = -99999
-    let curX = 0
-    let curY = 0
-    let tgtX = 0
-    let tgtY = 0
-
-    const computeTarget = () => {
-      if (mx < -9999) { tgtX = 0; tgtY = 0; return }
-      const r = h1.getBoundingClientRect()
-      const cx = r.left + r.width / 2
-      const cy = r.top + r.height / 2
-      tgtX = -MAX_OFFSET * Math.tanh((mx - cx) / SCALE)
-      tgtY = -MAX_OFFSET * Math.tanh((my - cy) / SCALE)
-    }
-    const frame = () => {
-      curX += (tgtX - curX) * EASE
-      curY += (tgtY - curY) * EASE
-      const t = `translate3d(${curX.toFixed(2)}px, ${curY.toFixed(2)}px, 0)`
-      for (const el of els) if (el) el.style.transform = t
-      raf = (Math.abs(tgtX - curX) > 0.03 || Math.abs(tgtY - curY) > 0.03)
-        ? requestAnimationFrame(frame)
-        : 0
-    }
-    const kick = () => { if (!raf) raf = requestAnimationFrame(frame) }
-    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; computeTarget(); kick() }
-    const onLeave = () => { mx = -99999; my = -99999; computeTarget(); kick() }
-
-    window.addEventListener('mousemove', onMove, { passive: true })
-    document.addEventListener('mouseleave', onLeave)
-    return () => {
-      window.removeEventListener('mousemove', onMove)
-      document.removeEventListener('mouseleave', onLeave)
-      if (raf) cancelAnimationFrame(raf)
-    }
-  }, [])
-
-  let imgIndex = 0
+    place()
+    if (!active) return
+    window.addEventListener('resize', place)
+    return () => window.removeEventListener('resize', place)
+  }, [active, dark])
 
   return (
-    <h1 ref={h1Ref} className="rgm-hero" style={{
+    <h1 className="rgm-hero" style={{
       fontFamily: 'var(--font-display)',
       fontWeight: 400,
       letterSpacing: '-0.03em',
@@ -147,59 +92,86 @@ export function HeroTitle({ dark }: { dark: boolean }) {
       left: '50%',
       width: 'min(988px, 92vw)',
       transform: 'translateX(-50%)',
+      color: 'var(--fg)',
     }}>
-      {WORDS.map(({ word, imageLight, imageDark, left, dy, dx, w, breakAfter, gapAfter }) => {
-        const hasImage = !!imageLight
-        const src = hasImage ? asset((dark ? imageDark : imageLight)!) : ''
-        const idx = hasImage ? imgIndex++ : -1
+      {/* One clip layer, behind the whole title (every line sits on top of it),
+          centred on whichever word is active. */}
+      <span
+        ref={clipLayerRef}
+        aria-hidden
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: '50%',
+          height: '50%',
+          transform: 'translate(-50%, -50%)',
+          overflow: 'hidden',
+          opacity: activeClip ? 1 : 0,
+          transition: 'opacity 0.4s ease',
+          pointerEvents: 'none',
+          zIndex: -1,
+        }}
+      >
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="none"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+          }}
+        />
+      </span>
+
+      {WORDS.map(({ word, videoLight, videoDark }) => {
+        const hasVideo = !!(videoLight || videoDark)
+        const isActive = active === word
         // Day/night wording; the config keeps "tonight?" as the stable key
         const label = word === 'tonight?' && !dark ? 'today?' : word
 
+        const reveal = () => setActive(word)
+        const hide = () => setActive(a => (a === word ? null : a))
+        const toggle = () => setActive(a => (a === word ? null : word))
+
         return (
-          <Fragment key={word}>
             <span
+              key={word}
+              ref={hasVideo ? (el => { wordRefs.current[word] = el }) : undefined}
+              {...(hasVideo
+                ? {
+                    role: 'button' as const,
+                    tabIndex: 0,
+                    'aria-pressed': isActive,
+                    onPointerDown: (e: ReactPointerEvent) => { ptr.current = e.pointerType as typeof ptr.current },
+                    onPointerEnter: (e: ReactPointerEvent) => { if (e.pointerType === 'mouse') reveal() },
+                    onPointerLeave: (e: ReactPointerEvent) => { if (e.pointerType === 'mouse') hide() },
+                    onClick: () => { if (ptr.current === 'touch') toggle() },
+                    onFocus: reveal,
+                    onBlur: hide,
+                    onKeyDown: (e: ReactKeyboardEvent) => {
+                      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle() }
+                    },
+                  }
+                : {})}
               style={{
                 position: 'relative',
                 display: 'inline-block',
-                marginRight: gapAfter ? 0 : '0.22em',
+                marginRight: '0.22em',
+                opacity: isActive ? 1 : DIM,
+                transition: 'opacity 0.35s ease',
+                cursor: hasVideo ? 'pointer' : 'default',
+                outline: 'none',
+                WebkitTapHighlightColor: 'transparent',
                 zIndex: 1,
               }}
             >
               {label}
-              {hasImage && (
-                <span
-                  aria-hidden
-                  className={`rgm-iw rgm-iw-${word.replace(/[^a-z]/gi, '')}`}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left,
-                    width: w,
-                    transform: `translate(calc(100px + ${dx ?? '0px'} + var(--m-dx, 0px)), calc(-50% + ${dy} + var(--m-dy, 0px)))`,
-                    pointerEvents: 'none',
-                    zIndex: -1,
-                  }}
-                >
-                  <img
-                    ref={el => { imgs.current[idx] = el }}
-                    src={src}
-                    alt=""
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      display: 'block',
-                      willChange: 'transform',
-                    }}
-                  />
-                </span>
-              )}
             </span>
-            {gapAfter && (
-              <span aria-hidden style={{ whiteSpace: 'pre' }}>{' '.repeat(gapAfter)}</span>
-            )}
-            {breakAfter === 'always' && <br />}
-            {breakAfter === 'mobile' && <br className="rgm-mobile-break" />}
-          </Fragment>
         )
       })}
     </h1>
